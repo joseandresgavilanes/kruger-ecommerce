@@ -90,9 +90,7 @@ export const Order = () => {
   };
 
   const onPrintOrderInvoice = async (cart) => {
-  
-    window.open(`http://localhost:8082/api/carts/${cart.id}/report`, '_blank', 'noreferrer')  
-
+    window.open(`http://gateway-microservice:8082/api/carts/${cart.id}/report`, '_blank', 'noreferrer')  
   };
 
   return carts ? (
