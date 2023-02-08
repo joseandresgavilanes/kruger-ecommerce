@@ -61,12 +61,12 @@ const Login = () => {
     const resp = await signUp(user);
     if (resp) {
       //user registred successfully
-      console.log("success");
+
       emptyFields();
       showWarning("Success!!", "#A1FF69", "black");
     } else {
       //show warning registration did not complete successfully
-      console.log("failed");
+
       showWarning("Email is already taken!", "#ff6969", "#12232C");
     }
   }
