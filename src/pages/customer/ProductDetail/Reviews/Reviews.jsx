@@ -21,7 +21,6 @@ const Reviews = ({product}) => {
     if(reviewT==''){
         return
     }
-    console.log(rating)
 
     let reviewObj = {
         raiting: rating,

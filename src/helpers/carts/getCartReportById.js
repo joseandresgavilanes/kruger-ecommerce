@@ -9,7 +9,6 @@ export const getCartReportById = async (cart)=>{
 
     try{
         const resp = await backEndApi.get(`/carts/${cart.id}/report`,config)
-        console.log(resp.content)
         return resp.data
 
     }catch(error){

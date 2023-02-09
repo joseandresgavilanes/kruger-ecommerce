@@ -75,7 +75,6 @@ export const Roulette = () => {
     };
   
     const handlePrizeDefined = () => {
-      console.log('🥳 Prize defined! 🥳');
       console.log(coupons[winPrizeIndex])
       setVisible(true)
     };
