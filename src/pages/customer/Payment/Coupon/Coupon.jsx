@@ -20,23 +20,28 @@ const Coupon = ({onCouponActivated}) => {
         setCuponStr(e.target.value);
         
     }
+    /**
+     * este metod se invoka la presionar validar coupon
+     * para poder determinar si el coupon esta reservado o usado
+     */
 async function validarCupon(){
-    console.log(cuponStr);
+    
     const resp=await validarCupones(cuponStr); 
-    console.log(resp);
-    console.log(resp);
-        if(resp && resp.status !== "USED"){
+
+        if(resp && resp.status !== "USED" ){
+            
+            //caso el coupon es valido y no esta usado
             setMessageState(true);
             setMessage("Cupon has been activated!");
             onCouponActivated(resp);
             btnRef.current.style.display="none";
             inputRef.current.disabled=true;
             inputRef.current.style.color="#A1FF69";
-            console.log(btnRef);
+
             setShow(true);  
         }else{
             setMessageState(false);
-            setMessage("Cupon is not valid or already used!");
+            setMessage(!resp? "Cupon is not valid!": `Cupon is already ${resp.status.toLowerCase()}!`);
             setShow(true);  
             inputRef.current.style.color="#ef5353";
             setTimeout(()=>{

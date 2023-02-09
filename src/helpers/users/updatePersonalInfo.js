@@ -11,7 +11,7 @@ export const updatePersonalInfo = async (user) => {
         return resp.data;
 
     } catch (error) {
-        console.log(error.message);
+
         return null;
     }
 }
