@@ -8,13 +8,9 @@ import "./App.css";
 import KommunicateChat from "./ChatBot/chat";
 import AdminNavBar from "./ui/AdminNavBar/AdminNavBar";
 
-// import { useTranslation } from "react-i18next";
-
 function App() {
   const dispatch = useDispatch();
   const { currentUser } = useSelector((state) => state.users);
-
-  // const { t, i18n } = useTranslation("global");
 
   useEffect(() => {
     const currentU = localStorage.getItem("currentUser");

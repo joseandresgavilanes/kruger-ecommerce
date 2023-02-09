@@ -1,9 +1,15 @@
+
+/* These are the principal styles that are gonna be required during the project and will be used in many tags */
+
 .main{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     min-height: 100vh;
 }
+
+
+/* all tags that use this classname will have these properties, it'll be mainly used for headings */
 
 .heading{
     font-size: 3rem;
@@ -13,6 +19,8 @@
     
 }
 
+
+/* main animation used many times to make elements "float" */
 
 .floating { 
     animation-name: floating;
