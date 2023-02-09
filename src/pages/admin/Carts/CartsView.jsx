@@ -137,7 +137,7 @@ export const CartsView = () => {
 
       return (
         <img
-          src={`${rowData.user.imageUrl}`}
+          src={`${rowData.user.imageUrl?(rowData.user.imageUrl.startsWith("http")? rowData.user.imageUrl :`data:image/jpeg;base64,${rowData.user.imageUrl}`):'https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png'}`}
           onError={(e) =>
             (e.target.src =
               "https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png")
