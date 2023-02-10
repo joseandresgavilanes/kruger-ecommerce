@@ -128,6 +128,9 @@ $ npm run dev
 
 - Explora y encuentra el producto o servicio ideal para ti
 
+![Kruger Cell - Google Chrome 2023-02-10 12-39-11](https://user-images.githubusercontent.com/76002851/218163080-04b8e5ff-4390-4b65-8d95-d2b68aff1acd.gif)
+
+
 - En tu Cuenta edita tu informacion 📝
 
 <!-- ROADMAP -->
