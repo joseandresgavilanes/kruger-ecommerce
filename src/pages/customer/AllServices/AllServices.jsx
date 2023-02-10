@@ -3,6 +3,9 @@ import { useEffect } from "react";
 import { useState } from "react";
 import Service from "../MainPage/Services/Service/Service";
 import "./AllServices.scss";
+
+import { motion } from "framer-motion";
+
 import { getAllProducts } from "../../../helpers/products/getAllProducts";
 import Loading from "../../../components/Loading";
 
@@ -21,19 +24,23 @@ const AllServices = () => {
     );
     setIsLoading(false);
   };
-  return (
-    isLoading?
-    <Loading/>
-    :
-    <div className="show_services">
-      <h2 className="show_services_title">Todo los Servicios</h2>
+  return isLoading ? (
+    <Loading />
+  ) : (
+    <motion.div
+      className="show_services"
+      initial={{ width: 0 }}
+      animate={{ width: "100%" }}
+      exit={{ x: window.innerWidth, transition: { duration: 0.3 } }}
+    >
+      <h2 className="heading show_services_title">Todo los Servicios</h2>
       <div className="show_services_container">
-        {products.map((item) => (
-                <Service key={item.id} item={item} />
+        {products.map((item, i) => (
+          <Service key={item.id} item={item} i={i} />
         ))}
       </div>
       <div className="spacer layer10"></div>
-    </div>
+    </motion.div>
   );
 };
 

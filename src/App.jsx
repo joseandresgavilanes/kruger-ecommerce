@@ -8,10 +8,9 @@ import "./App.css";
 import KommunicateChat from "./ChatBot/chat";
 import AdminNavBar from "./ui/AdminNavBar/AdminNavBar";
 
-
 function App() {
   const dispatch = useDispatch();
-  const {currentUser} = useSelector(state => state.users)
+  const { currentUser } = useSelector((state) => state.users);
 
   useEffect(() => {
     const currentU = localStorage.getItem("currentUser");
@@ -22,12 +21,11 @@ function App() {
   }, []);
   return (
     <div className="main">
-    {
-        currentUser === null || currentUser.role === 'CUSTOMER'?
+      {currentUser === null || currentUser.role === "CUSTOMER" ? (
         <CustomerNavBar />
-        :
-        <AdminNavBar/>
-    }
+      ) : (
+        <AdminNavBar />
+      )}
       <MainRouter />
       <KommunicateChat />
       <Footer />

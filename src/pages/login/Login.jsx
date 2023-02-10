@@ -5,6 +5,8 @@ import "./Login.scss";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setCurrentUser } from "../../store/user/userSlice";
+import { resetCart } from "../../store/cart/cartSlice";
+import { motion } from "framer-motion";
 
 const Login = () => {
   const [todayDate, setTodayDate] = useState("");
@@ -59,12 +61,12 @@ const Login = () => {
     const resp = await signUp(user);
     if (resp) {
       //user registred successfully
-      console.log("success");
+
       emptyFields();
       showWarning("Success!!", "#A1FF69", "black");
     } else {
       //show warning registration did not complete successfully
-      console.log("failed");
+
       showWarning("Email is already taken!", "#ff6969", "#12232C");
     }
   }
@@ -99,7 +101,6 @@ const Login = () => {
       //login successfull
       localStorage.setItem("currentUser", JSON.stringify(resp));
       dispatch(setCurrentUser(resp));
-      console.log(user);
       navigation("/");
     } else {
       //login failed
@@ -109,7 +110,12 @@ const Login = () => {
   }
 
   return (
-    <div className="sign">
+    <motion.div
+      className="sign"
+      initial={{ width: 0 }}
+      animate={{ width: "100%" }}
+      exit={{ x: window.innerWidth, transition: { duration: 0.3 } }}
+    >
       <div className="sign_main">
         <input
           className="sign_check"
@@ -123,20 +129,20 @@ const Login = () => {
         <div className="sign_signup">
           <form onSubmit={handleSignup} ref={signUpForm}>
             <label className="sign_label" for="chk" aria-hidden="true">
-              Sign up
+              Registrate
             </label>
             <input
               className="sign_input"
               type="text"
               name="text"
-              placeholder="First name"
+              placeholder="Nombre"
               required
             />
             <input
               className="sign_input"
               type="text"
               name="text"
-              placeholder="Last name"
+              placeholder="Apellido"
               required
             />
 
@@ -160,30 +166,30 @@ const Login = () => {
               className="sign_input"
               type="password"
               name="password"
-              placeholder="Password"
+              placeholder="Contraseña"
               required
             />
-            <button className="sign_btn">Sign up</button>
+            <button className="sign_btn">Registrarse</button>
           </form>
-          <i class="login-icon-carrot fa-solid fa-microphone"></i>
-          <i class="login-icon-mug-hot fa-solid fa-mobile-screen"></i>
-          <i class="login-icon-pizza-slice fa-solid fa-mobile-retro"></i>
-          <i class="login-icon-pepper-hot fa-solid fa-comment-sms"></i>
-          <i class="login-icon-ice-cream fa-solid fa-headphones"></i>
-          <i class="login-icon-martini-glass-citrus fa-solid fa-signal"></i>
-          <i class="login-icon-drumstick-bite fa-solid fa-square-phone"></i>
-          <i class="login-icon-burger fa-solid fa-phone"></i>
-          <i class="login-icon-shrimp fa-solid fa-sim-card"></i>
-          <i class="login-icon-wheat-awn fa-solid fa-microchip"></i>
-          <i class="login-icon-cookie-bite fa-solid fa-laptop-code"></i>
-          <i class="login-icon-computer fa-solid fa-computer"></i>
-          <i class="login-icon-phone2 fa-solid fa-mobile-button"></i>
+          <i className="login-icon-carrot fa-solid fa-microphone"></i>
+          <i className="login-icon-mug-hot fa-solid fa-mobile-screen"></i>
+          <i className="login-icon-pizza-slice fa-solid fa-mobile-retro"></i>
+          <i className="login-icon-pepper-hot fa-solid fa-comment-sms"></i>
+          <i className="login-icon-ice-cream fa-solid fa-headphones"></i>
+          <i className="login-icon-martini-glass-citrus fa-solid fa-signal"></i>
+          <i className="login-icon-drumstick-bite fa-solid fa-square-phone"></i>
+          <i className="login-icon-burger fa-solid fa-phone"></i>
+          <i className="login-icon-shrimp fa-solid fa-sim-card"></i>
+          <i className="login-icon-wheat-awn fa-solid fa-microchip"></i>
+          <i className="login-icon-cookie-bite fa-solid fa-laptop-code"></i>
+          <i className="login-icon-computer fa-solid fa-computer"></i>
+          <i className="login-icon-phone2 fa-solid fa-mobile-button"></i>
         </div>
 
         <div className="sign_login">
           <form ref={loginForm} onSubmit={loginUser}>
-            <label className="sign_label" for="chk" aria-hidden="true">
-              Login
+            <label style={{textAlign:'center'}} className="sign_label" for="chk" aria-hidden="true">
+              Iniciar
             </label>
             <input
               className="sign_input"
@@ -192,20 +198,22 @@ const Login = () => {
               placeholder="Email"
               required
             />
+            
             <input
               className="sign_input"
               type="password"
               name="password"
-              placeholder="Password"
+              placeholder="Contraseña"
               required
             />
-            <button className="sign_btn">Log in</button>
+            <button className="sign_btn">Ingresar</button>
           </form>
+          <p className="password_recovery" onClick={()=>{navigation("/password-recovery")}}>¿Olvidaste tu contraseña?</p>
         </div>
       </div>
 
       <div className="spacer layer3"></div>
-    </div>
+    </motion.div>
   );
 };
 

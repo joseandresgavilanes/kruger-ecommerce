@@ -9,8 +9,8 @@ const SingleToDo = () => {
   };
 
   return (
-    <div class="card work">
-      <div class="img-section">
+    <div className="card work floating">
+      <div className="img-section">
         <svg
           fill="#13252f"
           height="200px"
@@ -42,20 +42,20 @@ const SingleToDo = () => {
           </g>
         </svg>
       </div>
-      <div class="card-desc">
-        <div class="card-header">
-          <div class="card-title">Productos</div>
-          <div class="card-menu">
+      <div className="card-desc">
+        <div className="card-header">
+          <div className="card-title">Productos</div>
+          <div className="card-menu">
             <input
               checked={checked}
-              class="check"
+              className="check"
               type="checkbox"
               onClick={handleClick}
             />
           </div>
         </div>
-        <div class="card-text">Add products</div>
-        <p class="recent">1/28/2023</p>
+        <div className="card-text">Add products</div>
+        <p className="recent">1/28/2023</p>
       </div>
     </div>
   );

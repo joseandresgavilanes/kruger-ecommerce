@@ -30,14 +30,12 @@ const Payment = () => {
   const[cartaFinalPrice,setCartaFinalPrice]=useState(0);
   const [cartaSubtotal, setCartaSubtotal] = useState(0);
   const [priceAfterDiscount, setPriceAfterDiscount] = useState(0);
-
-  const [order,setOrder]=useState(null);
  
 
 
   useEffect(() => {
     //este es el precio total que esta en la carta antes de agregar la iva
-    setCartaSubtotal(cart?.totalPrice);
+    setCartaSubtotal(cart?.totalPrice.toFixed(2));
     //agregar la iva al totlaPrice 
     const priceWithIva = Math.round((cart?.totalPrice + cart?.totalPrice * 0.12) * 100) / 100;
     setCartaFinalPrice(priceWithIva);
@@ -49,7 +47,7 @@ const Payment = () => {
   }
 
   const accept = async () => {
-    //si hay un cupon el precio final de la carta sera el precio despues del descuento
+    //si hay un cupon validado, el precio final de la carta sera el precio despues del descuento
     //caso contrario seria el precio final
     if(!coupon){
       dispatch(setTotalPriceWithIva({price:cartaFinalPrice}));
@@ -58,13 +56,12 @@ const Payment = () => {
     }
     dispatch(startCreateOrder(chosenAddress, coupon? coupon : null, cartaSubtotal));
     //resetear todos los campos y enviar el usuario al home page
-    //resetStates();
+    resetStates();
     toast.current.show({ severity: 'success', summary: 'Compra realizada', detail: 'Tu compra se ha efectuado correctamente', life: 3000 });
-    const orderCreated={...cart,
-      address:chosenAddress,
-      usedCoupon:coupon? coupon : null,
-      orderSubTotal:cartaSubtotal};
-    setOrder(orderCreated);
+    setTimeout(()=>{
+      navigation("/orders")
+    },1000)
+
 
   }
 
@@ -79,10 +76,6 @@ const resetStates=()=>{
   document.getElementById("totalPrice").style.textDecorationLine = "none";
   document.getElementById("totalPrice").style.color = "#A1FF69";
   setPriceAfterDiscount(0);
-  setTimeout(()=>{
-    navigation("/")
-  },1500)
-
 }
 
   /**
@@ -169,13 +162,13 @@ const resetStates=()=>{
 
 
   return (
-    <section class="cart__checkout">
+    <section className="cart__checkout">
       <Toast ref={toast} />
       <ConfirmDialog />
-      <div class="cart__order">
+      <div className="cart__order">
         <h2>Verificar</h2>
         <h5>Order #0101</h5>
-        <ul class="cart__order-list">
+        <ul className="cart__order-list">
           {
             cart.items.map((item, index) => (
               <CartItem item={item} key={index} index={index} />
@@ -185,20 +178,20 @@ const resetStates=()=>{
         <Coupon onCouponActivated={onCouponActivated} />
         <h5>Subtotal</h5>
         <h4>{cartaSubtotal} $</h4>
-        <h5 class="cart__total">Total + IVA</h5>
-        <h2 id="totalPrice" class="cart__total-value">{cartaFinalPrice} $</h2>
+        <h5 className="cart__total">Total + IVA</h5>
+        <h2 id="totalPrice" className="cart__total-value">{cartaFinalPrice} $</h2>
         <div id="discount-container" className="discount-container">
           <h3>{coupon?.type == "PERCENTAGE"? `- ${coupon?.quantity}%`
           :`-$${coupon?.quantity}`}</h3>
           <hr/>
-        <h2 id="priceAfterDiscount" class="cart__total-value-wiith-discount">
+        <h2 id="priceAfterDiscount" className="cart__total-value-wiith-discount">
           {Math.round(priceAfterDiscount * 100) / 100} $</h2>
           </div>
       </div>
-      <div id="payment" class="cart__payment">
+      <div id="payment" className="cart__payment">
         <h2>Pagar</h2>
-        <div class="cart__card">
-          <div class="cart__card-content">
+        <div className="cart__card">
+          <div className="cart__card-content">
             <h5>Número de la tarjeta</h5>
             <h6 id="label-cardnumber">0000 0000 0000 0000</h6>
             <h5>
@@ -208,10 +201,10 @@ const resetStates=()=>{
               00 / 0000<span>000</span>
             </h6>
           </div>
-          <div class="cart__wave"></div>
+          <div className="cart__wave"></div>
         </div>
-        <div class="cart__card-form">
-          <p class="cart__field">
+        <div className="cart__card-form">
+          <p className="cart__field">
             <input
               type="text"
               id="cardnumber"
@@ -223,7 +216,7 @@ const resetStates=()=>{
           </p>
 
           <div className="cart__card-form__bottom">
-            <p class="cart__field cart__space">
+            <p className="cart__field cart__space">
               <input
                 type="text"
                 id="cardexpiration"
@@ -233,7 +226,7 @@ const resetStates=()=>{
                 title="Card Expiration Date"
               />
             </p>
-            <p class="field">
+            <p className="field">
               <input
                 type="text"
                 id="cardcvc"
@@ -244,7 +237,7 @@ const resetStates=()=>{
               />
             </p>
           </div>
-          <p class="cart__field">
+          <p className="cart__field">
             <input
               type="text"
               id="cardnumber"
@@ -253,7 +246,7 @@ const resetStates=()=>{
               title="Card Number"
             />
           </p>
-          <p class="cart__field">
+          <p className="cart__field">
             <input
               type="text"
               id="cardnumber"
@@ -265,7 +258,7 @@ const resetStates=()=>{
           </p>
 
 
-          {currentUser?.addresses ? <Dropdown  value={chosenAddress} options={currentUser?.addresses}
+          {currentUser?.addresses.length>0 ? <Dropdown  value={chosenAddress} options={currentUser?.addresses}
             onChange={(e) => { onUbiacitonSelected(e) }}
             optionLabel="address" placeholder="Elige ubicacion" /> :
             <div className="no-direcciones-cont">
@@ -277,7 +270,7 @@ const resetStates=()=>{
           }
 
           <div className="cart__card-form__bottom">
-            <p class="cart__field cart__space">
+            <p className="cart__field cart__space">
               <input
                 type="text"
                 id="cardexpiration"
@@ -287,7 +280,7 @@ const resetStates=()=>{
                 title="Card Expiration Date"
               />
             </p>
-            <p class="field">
+            <p className="field">
               <input
                 type="text"
                 id="cardcvc"
@@ -298,7 +291,7 @@ const resetStates=()=>{
               />
             </p>
           </div>
-          <button onClick={createOrder} class="cart__button-cta" title="Confirm your purchase">
+          <button onClick={createOrder} className="cart__button-cta" title="Confirm your purchase">
             <span>COMPRAR</span>
           </button>
         </div>

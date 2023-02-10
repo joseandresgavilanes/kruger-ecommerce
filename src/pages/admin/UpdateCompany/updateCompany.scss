@@ -1,0 +1,112 @@
+.update_main{
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2em;
+    padding: 100px 0;
+
+h2{
+    text-align: center;
+    margin-bottom: 20px;
+}
+.form-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+
+    @media (max-width: 900px) {
+        flex-direction: column;
+    }
+    
+
+.image-container{
+
+    margin-right: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .company-img{
+        border-radius: 20px;
+        box-shadow: 1px 2px 7px 0px #a1ff69;
+        width: 350px;
+    }
+    .pickPhoto{
+        width: 50px;
+        z-index: 10;
+        position: relative;
+        bottom: 40px;
+    }
+    .pickPhoto:hover {
+        cursor: pointer;
+    }
+    .invisible-file-picker {
+        display: none;
+    }
+}
+
+    .company-form{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        input {
+            padding: 15px;
+            margin-bottom: 8px;
+            border-style: none;
+            background-color: #bddfbd;
+            color: #1C313E;
+            border-radius: 10px;
+            width: 100%;
+            color-scheme: none;
+
+            @media (max-width: 800px) {
+                display: flex;
+                width: 80%;
+            }
+            
+            
+        }
+
+        .p-inputtext{
+            background: #BDDFBD;
+            border-radius: 15px;
+            color: #13252F;
+            @media (max-width: 800px) {
+                display: flex;
+                width: 80%;
+            }
+        }
+
+
+        ::-webkit-input-placeholder {
+            /* WebKit, Blink, Edge */
+            color: #5b7381;
+        }
+        input:focus {
+            outline: none;
+        }
+        .submit {
+            display: flex;
+            justify-content: center;
+            background-color: #1C313E;
+            color: #A1FF69;
+            font-weight: 600;
+        }
+        .submit:hover {
+            cursor: pointer;
+            background-color: #A1FF69;
+            color: #1C313E;
+        }
+    
+    }
+
+}
+
+
+
+}

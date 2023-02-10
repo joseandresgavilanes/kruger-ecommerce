@@ -6,6 +6,7 @@ import { setCurrentUser } from "../../store/user/userSlice";
 import { Badge } from "primereact/badge";
 import AdminCircle from "./AdminCircle/AdminCircle"
 import { useEffect } from "react";
+import { resetCart } from "../../store/cart/cartSlice";
 
 const AdminNavBar = () => {
 
@@ -27,7 +28,10 @@ const AdminNavBar = () => {
     if (user) {
       setLoginTxt("Login");
       localStorage.removeItem("currentUser");
+      localStorage.removeItem("cart");
       dispatch(setCurrentUser(null));
+      dispatch(resetCart());
+      navigation("/");
     } else {
       navigation("/login");
     }
@@ -50,12 +54,12 @@ const AdminNavBar = () => {
       <nav ref={navbar} className="header__nav header__nav--close">
         <ul className="header__list">
           <div className="header__item mega-menu header__navlink">
-            <div class="mega-menu__item mega-menu__trigger">
+            <div className="mega-menu__item mega-menu__trigger">
               <div>
                 <p>Explorar</p>
               </div>
 
-              <div class="mega-menu__content">
+              <div className="mega-menu__content">
                 <li className="header__item">
                   <NavLink
                     className={({ isActive }) =>
@@ -110,12 +114,12 @@ const AdminNavBar = () => {
           </div>
 
           <div className="header__item mega-menu header__navlink">
-            <div class="mega-menu__item mega-menu__trigger">
+            <div className="mega-menu__item mega-menu__trigger">
               <div>
                 <p>Acerca</p>
               </div>
 
-              <div class="mega-menu__content">
+              <div className="mega-menu__content">
                 <li className="header__item">
                   <NavLink
                     className={({ isActive }) =>
@@ -157,7 +161,7 @@ const AdminNavBar = () => {
           </div>
 
           <div className="header__item mega-menu header__navlink">
-            <div class="mega-menu__item mega-menu__trigger">
+            <div className="mega-menu__item mega-menu__trigger">
               <div>
                 <li className="header__item">
                   <NavLink
@@ -172,7 +176,7 @@ const AdminNavBar = () => {
                 </li>
               </div>
 
-              <div class="mega-menu__content">
+              <div className="mega-menu__content">
                 {user != null && (
                   <>
 

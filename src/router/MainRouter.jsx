@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 
 import MainPage from "../pages/customer/MainPage/MainPage";
 import Login from "../pages/login/Login";
@@ -43,13 +43,21 @@ import ToDo from "../pages/admin/ToDo/ToDo";
 import CalendarComponent from "../pages/admin/Calendar/CalendarComponent";
 import ProtectedAdminRoutes from "./ProtectedAdminRoutes";
 import { Order } from "../pages/customer/Order/Order";
+import UpdateCompany from "../pages/admin/UpdateCompany/UpdateCompany";
+import Support from "../pages/customer/Support/Support";
+import AboutCompany from "../pages/customer/AboutCompany/AboutCompany";
+import CustomerCoupons from "../pages/customer/Cupons/CustomerCoupons";
+import Pomodoro from "../pages/admin/Pomodoro/Pomodoro";
+import PasswordRecovery from "../pages/customer/Passwordrecovery/PasswordRecovery";
+
 
 export const MainRouter = () => {
   const dispatch = useDispatch();
   dispatch(getCurrentCart());
+  const location = useLocation();
 
   return (
-    <Routes>
+    <Routes location={location} key={location.pathname}>
       <Route path="/" element={<MainPage />} />
       <Route path="/login" element={<Login />} />
       <Route path="/search" element={<SearchProductPage />} />
@@ -60,16 +68,22 @@ export const MainRouter = () => {
       <Route path="/services" element={<AllServices />} />
       <Route path="/contact" element={<ContactUs />} />
       <Route path="/faq" element={<Faq />} />
+      <Route path="/company" element={<AboutCompany />} />
+      <Route path="/support" element={<Support />} />
       <Route path="/testimonials/:id" element="" />
+      <Route path="/password-recovery" element={<PasswordRecovery/>} />
       <Route element={<ProtectedRoutes />}>
         <Route path="/cart" element={<Cart />} />
         <Route path="/payment" element={<Payment />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/orders" element={<Order />} />
+        <Route path="/coupons" element={<CustomerCoupons />} />
       </Route>
       <Route element={<ProtectedAdminRoutes />}>
         <Route path="/admin" element={<AdminMainPage />}>
           <Route path="" element={<ProductsView />} />
+          <Route path="productivity" element={<Pomodoro />} />
+
           <Route path="analitycs" element={<AnalitycsView />} />
           <Route path="line" element={<LineView />} />
           <Route path="area" element={<AreaView />} />
@@ -91,6 +105,7 @@ export const MainRouter = () => {
           <Route path="calendar" element={<CalendarComponent />} />
           <Route path="todo" element={<ToDo />} />
           <Route path="text-editor" element={<TextEditor />} />
+          <Route path="empressa" element={<UpdateCompany />} />
         </Route>
       </Route>
     </Routes>

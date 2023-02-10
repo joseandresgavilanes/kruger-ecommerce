@@ -33,6 +33,7 @@ export const AdminMainPage = () => {
         },
       ],
     },
+
     {
       label: "Catalogo",
       icon: "pi pi-fw pi-pencil",
@@ -55,6 +56,16 @@ export const AdminMainPage = () => {
         },
       ],
     },
+
+    {
+      label: "Actualizar empressa",
+      icon: "pi pi-building",
+      command: () => {
+        setVisibleLeft(false);
+        navigate("/admin/empressa");
+      },
+    },
+
     {
       label: "Cupones",
       icon: "pi pi-fw pi-user",
@@ -101,6 +112,14 @@ export const AdminMainPage = () => {
       command: () => {
         setVisibleLeft(false);
         navigate("/admin/calendar");
+      },
+    },
+    {
+      label: "Productivity",
+      icon: "pi pi-chart-line",
+      command: () => {
+        setVisibleLeft(false);
+        navigate("/admin/productivity");
       },
     },
     {

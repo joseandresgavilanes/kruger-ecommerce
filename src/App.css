@@ -1,6 +1,42 @@
+
+/* These are the principal styles that are gonna be required during the project and will be used in many tags */
+
 .main{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     min-height: 100vh;
+}
+
+
+/* all tags that use this classname will have these properties, it'll be mainly used for headings */
+
+.heading{
+    font-size: 3rem;
+        font-weight: 900;
+        text-align: center;
+
+    
+}
+
+
+/* main animation used many times to make elements "float" */
+
+.floating { 
+    animation-name: floating;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+ 
+@keyframes floating {
+    0% { transform: translate(0,  0px); }
+    50%  { transform: translate(0, 15px); }
+    100%   { transform: translate(0, -0px); }   
+}
+
+@media (max-width: 800px) {
+    .heading{
+        font-size: 2.6rem;
+    }
 }

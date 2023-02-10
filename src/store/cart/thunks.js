@@ -22,6 +22,7 @@ export const startCreateOrder = (shipmentAddress,orderCoupon= null,orderSubTotal
 
         dispatch(setShipmentAddress({shipmentAddress}))
 
+
         let _order = {
             ...getState().cart.cart,
             addressId: shipmentAddress.id,
@@ -44,18 +45,29 @@ export const startCreateOrder = (shipmentAddress,orderCoupon= null,orderSubTotal
     }
 }
 
-export const startDeleteItemFromCart = (item, index) =>{
+export const startDeleteItemFromCart = (item) =>{
     return async (dispatch, getState)=>{
 
-        const {productId} = item
-        let price = item.price * item.quantity 
-        // //Despachar
-        dispatch(deleteItemToCart({productId, index}))
+        const {productId} = item;
+        const  cart  = getState().cart.cart
+        let price = item.price * item.quantity       
+
+        let cartItems = []
+
+        cart.items.forEach(item => {
+            if(item.productId !== productId){
+                cartItems.push(item)
+            }
+        });
+
+        //Despachar
+        dispatch(deleteItemToCart({cartItems}))
         dispatch(updateTotalPrice({price}))
         
-        const  cart  = getState().cart.cart
+        const updatedCart=getState().cart.cart;
+
         //Almacenar en el local storage
-        localStorage.setItem('cart', JSON.stringify(cart))
+        localStorage.setItem('cart', JSON.stringify(updatedCart))
 
     }
 }
@@ -81,8 +93,10 @@ export const startUpdateQuantityItemToCart = (item) =>{
         //Despachar
         dispatch(updateItemQuantity({item,newPrice}))
 
+        const updatedCart=getState().cart.cart;
+
         //Almacenar en el local storage
-        localStorage.setItem('cart', JSON.stringify(cart))
+        localStorage.setItem('cart', JSON.stringify(updatedCart))
 
     }
 }
