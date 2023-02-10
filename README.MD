@@ -22,7 +22,7 @@
 ---
 
   <p align="center">
-    Your favorite music all in one app
+    The perfect phone and services for you
     <br />
     <br />
     <a href="https://github.com/joseandresgavilanes/spotify/issues">View Demo</a>
