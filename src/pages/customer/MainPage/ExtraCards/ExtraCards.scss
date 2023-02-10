@@ -5,6 +5,10 @@
     flex-wrap: wrap;
     gap: 1.5em;
     padding: 100px;
+
+    @media (max-width: 450px) {
+      padding: 100px 20px;
+  }
     .card {
         width: 220px;
         height: 120px;
