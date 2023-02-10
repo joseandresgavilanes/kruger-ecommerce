@@ -6,7 +6,9 @@
     display: flex;
     justify-content: center;
     text-align: center;
-
+    @media (max-width: 450px) {
+        height: 300px;
+    }
 
     &_title{
         color: var(--heading-color);
@@ -16,6 +18,12 @@
             font-size: 3rem;
 
         }
+
+        
+    @media (max-width: 450px) {
+        font-size: 2.2rem;
+
+    }
     }
 }
 
