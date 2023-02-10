@@ -195,6 +195,7 @@ $ npm run dev
 
 ![Kruger Cell - Google Chrome 2023-02-10 14-21-09](https://user-images.githubusercontent.com/76002851/218182031-d1dc4abd-6ddf-4dee-9648-da49184775b7.gif)
 
+![Kruger Cell - Google Chrome 2023-02-10 14-21-29 (1)](https://user-images.githubusercontent.com/76002851/218182769-6abfcbc7-a459-4812-91cf-f2d2baf05eb9.gif)
 
 
 
