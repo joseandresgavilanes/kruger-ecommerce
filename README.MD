@@ -165,7 +165,35 @@ $ npm run dev
 
 ![Kruger Cell - Google Chrome 2023-02-10 12-51-12](https://user-images.githubusercontent.com/76002851/218169577-c2c8a923-80a2-4c67-a214-0aa9b5a4d013.gif)
 
+![Kruger Cell - Google Chrome 2023-02-10 14-10-17](https://user-images.githubusercontent.com/76002851/218179602-243f7338-7f4d-4391-a0b2-2391b769a2bc.gif)
 
+![Kruger Cell - Google Chrome 2023-02-10 14-11-02](https://user-images.githubusercontent.com/76002851/218179731-f7b49741-523b-4b63-a562-af5ae2c8c330.gif)
+
+![Kruger Cell - Google Chrome 2023-02-10 14-11-27](https://user-images.githubusercontent.com/76002851/218179886-95c8f34f-1f53-4328-9df2-8be8d963917b.gif)
+
+![Kruger Cell - Google Chrome 2023-02-10 14-11-27](https://user-images.githubusercontent.com/76002851/218179977-599cafa7-6b87-4c57-a319-4c6bd83b3e2f.gif)
+
+![Kruger Cell - Google Chrome 2023-02-10 14-13-01](https://user-images.githubusercontent.com/76002851/218180237-d7d5d815-cb7e-4958-8a6a-98534515abd5.gif)
+
+![Kruger Cell - Google Chrome 2023-02-10 14-14-28](https://user-images.githubusercontent.com/76002851/218180242-cf4ec5fc-5be5-448b-8ce5-f76be470c4b7.gif)
+
+![Kruger Cell - Google Chrome 2023-02-10 14-17-26](https://user-images.githubusercontent.com/76002851/218180416-c60e5a35-cc49-415b-9d1a-49a2a33a5567.gif)
+
+![Kruger Cell - Google Chrome 2023-02-10 14-16-51](https://user-images.githubusercontent.com/76002851/218180476-fdb55e2c-179f-42fe-9220-101348bfe9c8.gif)
+
+![Kruger Cell - Google Chrome 2023-02-10 14-17-44](https://user-images.githubusercontent.com/76002851/218180644-d90a2a79-61e6-45e1-876d-e5c454c89ffa.gif)
+
+![Kruger Cell - Google Chrome 2023-02-10 14-18-20](https://user-images.githubusercontent.com/76002851/218180638-2c401c27-9193-4eaa-af21-a91448def228.gif)
+
+![Kruger Cell - Google Chrome 2023-02-10 14-18-39](https://user-images.githubusercontent.com/76002851/218181093-e4480904-ac68-4971-be40-33c5726697ca.gif)
+
+![Kruger Cell - Google Chrome 2023-02-10 14-19-14](https://user-images.githubusercontent.com/76002851/218181086-f8062925-398f-43f4-9200-a2e54a42676d.gif)
+
+![Kruger Cell - Google Chrome 2023-02-10 14-19-32](https://user-images.githubusercontent.com/76002851/218181361-b060e073-1a6c-4ed7-9491-758a101b8ff6.gif)
+
+![Kruger Cell - Google Chrome 2023-02-10 14-20-04](https://user-images.githubusercontent.com/76002851/218182045-9c93f637-b3a7-4a3c-b5f5-b19f218d26d3.gif)
+
+![Kruger Cell - Google Chrome 2023-02-10 14-21-09](https://user-images.githubusercontent.com/76002851/218182031-d1dc4abd-6ddf-4dee-9648-da49184775b7.gif)
 
 
 
