@@ -4,7 +4,7 @@
     <img src="./public/images/logo.png" alt="Logo" width="300" height="180">
   </a>
 
-  <h1 align="center">Kruger Cell</h1>
+  <h1 style="font-size: 60px; font-weight: 700" align="center">Kruger Cell</h1>
 
 ![react](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 ![redux](https://img.shields.io/badge/Redux-593D88?style=for-the-badge&logo=redux&logoColor=white)
@@ -122,7 +122,7 @@ $ npm run dev
 
 # ⏩ Usage
 
-## Customer
+  <h1 style="font-size: 60px; font-weight: 700" align="center">Customer</h1>
 
 - En nuestra página puedes explorar las marcas y modelos de teléfonos móviles que ofrecemos, incluyendo imágenes de alta calidad y descripciones detalladas sobre nuestra empresa. Todo esto lo podrás hacer sin iniciar sesión.
 
@@ -218,7 +218,7 @@ $ npm run dev
 
 ---
 
-## Admin
+  <h1 style="font-size: 60px; font-weight: 700" align="center">Admin</h1>
 
 - Kruger Cell también cuenta con una sección exclusiva para administradores.
 - Podrás acceder a ella iniciando sesión y si es que tu cuenta tiene permisos administrativos.
