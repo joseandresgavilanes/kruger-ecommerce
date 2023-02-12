@@ -1,7 +1,7 @@
 <br />
 <div align="center">
   <a href="https://github.com">
-    <img src="./public/images/krugerlogo.png" alt="Logo" width="300" height="180">
+    <img src="./public/images/logo.png" alt="Logo" width="300" height="180">
   </a>
 
   <h1 align="center">Kruger Cell</h1>
@@ -122,6 +122,8 @@ $ npm run dev
 
 # ⏩ Usage
 
+## Customer
+
 - En nuestra página puedes explorar las marcas y modelos de teléfonos móviles que ofrecemos, incluyendo imágenes de alta calidad y descripciones detalladas sobre nuestra empresa. Todo esto lo podrás hacer sin iniciar sesión.
 
 - Ofrecemos promociones y descuentos en los productos y servicios que vendemos.
@@ -216,11 +218,7 @@ $ npm run dev
 
 ---
 
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
+## Admin
 
 - Kruger Cell también cuenta con una sección exclusiva para administradores.
 - Podrás acceder a ella iniciando sesión y si es que tu cuenta tiene permisos administrativos.
