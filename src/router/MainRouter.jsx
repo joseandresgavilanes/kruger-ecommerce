@@ -50,7 +50,6 @@ import CustomerCoupons from "../pages/customer/Cupons/CustomerCoupons";
 import Pomodoro from "../pages/admin/Pomodoro/Pomodoro";
 import PasswordRecovery from "../pages/customer/Passwordrecovery/PasswordRecovery";
 
-
 export const MainRouter = () => {
   const dispatch = useDispatch();
   dispatch(getCurrentCart());
@@ -71,7 +70,7 @@ export const MainRouter = () => {
       <Route path="/company" element={<AboutCompany />} />
       <Route path="/support" element={<Support />} />
       <Route path="/testimonials/:id" element="" />
-      <Route path="/password-recovery" element={<PasswordRecovery/>} />
+      <Route path="/password-recovery" element={<PasswordRecovery />} />
       <Route element={<ProtectedRoutes />}>
         <Route path="/cart" element={<Cart />} />
         <Route path="/payment" element={<Payment />} />
