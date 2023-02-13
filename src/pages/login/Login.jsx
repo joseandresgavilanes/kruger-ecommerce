@@ -24,14 +24,8 @@ const Login = () => {
   const warningRef = useRef(null);
 
   useEffect(() => {
-    const date =
-      "" +
-      new Date().getFullYear() +
-      "-" +
-      (new Date().getMonth() + 1) +
-      "-" +
-      new Date().getDate();
-    setTodayDate(date);
+      const today = new Date().toISOString().split('T')[0];
+      setTodayDate(today);
   }, []);
 
   //empty all fields
