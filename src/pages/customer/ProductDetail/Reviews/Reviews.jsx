@@ -6,6 +6,7 @@ import { Button } from "primereact/button";
 import { postReview } from "../../../../helpers/reviews/postReview";
 import { useSelector } from "react-redux";
 import { getReviews } from "../../../../helpers/reviews/getReviews";
+import Loading from "../../../../components/Loading";
 
 const Reviews = ({ product }) => {
   const [reviews, setReviews] = useState();
@@ -39,15 +40,15 @@ const Reviews = ({ product }) => {
 
   const getSelectedProductReviews = async () => {
     const reponseReviews = await Promise.resolve(getReviews());
-    setReviews(
-      reponseReviews.filter((review) => review.productId === product.id)
-    );
-    setIsLoading(false);
-    currentUser ? setCanEdit(false) : setCanEdit(true);
+    setTimeout(()=>{
+      setReviews(reponseReviews.filter(review => review.productId === product.id))
+      setIsLoading(false);
+      currentUser?setCanEdit(false):setCanEdit(true)
+    },1500);
   };
 
   return isLoading ? (
-    <p>Estoy cargando</p>
+     <Loading/>
   ) : (
     <section className="testimonials">
       <div className="testimonial-heading">
