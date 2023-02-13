@@ -207,7 +207,7 @@ export const Order = () => {
         </div>
       </div>
     )
-  ) : (
+  ) : isLoading? <Loading/> : ( 
     <NoOrders />
-  );
+  ) 
 };
