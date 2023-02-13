@@ -4,19 +4,18 @@ import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useNavigate } from "react-router-dom";
 import { setCurrentUser } from "../../store/user/userSlice";
 import { Badge } from "primereact/badge";
-import AdminCircle from "./AdminCircle/AdminCircle"
+import AdminCircle from "./AdminCircle/AdminCircle";
 import { useEffect } from "react";
 import { resetCart } from "../../store/cart/cartSlice";
 
 const AdminNavBar = () => {
-
   const navbar = useRef();
   const [loginTxt, setLoginTxt] = useState("");
   const navigation = useNavigate();
   const user = useSelector((state) => state.users.currentUser);
   const dispatch = useDispatch();
   const { cart } = useSelector((state) => state.cart);
-  
+
   useEffect(() => {
     user ? setLoginTxt(<AdminCircle user={user} />) : setLoginTxt("Login");
   }, [user]);
@@ -59,7 +58,7 @@ const AdminNavBar = () => {
                 <p>Explorar</p>
               </div>
 
-              <div className="mega-menu__content">
+              <ul className="mega-menu__content">
                 <li className="header__item">
                   <NavLink
                     className={({ isActive }) =>
@@ -109,7 +108,7 @@ const AdminNavBar = () => {
                     <p>Todos los servicios</p>
                   </NavLink>
                 </li>
-              </div>
+              </ul>
             </div>
           </div>
 
@@ -119,7 +118,7 @@ const AdminNavBar = () => {
                 <p>Acerca</p>
               </div>
 
-              <div className="mega-menu__content">
+              <ul className="mega-menu__content">
                 <li className="header__item">
                   <NavLink
                     className={({ isActive }) =>
@@ -156,13 +155,13 @@ const AdminNavBar = () => {
                     <p>Preguntas frecuentes</p>
                   </NavLink>
                 </li>
-              </div>
+              </ul>
             </div>
           </div>
 
           <div className="header__item mega-menu header__navlink">
             <div className="mega-menu__item mega-menu__trigger">
-              <div>
+              <ul>
                 <li className="header__item">
                   <NavLink
                     className={({ isActive }) =>
@@ -174,12 +173,11 @@ const AdminNavBar = () => {
                     <p>{loginTxt}</p>
                   </NavLink>
                 </li>
-              </div>
+              </ul>
 
-              <div className="mega-menu__content">
+              <ul className="mega-menu__content">
                 {user != null && (
                   <>
-
                     <li className="header__item">
                       <NavLink
                         className={({ isActive }) =>
@@ -214,7 +212,7 @@ const AdminNavBar = () => {
                     </li>
                   </>
                 )}
-              </div>
+              </ul>
             </div>
           </div>
         </ul>
