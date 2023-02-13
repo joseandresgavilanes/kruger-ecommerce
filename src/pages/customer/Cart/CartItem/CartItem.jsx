@@ -9,7 +9,7 @@ import { useLocation } from "react-router-dom";
 import "./CartItem.scss";
 import defaultImg from "../../../../assets/default.png";
 
-const CartItem = ({item}) => {
+const CartItem = ({ item }) => {
   const [product, setProduct] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const [newQuantity, setNewQuantity] = useState(1);
@@ -69,6 +69,7 @@ const CartItem = ({item}) => {
                   ? product.images[0].url || product.images[0].uri
                   : defaultImg
               }
+              alt={product.name}
               style={{ height: "80px" }}
             />
           </div>

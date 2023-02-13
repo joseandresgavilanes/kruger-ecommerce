@@ -48,7 +48,7 @@ const Product = ({ item, i }) => {
                     ? item.images[0].url || item.images[0].uri
                     : serviceBack
                 }
-                alt="ss"
+                alt={item.name}
               />
             ) : (
               <></>

@@ -13,7 +13,7 @@ const AboutUs = () => {
       <div class="aboutus_card floating">
         <div class="aboutus_card-info">
           <div class="aboutus_card-avatar">
-            <img src="./images/pepe.jpg" alt="" />
+            <img src="./images/pepe.jpg" alt="Developer image1" />
           </div>
           <div class="aboutus_card-title">José Andrés Gavilanes</div>
           <div class="aboutus_card-subtitle">FullStack Developer</div>
@@ -47,7 +47,7 @@ const AboutUs = () => {
           <div className="aboutus_card-avatar">
             <img
               src="https://avatars.githubusercontent.com/u/52118245?v=4"
-              alt=""
+              alt="Developer image2"
             />
           </div>
           <div class="aboutus_card-title">Kenan Al-jaber</div>
@@ -82,7 +82,7 @@ const AboutUs = () => {
           <div className="aboutus_card-avatar">
             <img
               src="https://avatars.githubusercontent.com/u/33032880?v=4"
-              alt=""
+              alt="Developer image3"
             />
           </div>
           <div class="aboutus_card-title">Kevin Mantilla</div>

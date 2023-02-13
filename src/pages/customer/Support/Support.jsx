@@ -5,7 +5,7 @@ const Support = () => {
     <div className="support">
       <h2 className="heading">¿Necesitas Ayuda?</h2>
       <div className="support_img">
-        <img src="./images/support.svg" alt="" className="floating" />
+        <img src="./images/support.svg" alt="IT support" className="floating" />
       </div>
 
       <div className="support_cards">
@@ -25,6 +25,7 @@ const Support = () => {
                 <img
                   src="https://pymstatic.com/5844/conversions/personas-emocionales-wide.jpg"
                   className="photo"
+                  alt="IT supporter img"
                 />
               </div>
             </div>
@@ -68,6 +69,7 @@ const Support = () => {
                 <img
                   src="https://www.ashoka.org/sites/default/files/styles/medium_1600x1000/public/thumbnails/images/daniela-kreimer.jpg?itok=R89tVtb4"
                   className="photo"
+                  alt="IT supporter img 2"
                 />
               </div>
             </div>
@@ -111,6 +113,7 @@ const Support = () => {
                 <img
                   src="https://static2.abc.es/media/bienestar/2022/06/01/jesus-matos-2-kQVC--620x349@abc.png"
                   className="photo"
+                  alt="IT supporter img 3"
                 />
               </div>
             </div>

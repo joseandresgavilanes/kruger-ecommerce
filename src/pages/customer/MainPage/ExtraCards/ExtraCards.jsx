@@ -24,7 +24,7 @@ const ExtraCards = ({ t }) => {
           <div className="img-box">
             <i className="fa-solid fa-lock"></i>
           </div>
-          <h1 className="title"> {t("extracards-main.card-title1")}</h1>
+          <h2 className="title"> {t("extracards-main.card-title1")}</h2>
         </div>
 
         <div className="content">
@@ -36,7 +36,7 @@ const ExtraCards = ({ t }) => {
           <div className="img-box">
             <i className="fa-solid fa-truck"></i>
           </div>
-          <h1 className="title">{t("extracards-main.card-title2")}</h1>
+          <h2 className="title">{t("extracards-main.card-title2")}</h2>
         </div>
 
         <div className="content">
@@ -54,7 +54,7 @@ const ExtraCards = ({ t }) => {
           <div className="img-box">
             <i className="fa-solid fa-people-group"></i>
           </div>
-          <h1 className="title">{t("extracards-main.card-title3")}</h1>
+          <h2 className="title">{t("extracards-main.card-title3")}</h2>
         </div>
 
         <div className="content">

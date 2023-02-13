@@ -109,10 +109,12 @@ const UpdateCompany = () => {
                   : `data:image/jpeg;base64,${company.imageUrl}`
                 : defaultPhoto
             }
+            alt={"company image"}
           />
           <img
             className="pickPhoto"
             src={camera}
+            alt={"new company image"}
             onClick={() => {
               document.getElementById("file-picker").click();
             }}

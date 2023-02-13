@@ -1,98 +1,118 @@
 import { useEffect, useState } from "react";
 import "./Reviews.scss";
-import { Rating } from 'primereact/rating';
-import { InputTextarea } from 'primereact/inputtextarea';
-import { Button } from 'primereact/button';
+import { Rating } from "primereact/rating";
+import { InputTextarea } from "primereact/inputtextarea";
+import { Button } from "primereact/button";
 import { postReview } from "../../../../helpers/reviews/postReview";
 import { useSelector } from "react-redux";
 import { getReviews } from "../../../../helpers/reviews/getReviews";
 
-const Reviews = ({product}) => {
-
-
-  const [reviews, setReviews] = useState()
+const Reviews = ({ product }) => {
+  const [reviews, setReviews] = useState();
   const [isLoading, setIsLoading] = useState(true);
-  const [reviewT, setReviewT] = useState('');
+  const [reviewT, setReviewT] = useState("");
   const [rating, setRaiting] = useState(1);
-  const { currentUser } = useSelector(state => state.users)
-  const [canEdit, setCanEdit] = useState(false)
+  const { currentUser } = useSelector((state) => state.users);
+  const [canEdit, setCanEdit] = useState(false);
 
-  const createReview = async () =>{
-    if(reviewT==''){
-        return
+  const createReview = async () => {
+    if (reviewT == "") {
+      return;
     }
 
     let reviewObj = {
-        raiting: rating,
-        text: reviewT,
-        productId: product.id,
-        userId: currentUser.id
-    }
+      raiting: rating,
+      text: reviewT,
+      productId: product.id,
+      userId: currentUser.id,
+    };
 
     const response = await Promise.resolve(postReview(reviewObj));
-    setRaiting(1)
-    setReviewT('')
-    getSelectedProductReviews()
-  }
+    setRaiting(1);
+    setReviewT("");
+    getSelectedProductReviews();
+  };
 
   useEffect(() => {
     getSelectedProductReviews();
   }, []);
 
- 
-  const getSelectedProductReviews = async() =>{
-
+  const getSelectedProductReviews = async () => {
     const reponseReviews = await Promise.resolve(getReviews());
-    setReviews(reponseReviews.filter(review => review.productId === product.id))
+    setReviews(
+      reponseReviews.filter((review) => review.productId === product.id)
+    );
     setIsLoading(false);
-    currentUser?setCanEdit(false):setCanEdit(true)
+    currentUser ? setCanEdit(false) : setCanEdit(true);
+  };
 
-  }
-
-  return (
-    isLoading?
+  return isLoading ? (
     <p>Estoy cargando</p>
-    :
+  ) : (
     <section className="testimonials">
       <div className="testimonial-heading">
         <h2>Reseñas</h2>
         <p>Que dicen nuestros clientes</p>
       </div>
       <div className="testimonial-box-container">
-        {
-          reviews.map(review => (
-            <div key={review.id} className="testimonial-box">
-              <div className="box-top">
-                <div className="profile">
-                  <div className="profile-img">
-                    <img src={review.user.imageUrl?(review.user.imageUrl.startsWith("http")? review.user.imageUrl:  `data:image/jpeg;base64,${review.user.imageUrl}`):'https://w7.pngwing.com/pngs/686/219/png-transparent-youtube-user-computer-icons-information-youtube-hand-silhouette-avatar-thumbnail.png'} />
-                  </div>
-                  <div className="name-user">
-                    <strong>{review.user.firstName} {review.user.lastName}</strong>
-                    <span>{review.created}</span>
-                  </div>
+        {reviews.map((review) => (
+          <div key={review.id} className="testimonial-box">
+            <div className="box-top">
+              <div className="profile">
+                <div className="profile-img">
+                  <img
+                    src={
+                      review.user.imageUrl
+                        ? review.user.imageUrl.startsWith("http")
+                          ? review.user.imageUrl
+                          : `data:image/jpeg;base64,${review.user.imageUrl}`
+                        : "https://w7.pngwing.com/pngs/686/219/png-transparent-youtube-user-computer-icons-information-youtube-hand-silhouette-avatar-thumbnail.png"
+                    }
+                    alt="review user image"
+                  />
                 </div>
-                <div className="reviews">
-                  <Rating value={review.raiting} cancel={false} />
+                <div className="name-user">
+                  <strong>
+                    {review.user.firstName} {review.user.lastName}
+                  </strong>
+                  <span>{review.created}</span>
                 </div>
               </div>
-              <div className="client-comment">
-                <p>
-                  {review.text}
-                </p>
+              <div className="reviews">
+                <Rating value={review.raiting} cancel={false} />
               </div>
             </div>
-          ))
-        }
+            <div className="client-comment">
+              <p>{review.text}</p>
+            </div>
+          </div>
+        ))}
       </div>
-        <div className="card">
-        <span className="p-float-label" style={{marginTop:20}}>
-          <InputTextarea disabled={canEdit} style={{width:'80vw'}} value={reviewT} onChange={(e) => setReviewT(e.target.value)} />
+      <div className="card">
+        <span className="p-float-label" style={{ marginTop: 20 }}>
+          <InputTextarea
+            disabled={canEdit}
+            style={{ width: "80vw" }}
+            value={reviewT}
+            onChange={(e) => setReviewT(e.target.value)}
+          />
           <label htmlFor="reseña">Reseña</label>
         </span>
-        <Rating disabled={canEdit} style={{marginTop:20}} value={rating} cancel={false} onChange={(e) => setRaiting(e.value)} />   
-        <Button disabled={canEdit} onClick={createReview} style={{marginTop:50}} label="Enviar" icon="pi pi-check" />
-        </div>
+        <Rating
+          disabled={canEdit}
+          style={{ marginTop: 20 }}
+          value={rating}
+          cancel={false}
+          onChange={(e) => setRaiting(e.value)}
+        />
+        <Button
+          disabled={canEdit}
+          onClick={createReview}
+          style={{ marginTop: 50 }}
+          label="Enviar"
+          icon="pi pi-check"
+        />
+      </div>
     </section>
   );
 };
