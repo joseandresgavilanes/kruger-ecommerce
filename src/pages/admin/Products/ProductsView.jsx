@@ -15,10 +15,10 @@ import { Toolbar } from "primereact/toolbar";
 import { Dialog } from "primereact/dialog";
 import { InputTextarea } from "primereact/inputtextarea";
 import { Dropdown } from "primereact/dropdown";
-import ImageUploading from 'react-images-uploading';
+import ImageUploading from "react-images-uploading";
 import { Checkbox } from "primereact/checkbox";
 
-import '../AdminMainPage.css';
+import "../AdminMainPage.css";
 import Loading from "../../../components/Loading";
 
 let emptyProduct = {
@@ -27,16 +27,14 @@ let emptyProduct = {
   stock: "",
   price: "",
   category: null,
-  youtubeLink:"",
-  status:null,
-  brand:"",
-  weight:0,
-  processor:''
+  youtubeLink: "",
+  status: null,
+  brand: "",
+  weight: 0,
+  processor: "",
 };
 
-
 export const ProductsView = () => {
-
   const [products, setProducts] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const [productDialog, setProductDialog] = useState(false);
@@ -47,7 +45,7 @@ export const ProductsView = () => {
   const [submitted, setSubmitted] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [categories, serCategories] = useState();
-  const [check, setCheked] = useState()
+  const [check, setCheked] = useState();
   const [globalFilter, setGlobalFilter] = useState(null);
   const toast = useRef(null);
   const dt = useRef(null);
@@ -55,7 +53,6 @@ export const ProductsView = () => {
   const [images, setImages] = useState([]);
   const [newImages, setNewImages] = useState([]);
   const maxNumber = 69;
-
 
   useEffect(() => {
     getProducts();
@@ -66,64 +63,57 @@ export const ProductsView = () => {
   }, []);
 
   const onChange = (imageList, addUpdateIndex) => {
-
     let indexAdd;
     let newImg;
     let temp = [];
 
-    if(addUpdateIndex==undefined){
-      setImages(imageList)
-    }
-    else{
-      indexAdd = addUpdateIndex[0]
+    if (addUpdateIndex == undefined) {
+      setImages(imageList);
+    } else {
+      indexAdd = addUpdateIndex[0];
       newImg = {
-        uri:imageList[indexAdd].data_url,
+        uri: imageList[indexAdd].data_url,
         url: null,
-        created: new Date()
-      }
+        created: new Date(),
+      };
 
       for (let index = 0; index < imageList.length; index++) {
-        if(index === indexAdd){
-          temp.push(newImg)
+        if (index === indexAdd) {
+          temp.push(newImg);
+        } else {
+          temp.push(imageList[index]);
         }
-        else{
-          temp.push(imageList[index])
-        }      
       }
       setImages(temp);
     }
   };
-  
 
-  const onChangeNewImages = (imageList, addUpdateIndex) =>{
-    setNewImages(imageList)
+  const onChangeNewImages = (imageList, addUpdateIndex) => {
+    setNewImages(imageList);
 
     let indexAdd;
     let newImg;
     let temp = [];
 
-    if(addUpdateIndex==undefined){
-      setNewImages(imageList)
-    }
-    else{
-      indexAdd = addUpdateIndex[0]
+    if (addUpdateIndex == undefined) {
+      setNewImages(imageList);
+    } else {
+      indexAdd = addUpdateIndex[0];
       newImg = {
-        uri:imageList[indexAdd].data_url,
+        uri: imageList[indexAdd].data_url,
         url: null,
-        created: new Date()
-      }
+        created: new Date(),
+      };
       for (let index = 0; index < imageList.length; index++) {
-        if(index === indexAdd){
-          temp.push(newImg)
+        if (index === indexAdd) {
+          temp.push(newImg);
+        } else {
+          temp.push(imageList[index]);
         }
-        else{
-          temp.push(imageList[index])
-        }      
       }
       setNewImages(temp);
     }
-
-  }
+  };
 
   const formatCurrency = (value) => {
     return value.toLocaleString("es-ES", {
@@ -143,19 +133,25 @@ export const ProductsView = () => {
   };
 
   const removeProduct = async (productId) => {
-    const responseDeleteProduct = await Promise.resolve(deleteProduct(productId));
+    const responseDeleteProduct = await Promise.resolve(
+      deleteProduct(productId)
+    );
     return responseDeleteProduct;
   };
 
   const getCategories = async () => {
     const responseCategories = await Promise.resolve(getAllCategories());
-    serCategories(responseCategories.filter(category=>category.name!=='Servicio'));
+    serCategories(
+      responseCategories.filter((category) => category.name !== "Servicio")
+    );
     setIsLoading(false);
   };
 
   const getProducts = async () => {
     const responseProducts = await Promise.resolve(getAllProducts());
-    setProducts(responseProducts.filter(product=>product.type==='PRODUCT'));
+    setProducts(
+      responseProducts.filter((product) => product.type === "PRODUCT")
+    );
     setIsLoading(false);
   };
 
@@ -206,19 +202,19 @@ export const ProductsView = () => {
           });
         }
       } else {
-        if(newImages.length === 0){
+        if (newImages.length === 0) {
           _product.images = [
             {
-              uri:null,
-              url: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Flag_of_Unknow.svg/800px-Flag_of_Unknow.svg.png",
-              created: new Date()
-            }
-          ]
+              uri: null,
+              url:
+                "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Flag_of_Unknow.svg/800px-Flag_of_Unknow.svg.png",
+              created: new Date(),
+            },
+          ];
+        } else {
+          _product.images = newImages;
         }
-        else{
-          _product.images = newImages
-        }
-        _product.type = "PRODUCT"
+        _product.type = "PRODUCT";
         const responsePostProduct = await createProduct(_product);
         if (responsePostProduct) {
           _product.id = responsePostProduct.id;
@@ -246,7 +242,7 @@ export const ProductsView = () => {
   };
 
   const editProduct = (product) => {
-    setImages(product.images)
+    setImages(product.images);
     setProduct({ ...product });
     setProductDialog(true);
   };
@@ -309,7 +305,6 @@ export const ProductsView = () => {
   };
 
   const onInputChange = (e, name) => {
-
     const val = (e.target && e.target.value) || "";
     let _product = { ...product };
     _product[`${name}`] = val;
@@ -335,18 +330,17 @@ export const ProductsView = () => {
         /> */}
       </React.Fragment>
     );
-  }
+  };
   const imageBodyTemplate = (rowData) => {
-    if(rowData.images.length == 0){
-      return(
+    if (rowData.images.length == 0) {
+      return (
         <img
-        src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png"
-        alt= "something"
-        className="product-image"
-      />
-      )
-    }
-    else{
+          src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png"
+          alt="something"
+          className="product-image"
+        />
+      );
+    } else {
       return (
         <img
           src={`${rowData.images[0].url || rowData.images[0].uri}`}
@@ -367,11 +361,13 @@ export const ProductsView = () => {
 
   const actionBodyTemplate = (rowData) => {
     return (
-      <div style={{display:'flex', flexDirection:'row', position:'relative'}}>
+      <div
+        style={{ display: "flex", flexDirection: "row", position: "relative" }}
+      >
         <Button
           icon="pi pi-external-link"
           className="p-button-rounded p-button-primary"
-          onClick={() => navigate(`/product/${rowData.id}`,{ replace: true })}
+          onClick={() => navigate(`/product/${rowData.id}`, { replace: true })}
           title="Ir al producto"
         />
         <Button
@@ -422,7 +418,7 @@ export const ProductsView = () => {
   const deleteProductDialogFooter = (
     <>
       <Button
-        style={{position:'static'}}
+        style={{ position: "static" }}
         label="No"
         icon="pi pi-times"
         className="p-button-text"
@@ -455,209 +451,211 @@ export const ProductsView = () => {
 
   return (
     <>
-    {
-      isLoading ? (
-      <Loading />
-    ) : (
-      <div className="datatable-crud-demo">
-        <Toast ref={toast} />
-  
-        <div className="card">
-          <Toolbar className="mb-4" right={rightToolbarTemplate} ></Toolbar>
-  
-          <DataTable
-            ref={dt}
-            value={products}
-            selection={selectedProducts}
-            onSelectionChange={(e) => setSelectProducts(e.value)}
-            dataKey="id"
-            paginator
-            rows={8}
-            rowsPerPageOptions={[5, 10, 25]}
-            paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown"
-            currentPageReportTemplate="{first} - {last} de {totalRecords} productos"
-            globalFilter={globalFilter}
-            header={header}
-            responsiveLayout="scroll"
-          >
-            {/* <Column
+      {isLoading ? (
+        <Loading />
+      ) : (
+        <div className="datatable-crud-demo">
+          <Toast ref={toast} />
+
+          <div className="card">
+            <Toolbar className="mb-4" right={rightToolbarTemplate}></Toolbar>
+
+            <DataTable
+              ref={dt}
+              value={products}
+              selection={selectedProducts}
+              onSelectionChange={(e) => setSelectProducts(e.value)}
+              dataKey="id"
+              paginator
+              rows={8}
+              rowsPerPageOptions={[5, 10, 25]}
+              paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown"
+              currentPageReportTemplate="{first} - {last} de {totalRecords} productos"
+              globalFilter={globalFilter}
+              header={header}
+              responsiveLayout="scroll"
+            >
+              {/* <Column
               selectionMode="multiple"
               headerStyle={{ width: "1rem" }}
               exportable={false}
             ></Column> */}
-            <Column
-              field="id"
-              header="Id"
-              sortable
-              style={{ minWidth: "1rem" }}
-            ></Column>
-            <Column
-              field="image"
-              header="Image"
-              body={imageBodyTemplate}
-            ></Column>
-            <Column
-              field="name"
-              header="Nombre"
-              sortable
-              style={{ minWidth: "2rem" }}
-            ></Column>
-            <Column
-              field="status"
-              header="Destacado"
-              sortable
-              style={{ minWidth: "2rem" }}
-            ></Column>
-            <Column
-              field="price"
-              header="Precio"
-              body={priceBodyTemplate}
-              sortable
-              style={{ minWidth: "1px" }}
-            ></Column>
-            <Column
-              field="stock"
-              header="Stock"
-              sortable
-              style={{ minWidth: "0.5rem" }}
-            ></Column>
-            <Column
-              field="salesCounter"
-              header="Total vendidos"
-              sortable
-              style={{ minWidth: "2rem" }}
-            ></Column>
-            <Column
-              field="category.name"
-              header="Categoria"
-              sortable
-              style={{ minWidth: "2rem" }}
-            ></Column>
-            <Column
-              field="reviews.length"
-              header="Reseñas"
-              sortable
-              style={{ minWidth: "2rem" }}
-            ></Column>
-            <Column
-              header="Acciones"
-              body={actionBodyTemplate}
-              exportable={false}
-              style={{ minWidth: "8rem" }}
-            ></Column>
-          </DataTable>
-        </div>
-  
-        <Dialog
-          visible={productDialog}
-          style={{ width: "700px" }}
-          header="Información del producto"
-          modal
-          className="p-fluid"
-          footer={productDialogFooter}
-          onHide={hideDialog}
-        >
-          <div className="field">
-            <label htmlFor="name">Nombre</label>
-            <InputText
-              id="name"
-              value={product.name}
-              onChange={(e) => onInputChange(e, "name")}
-              required
-              autoFocus
-              className={classNames({ "p-invalid": submitted && !product.name })}
-            />
-            {submitted && !product.name && (
-              <small className="p-error">El nombre es obligatorio.</small>
-            )}
+              <Column
+                field="id"
+                header="Id"
+                sortable
+                style={{ minWidth: "1rem" }}
+              ></Column>
+              <Column
+                field="image"
+                header="Image"
+                body={imageBodyTemplate}
+              ></Column>
+              <Column
+                field="name"
+                header="Nombre"
+                sortable
+                style={{ minWidth: "2rem" }}
+              ></Column>
+              <Column
+                field="status"
+                header="Destacado"
+                sortable
+                style={{ minWidth: "2rem" }}
+              ></Column>
+              <Column
+                field="price"
+                header="Precio"
+                body={priceBodyTemplate}
+                sortable
+                style={{ minWidth: "1px" }}
+              ></Column>
+              <Column
+                field="stock"
+                header="Stock"
+                sortable
+                style={{ minWidth: "0.5rem" }}
+              ></Column>
+              <Column
+                field="salesCounter"
+                header="Total vendidos"
+                sortable
+                style={{ minWidth: "2rem" }}
+              ></Column>
+              <Column
+                field="category.name"
+                header="Categoria"
+                sortable
+                style={{ minWidth: "2rem" }}
+              ></Column>
+              <Column
+                field="reviews.length"
+                header="Reseñas"
+                sortable
+                style={{ minWidth: "2rem" }}
+              ></Column>
+              <Column
+                header="Acciones"
+                body={actionBodyTemplate}
+                exportable={false}
+                style={{ minWidth: "8rem" }}
+              ></Column>
+            </DataTable>
           </div>
-          <div className="field">
-            <label htmlFor="stock">Stock</label>
-            <InputText
-              id="stock"
-              value={product.stock}
-              onChange={(e) => onInputChange(e, "stock")}
-              className={classNames({
-                "p-invalid": submitted && !product.stock,
-              })}
-            />
-            {submitted && !product.stock && (
-              <small className="p-error">El Stock es obligatoria.</small>
-            )}
-          </div>
-          <div className="field">
-            <label htmlFor="price">Precio</label>
-            <InputText
-              id="price"
-              value={product.price}
-              onChange={(e) => onInputChange(e, "price")}
-              className={classNames({
-                "p-invalid": submitted && !product.price,
-              })}
-            />
-            {submitted && !product.price && (
-              <small className="p-error">El Precio es obligatoria.</small>
-            )}
-          </div>
-          <div className="field">
-            <label htmlFor="brand">Marca</label>
-            <InputText
-              id="brand"
-              value={product.brand}
-              onChange={(e) => onInputChange(e, "brand")}
-              className={classNames({
-                "p-invalid": submitted && !product.brand,
-              })}
-            />
-            {submitted && !product.brand && (
-              <small className="p-error">La marca es obligatoria.</small>
-            )}
-          </div>
-          <div className="field">
-            <label htmlFor="weight">Peso(gr)</label>
-            <InputText
-              id="weight"
-              value={product.weight}
-              onChange={(e) => onInputChange(e, "weight")}
-              className={classNames({
-                "p-invalid": submitted && !product.weight,
-              })}
-            />
-            {submitted && !product.weight && (
-              <small className="p-error">El peso es obligatorio.</small>
-            )}
-          </div>
-          <div className="field">
-            <label htmlFor="processor">Procesador</label>
-            <InputText
-              id="processor"
-              value={product.processor}
-              onChange={(e) => onInputChange(e, "processor")}
-              className={classNames({
-                "p-invalid": submitted && !product.processor,
-              })}
-            />
-            {submitted && !product.processor && (
-              <small className="p-error">El Procesador es obligatorio.</small>
-            )}
-          </div>
-          <div className="field">
-            <label htmlFor="youtubeLink">YouTube Link Video</label>
-            <InputText
-              id="youtubeLink"
-              value={product.youtubeLink}
-              onChange={(e) => onInputChange(e, "youtubeLink")}
-              className={classNames({
-                "p-invalid": submitted && !product.youtubeLink,
-              })}
-            />
-            {submitted && !product.youtubeLink && (
-              <small className="p-error">El link del video es obligatoria.</small>
-            )}
-          </div>
-          {
-            product.images?
-            <ImageUploading
+
+          <Dialog
+            visible={productDialog}
+            style={{ width: "700px" }}
+            header="Información del producto"
+            modal
+            className="p-fluid"
+            footer={productDialogFooter}
+            onHide={hideDialog}
+          >
+            <div className="field">
+              <label htmlFor="name">Nombre</label>
+              <InputText
+                id="name"
+                value={product.name}
+                onChange={(e) => onInputChange(e, "name")}
+                required
+                autoFocus
+                className={classNames({
+                  "p-invalid": submitted && !product.name,
+                })}
+              />
+              {submitted && !product.name && (
+                <small className="p-error">El nombre es obligatorio.</small>
+              )}
+            </div>
+            <div className="field">
+              <label htmlFor="stock">Stock</label>
+              <InputText
+                id="stock"
+                value={product.stock}
+                onChange={(e) => onInputChange(e, "stock")}
+                className={classNames({
+                  "p-invalid": submitted && !product.stock,
+                })}
+              />
+              {submitted && !product.stock && (
+                <small className="p-error">El Stock es obligatoria.</small>
+              )}
+            </div>
+            <div className="field">
+              <label htmlFor="price">Precio</label>
+              <InputText
+                id="price"
+                value={product.price}
+                onChange={(e) => onInputChange(e, "price")}
+                className={classNames({
+                  "p-invalid": submitted && !product.price,
+                })}
+              />
+              {submitted && !product.price && (
+                <small className="p-error">El Precio es obligatoria.</small>
+              )}
+            </div>
+            <div className="field">
+              <label htmlFor="brand">Marca</label>
+              <InputText
+                id="brand"
+                value={product.brand}
+                onChange={(e) => onInputChange(e, "brand")}
+                className={classNames({
+                  "p-invalid": submitted && !product.brand,
+                })}
+              />
+              {submitted && !product.brand && (
+                <small className="p-error">La marca es obligatoria.</small>
+              )}
+            </div>
+            <div className="field">
+              <label htmlFor="weight">Peso(gr)</label>
+              <InputText
+                id="weight"
+                value={product.weight}
+                onChange={(e) => onInputChange(e, "weight")}
+                className={classNames({
+                  "p-invalid": submitted && !product.weight,
+                })}
+              />
+              {submitted && !product.weight && (
+                <small className="p-error">El peso es obligatorio.</small>
+              )}
+            </div>
+            <div className="field">
+              <label htmlFor="processor">Procesador</label>
+              <InputText
+                id="processor"
+                value={product.processor}
+                onChange={(e) => onInputChange(e, "processor")}
+                className={classNames({
+                  "p-invalid": submitted && !product.processor,
+                })}
+              />
+              {submitted && !product.processor && (
+                <small className="p-error">El Procesador es obligatorio.</small>
+              )}
+            </div>
+            <div className="field">
+              <label htmlFor="youtubeLink">YouTube Link Video</label>
+              <InputText
+                id="youtubeLink"
+                value={product.youtubeLink}
+                onChange={(e) => onInputChange(e, "youtubeLink")}
+                className={classNames({
+                  "p-invalid": submitted && !product.youtubeLink,
+                })}
+              />
+              {submitted && !product.youtubeLink && (
+                <small className="p-error">
+                  El link del video es obligatoria.
+                </small>
+              )}
+            </div>
+            {product.images ? (
+              <ImageUploading
                 multiple
                 value={images}
                 onChange={onChange}
@@ -675,166 +673,183 @@ export const ProductsView = () => {
                 }) => (
                   // write your building UI
                   <div className="upload__image-wrapper">
-                    <Button 
+                    <Button
                       className="p-button-secondary"
-                      style={{color:isDragging?'red':'', width:'100%', height:'50px', marginTop:'20px', justifyContent:'center'}}
+                      style={{
+                        color: isDragging ? "red" : "",
+                        width: "100%",
+                        height: "50px",
+                        marginTop: "20px",
+                        justifyContent: "center",
+                      }}
                       onClick={onImageUpload}
                       {...dragProps}
                     >
                       Agrega o arrastra imágenes
-                    </Button >
+                    </Button>
                     &nbsp;
                     {imageList.map((image, index) => (
-
                       <div key={index} className="image-item">
-                        <img src={image['uri'] || image.url} alt="" width="100" />
-                          <Button 
-                            onClick={() => onImageRemove(index)}
-                            icon="pi pi-trash"
-                            className="p-button-rounded p-button-danger"
-                          >
-                          </Button>
+                        <img
+                          src={image["uri"] || image.url}
+                          alt="product image"
+                          width="100"
+                        />
+                        <Button
+                          onClick={() => onImageRemove(index)}
+                          icon="pi pi-trash"
+                          className="p-button-rounded p-button-danger"
+                        ></Button>
                       </div>
                     ))}
                   </div>
                 )}
               </ImageUploading>
-            :<>
-            <ImageUploading
-                multiple
-                value={newImages}
-                onChange={onChangeNewImages}
-                maxNumber={maxNumber}
-                dataURLKey="data_url"
-              >
-                {({
-                  imageList,
-                  onImageUpload,
-                  onImageRemoveAll,
-                  onImageUpdate,
-                  onImageRemove,
-                  isDragging,
-                  dragProps,
-                }) => (
-                  // write your building UI
-                  <div className="upload__image-wrapper">
-                    <Button 
-                      className="p-button-secondary"
-                      style={{color:isDragging?'red':'', width:'100%', height:'50px', marginTop:'20px', justifyContent:'center'}}
-                      onClick={onImageUpload}
-                      {...dragProps}
-                    >
-                      Agrega o arrastra imágenes
-                    </Button >
-                    &nbsp;
-                    {imageList.map((image, index) => (
-
-                      <div key={index} className="image-item">
-                        <img src={image['uri'] || image.url} alt="" width="100" />
-                          <Button 
+            ) : (
+              <>
+                <ImageUploading
+                  multiple
+                  value={newImages}
+                  onChange={onChangeNewImages}
+                  maxNumber={maxNumber}
+                  dataURLKey="data_url"
+                >
+                  {({
+                    imageList,
+                    onImageUpload,
+                    onImageRemoveAll,
+                    onImageUpdate,
+                    onImageRemove,
+                    isDragging,
+                    dragProps,
+                  }) => (
+                    // write your building UI
+                    <div className="upload__image-wrapper">
+                      <Button
+                        className="p-button-secondary"
+                        style={{
+                          color: isDragging ? "red" : "",
+                          width: "100%",
+                          height: "50px",
+                          marginTop: "20px",
+                          justifyContent: "center",
+                        }}
+                        onClick={onImageUpload}
+                        {...dragProps}
+                      >
+                        Agrega o arrastra imágenes
+                      </Button>
+                      &nbsp;
+                      {imageList.map((image, index) => (
+                        <div key={index} className="image-item">
+                          <img
+                            src={image["uri"] || image.url}
+                            alt="new product image"
+                            width="100"
+                          />
+                          <Button
                             onClick={() => onImageRemove(index)}
                             icon="pi pi-trash"
                             className="p-button-rounded p-button-danger"
-                          >
-                          </Button>
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </ImageUploading>
-            </>
-          }
-          <div className="field">
-            <label htmlFor="description">Descripción</label>
-            <InputTextarea
-              id="description"
-              value={product.description}
-              onChange={(e) => onInputChange(e, "description")}
-              required
-              rows={3}
-              cols={20}
-              className={classNames({
-                "p-invalid": submitted && !product.description,
-              })}
-            />
-            {submitted && !product.description && (
-              <small className="p-error">La descripción es obligatoria.</small>
+                          ></Button>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </ImageUploading>
+              </>
             )}
-          </div>
-          <div className="field">
-            <label htmlFor="category">Categoria</label>
-            <Dropdown
-              value={product.category}
-              required
-              options={categories}
-              onChange={(e) => onInputChange(e, "category")}
-              optionLabel="name"
-              placeholder="Selecciona la categoría"
-            />
-            {submitted && !product.category && (
-              <small className="p-error">La categoria es obligatoria.</small>
-            )}
-          </div>
-          <div className="field">
-            <label  htmlFor="status">POPULAR</label>
-            <Checkbox   
-              type="checkbox"
-              onChange={(e) => {
-                  product.status === true?
-                  product.status = false
-                  :
-                  product.status = true
-                  setCheked(!product.status)
-                }} 
-              checked={product.status}>
-            </Checkbox  >
-          </div>
-        </Dialog>
-  
-        <Dialog
-          visible={deleteProductDialog}
-          style={{ width: "450px" }}
-          header="Confirm"
-          modal
-          footer={deleteProductDialogFooter}
-          onHide={hideDeleteProductDialog}
-        >
-          <div className="confirmation-content">
-            <i
-              className="pi pi-exclamation-triangle mr-3"
-              style={{ fontSize: "2rem" }}
-            />
-            {product && (
-              <span>
-                Estas seguro que quiere eliminar: <b>{product.name}</b>?
-              </span>
-            )}
-          </div>
-        </Dialog>
-  
-        <Dialog
-          visible={deleteProductsDialog}
-          style={{ width: "450px" }}
-          header="Confirm"
-          modal
-          footer={deleteProductsDialogFooter}
-          onHide={hideDeleteProductsDialog}
-        >
-          <div className="confirmation-content">
-            <i
-              className="pi pi-exclamation-triangle mr-3"
-              style={{ fontSize: "2rem" }}
-            />
-            {product && (
-              <span>
-                Estas seguro que deseas eliminar los productos seleccionadas?
-              </span>
-            )}
-          </div>
-        </Dialog>
-      </div>
-    )
-    }
+            <div className="field">
+              <label htmlFor="description">Descripción</label>
+              <InputTextarea
+                id="description"
+                value={product.description}
+                onChange={(e) => onInputChange(e, "description")}
+                required
+                rows={3}
+                cols={20}
+                className={classNames({
+                  "p-invalid": submitted && !product.description,
+                })}
+              />
+              {submitted && !product.description && (
+                <small className="p-error">
+                  La descripción es obligatoria.
+                </small>
+              )}
+            </div>
+            <div className="field">
+              <label htmlFor="category">Categoria</label>
+              <Dropdown
+                value={product.category}
+                required
+                options={categories}
+                onChange={(e) => onInputChange(e, "category")}
+                optionLabel="name"
+                placeholder="Selecciona la categoría"
+              />
+              {submitted && !product.category && (
+                <small className="p-error">La categoria es obligatoria.</small>
+              )}
+            </div>
+            <div className="field">
+              <label htmlFor="status">POPULAR</label>
+              <Checkbox
+                type="checkbox"
+                onChange={(e) => {
+                  product.status === true
+                    ? (product.status = false)
+                    : (product.status = true);
+                  setCheked(!product.status);
+                }}
+                checked={product.status}
+              ></Checkbox>
+            </div>
+          </Dialog>
+
+          <Dialog
+            visible={deleteProductDialog}
+            style={{ width: "450px" }}
+            header="Confirm"
+            modal
+            footer={deleteProductDialogFooter}
+            onHide={hideDeleteProductDialog}
+          >
+            <div className="confirmation-content">
+              <i
+                className="pi pi-exclamation-triangle mr-3"
+                style={{ fontSize: "2rem" }}
+              />
+              {product && (
+                <span>
+                  Estas seguro que quiere eliminar: <b>{product.name}</b>?
+                </span>
+              )}
+            </div>
+          </Dialog>
+
+          <Dialog
+            visible={deleteProductsDialog}
+            style={{ width: "450px" }}
+            header="Confirm"
+            modal
+            footer={deleteProductsDialogFooter}
+            onHide={hideDeleteProductsDialog}
+          >
+            <div className="confirmation-content">
+              <i
+                className="pi pi-exclamation-triangle mr-3"
+                style={{ fontSize: "2rem" }}
+              />
+              {product && (
+                <span>
+                  Estas seguro que deseas eliminar los productos seleccionadas?
+                </span>
+              )}
+            </div>
+          </Dialog>
+        </div>
+      )}
     </>
-  )
-}
+  );
+};

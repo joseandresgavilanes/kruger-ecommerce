@@ -7,7 +7,7 @@ const Footer = () => {
     <div className="footer">
       <div className="footer_details">
         <div className="footer_img">
-          <img src="./images/logo.png" />
+          <img src="./images/logo.png" alt="company logo" />
         </div>
         <div className="footer_text">
           Descubre el poder de la tecnología con nuestra amplia selección de
@@ -15,22 +15,22 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="footer_container">
-        <ul className="footer_container_list">
+      <ul className="footer_container">
+        <li className="footer_container_list">
           <h3>Principal</h3>
           <NavLink to={"/"}>Inicio</NavLink>
           <NavLink to="/about">Sobre Nosotros</NavLink>
           <NavLink to={"/contact"}>Contáctanos</NavLink>
           <NavLink to="/faq">Preguntas</NavLink>
-        </ul>
-        <ul className="footer_container_list">
+        </li>
+        <li className="footer_container_list">
           <h3>Explora</h3>
           <NavLink to={"/products"}>Productos</NavLink>
           <NavLink to={"/search"}>Buscar</NavLink>
           <NavLink to={"/services"}>Servicios</NavLink>
           <NavLink to={"/cart"}>Carrito</NavLink>
-        </ul>
-        <ul className="footer_container_list">
+        </li>
+        <li className="footer_container_list">
           <h3>Social</h3>
           <div className="footer_container_list_social">
             <NavLink>
@@ -46,8 +46,8 @@ const Footer = () => {
               <i className="fa-solid fa-envelope"></i>
             </NavLink>
           </div>
-        </ul>
-      </div>
+        </li>
+      </ul>
     </div>
   );
 };

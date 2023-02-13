@@ -7,7 +7,7 @@ const NoOrders = () => {
       <h2 className="heading">¡Oops! No tienes ninguna orden</h2>
 
       <div className="noorders__img">
-        <img src="./images/orders.svg" alt="" />
+        <img src="./images/orders.svg" alt="no orders image" />
       </div>
     </div>
   );

@@ -82,7 +82,7 @@ const CustomerNavBar = () => {
                 <p>Explorar</p>
               </div>
 
-              <div className="mega-menu__content">
+              <ul className="mega-menu__content">
                 <li className="header__item">
                   <NavLink
                     className={({ isActive }) =>
@@ -132,7 +132,7 @@ const CustomerNavBar = () => {
                     <p>Todos los servicios</p>
                   </NavLink>
                 </li>
-              </div>
+              </ul>
             </div>
           </div>
 
@@ -142,7 +142,7 @@ const CustomerNavBar = () => {
                 <p>Acerca de</p>
               </div>
 
-              <div className="mega-menu__content">
+              <ul className="mega-menu__content">
                 <li className="header__item">
                   <NavLink
                     className={({ isActive }) =>
@@ -203,13 +203,13 @@ const CustomerNavBar = () => {
                     <p>Soporte</p>
                   </NavLink>
                 </li>
-              </div>
+              </ul>
             </div>
           </div>
 
           <div className="header__item mega-menu header__navlink">
             <div className="mega-menu__item mega-menu__trigger">
-              <div>
+              <ul>
                 {user !== null ? (
                   <li className="header__item">
                     <NavLink
@@ -237,9 +237,9 @@ const CustomerNavBar = () => {
                     </NavLink>
                   </li>
                 )}
-              </div>
+              </ul>
 
-              <div className="mega-menu__content">
+              <ul className="mega-menu__content">
                 {user != null && (
                   <>
                     <li className="header__item">
@@ -291,7 +291,7 @@ const CustomerNavBar = () => {
                     </li>
                   </>
                 )}
-              </div>
+              </ul>
             </div>
           </div>
         </ul>

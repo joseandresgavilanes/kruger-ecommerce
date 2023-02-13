@@ -23,7 +23,7 @@ const WhyUs = ({ t }) => {
     <section className="whyUs ">
       <motion.img
         src="/images/j.svg"
-        alt=""
+        alt="why us img"
         className="whyUs__img floating"
         initial={"offscreen"}
         whileInView={"onscreen"}
