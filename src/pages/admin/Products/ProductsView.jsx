@@ -356,7 +356,9 @@ export const ProductsView = () => {
   };
 
   const priceBodyTemplate = (rowData) => {
-    return formatCurrency(rowData.price);
+    if(rowData.price){
+      return formatCurrency(rowData.price);
+    }
   };
 
   const actionBodyTemplate = (rowData) => {
