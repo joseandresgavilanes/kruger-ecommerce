@@ -135,6 +135,9 @@ export const ServicesView = () => {
           });
         }
       } else {
+        if(_product.status===null){
+          _product.status=false
+        }
         _product.images = null;
         _product.type = "SERVICE"
         const responsePostProduct = await createProduct(_product);
@@ -461,6 +464,8 @@ export const ServicesView = () => {
             <label htmlFor="stock">Stock</label>
             <InputText
               id="stock"
+              type="number"
+              required
               value={product.stock}
               onChange={(e) => onInputChange(e, "stock")}
               className={classNames({
@@ -477,6 +482,7 @@ export const ServicesView = () => {
               type="number"
               id="price"
               value={product.price}
+              required
               onChange={(e) => onInputChange(e, "price")}
               className={classNames({
                 "p-invalid": submitted && !product.price,
@@ -490,6 +496,8 @@ export const ServicesView = () => {
             <label htmlFor="brand">Cantidad(GB)</label>
             <InputText
               id="brand"
+              type="number"
+              required
               value={product.brand}
               onChange={(e) => onInputChange(e, "brand")}
               className={classNames({
@@ -504,6 +512,7 @@ export const ServicesView = () => {
             <label htmlFor="processor">Redes sociales</label>
             <InputText
               id="processor"
+              required
               value={product.processor}
               onChange={(e) => onInputChange(e, "processor")}
               className={classNames({
@@ -516,13 +525,11 @@ export const ServicesView = () => {
           </div>
           <div className="field">
             <label htmlFor="description">Tiempo</label>
-            <InputTextarea
+            <InputText
               id="description"
               value={product.description}
               onChange={(e) => onInputChange(e, "description")}
               required
-              rows={3}
-              cols={20}
               className={classNames({
                 "p-invalid": submitted && !product.description,
               })}

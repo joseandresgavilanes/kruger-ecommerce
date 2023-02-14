@@ -207,7 +207,7 @@ export const ProductsView = () => {
             {
               uri: null,
               url:
-                "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Flag_of_Unknow.svg/800px-Flag_of_Unknow.svg.png",
+                "https://static.thenounproject.com/png/480873-200.png",
               created: new Date(),
             },
           ];
@@ -505,13 +505,13 @@ export const ProductsView = () => {
                 sortable
                 style={{ minWidth: "2rem" }}
               ></Column>
-              {/* <Column
+              <Column
                 field="price"
                 header="Precio"
                 body={priceBodyTemplate}
                 sortable
                 style={{ minWidth: "1px" }}
-              ></Column> */}
+              ></Column>
               <Column
                 field="stock"
                 header="Stock"
@@ -574,7 +574,9 @@ export const ProductsView = () => {
               <label htmlFor="stock">Stock</label>
               <InputText
                 id="stock"
+                required
                 value={product.stock}
+                type="number"
                 onChange={(e) => onInputChange(e, "stock")}
                 className={classNames({
                   "p-invalid": submitted && !product.stock,
@@ -587,7 +589,9 @@ export const ProductsView = () => {
             <div className="field">
               <label htmlFor="price">Precio</label>
               <InputText
+                required
                 id="price"
+                type="number"
                 value={product.price}
                 onChange={(e) => onInputChange(e, "price")}
                 className={classNames({
@@ -601,6 +605,7 @@ export const ProductsView = () => {
             <div className="field">
               <label htmlFor="brand">Marca</label>
               <InputText
+                required
                 id="brand"
                 value={product.brand}
                 onChange={(e) => onInputChange(e, "brand")}
@@ -615,7 +620,9 @@ export const ProductsView = () => {
             <div className="field">
               <label htmlFor="weight">Peso(gr)</label>
               <InputText
+                required
                 id="weight"
+                type="number"
                 value={product.weight}
                 onChange={(e) => onInputChange(e, "weight")}
                 className={classNames({
@@ -629,6 +636,7 @@ export const ProductsView = () => {
             <div className="field">
               <label htmlFor="processor">Procesador</label>
               <InputText
+                required
                 id="processor"
                 value={product.processor}
                 onChange={(e) => onInputChange(e, "processor")}
@@ -643,6 +651,7 @@ export const ProductsView = () => {
             <div className="field">
               <label htmlFor="youtubeLink">YouTube Link Video</label>
               <InputText
+                required
                 id="youtubeLink"
                 value={product.youtubeLink}
                 onChange={(e) => onInputChange(e, "youtubeLink")}
@@ -798,6 +807,7 @@ export const ProductsView = () => {
               <label htmlFor="status">POPULAR</label>
               <Checkbox
                 type="checkbox"
+                required
                 onChange={(e) => {
                   product.status === true
                     ? (product.status = false)
