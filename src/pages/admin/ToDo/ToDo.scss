@@ -162,6 +162,8 @@ hr {
   opacity: 0;
 }
 
+.todo_main{
+
 [role="dialog"] {
   position: absolute;
   top: 10px;
@@ -174,16 +176,16 @@ hr {
   background-color: hsl(var(--bg) / 0.8);
 }
 
-[role="dialog"] .todo_todo {
-  max-width: 300px;
-  padding: 2em 1.3em 1.3em;
-  background-color: hsl(var(--bg));
-  border-radius: var(--_radius);
-  border: 0.1em solid hsl(var(--accent) / 0.3);
-  box-shadow: 0 -10em 10em hsl(var(--muted)), 0 1em 3em hsl(var(--accent) / 0.2);
-}
 
-.todo_main{
+
+  [role="dialog"] .todo_todo {
+    max-width: 300px;
+    padding: 2em 1.3em 1.3em;
+    background-color: hsl(var(--bg));
+    border-radius: var(--_radius);
+    border: 0.1em solid hsl(var(--accent) / 0.3);
+    box-shadow: 0 -10em 10em hsl(var(--muted)), 0 1em 3em hsl(var(--accent) / 0.2);
+  }
   i{
     font-size: 24px;
   }
