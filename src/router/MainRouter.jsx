@@ -102,7 +102,7 @@ export const MainRouter = () => {
           <Route path="reviews" element={<ReviewsView />} />
           <Route path="customers" element={<CustomersView />} />
           <Route path="calendar" element={<CalendarComponent />} />
-          {/* <Route path="todo" element={<ToDo />} /> */}
+          <Route path="todo" element={<ToDo />} />
           <Route path="text-editor" element={<TextEditor />} />
           <Route path="empressa" element={<UpdateCompany />} />
         </Route>
