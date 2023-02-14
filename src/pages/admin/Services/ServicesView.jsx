@@ -392,13 +392,13 @@ export const ServicesView = () => {
               sortable
               style={{ minWidth: "2rem" }}
             ></Column>
-            {/* <Column
+            <Column
               field="price"
               header="Precio"
               body={priceBodyTemplate}
               sortable
               style={{ minWidth: "1px" }}
-            ></Column> */}
+            ></Column>
             <Column
               field="stock"
               header="Stock"
