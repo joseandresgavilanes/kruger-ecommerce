@@ -472,6 +472,7 @@ export const ServicesView = () => {
           <div className="field">
             <label htmlFor="price">Precio</label>
             <InputText
+              type="number"
               id="price"
               value={product.price}
               onChange={(e) => onInputChange(e, "price")}
@@ -480,7 +481,7 @@ export const ServicesView = () => {
               })}
             />
             {submitted && !product.price && (
-              <small className="p-error">El Precio es obligatoria.</small>
+              <small className="p-error">El Precio es obligatorio.</small>
             )}
           </div>
           <div className="field">
@@ -494,7 +495,7 @@ export const ServicesView = () => {
               })}
             />
             {submitted && !product.brand && (
-              <small className="p-error">La marca es obligatoria.</small>
+              <small className="p-error">La cantidad es obligatoria.</small>
             )}
           </div>
           <div className="field">
@@ -508,7 +509,7 @@ export const ServicesView = () => {
               })}
             />
             {submitted && !product.processor && (
-              <small className="p-error">El Procesador es obligatorio.</small>
+              <small className="p-error">La información sobre redes sociales es obligatorio.</small>
             )}
           </div>
           <div className="field">
@@ -525,7 +526,7 @@ export const ServicesView = () => {
               })}
             />
             {submitted && !product.description && (
-              <small className="p-error">La descripción es obligatoria.</small>
+              <small className="p-error">El tiempo es obligatorio.</small>
             )}
           </div>
           <div className="field">
