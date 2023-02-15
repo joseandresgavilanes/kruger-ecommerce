@@ -55,7 +55,7 @@ const MainInfoHome = ({ t }) => {
       <motion.img
         className="header__info-img floating"
         src="/images/k.svg"
-        alt=""
+        alt="ecommerce image floating"
         initial={"offscreen"}
         whileInView={"onscreen"}
         viewport={{ once: false, amount: 0.3 }}

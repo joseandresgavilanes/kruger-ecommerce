@@ -16,7 +16,7 @@ export const Order = () => {
   const [carts, setCarts] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const { currentUser } = useSelector((state) => state.users);
-  const [src, setSrc] = useState("")
+  const [src, setSrc] = useState("");
 
   useEffect(() => {
     getCarts();
@@ -76,23 +76,25 @@ export const Order = () => {
       userId: cart.user.id,
       status: "RECEIVED",
     };
-    
+
     const responseUpdatedCartStatus = await Promise.resolve(updateCart(_cart));
     let _coupon = {
-      type:'PERCENTAGE',
-      quantity:15,
-      status:"RESERVED",
-      userId:currentUser.id
-    }
+      type: "PERCENTAGE",
+      quantity: 15,
+      status: "RESERVED",
+      userId: currentUser.id,
+    };
     const responsePostCoupon = await Promise.resolve(postCoupon(_coupon));
 
     getCarts();
   };
 
   const onPrintOrderInvoice = async (cart) => {
-  
-    window.open(`http:/localhost:8082/api/carts/${cart.id}/report`, '_blank', 'noreferrer');
-
+    window.open(
+      `http://krugercell-service.sistemaagil.net:8082/api/carts/${cart.id}/report`,
+      "_blank",
+      "noreferrer"
+    );
   };
 
   return carts ? (
@@ -185,15 +187,14 @@ export const Order = () => {
                           label="Descargar recibo"
                           className="p-button-secondary"
                         />
-                        {
-                        src && (
-                              <iframe
-                                title="pdf-viewer"
-                                style={{ width: '100%', height: '500px' }}
-                                src={src}
-                              />
-                          )
-                        }
+                        {src && (
+                          <iframe
+                            title="pdf-viewer"
+                            style={{ width: "100%", height: "500px" }}
+                            src={src}
+                            alt={"recibo"}
+                          />
+                        )}
                       </>
                     ) : (
                       <></>
@@ -208,5 +209,5 @@ export const Order = () => {
     )
   ) : isLoading? <Loading/> : ( 
     <NoOrders />
-  );
+  ) 
 };

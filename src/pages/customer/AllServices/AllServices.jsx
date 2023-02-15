@@ -39,7 +39,7 @@ const AllServices = () => {
           <Service key={item.id} item={item} i={i} />
         ))}
       </div>
-      <div className="spacer layer10"></div>
+      <div className="spacer layer13"></div>
     </motion.div>
   );
 };

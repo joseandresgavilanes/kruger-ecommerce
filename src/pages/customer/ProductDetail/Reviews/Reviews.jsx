@@ -44,7 +44,7 @@ const Reviews = ({ product }) => {
       setReviews(reponseReviews.filter(review => review.productId === product.id))
       setIsLoading(false);
       currentUser?setCanEdit(false):setCanEdit(true)
-    },1500);
+    },500);
   };
 
   return isLoading ? (

@@ -135,6 +135,9 @@ export const ServicesView = () => {
           });
         }
       } else {
+        if(_product.status===null){
+          _product.status=false
+        }
         _product.images = null;
         _product.type = "SERVICE"
         const responsePostProduct = await createProduct(_product);
@@ -258,7 +261,9 @@ export const ServicesView = () => {
   };
 
   const priceBodyTemplate = (rowData) => {
-    return formatCurrency(rowData.price);
+    if(rowData.price){
+      return formatCurrency(rowData.price);
+    }
   };
 
   const actionBodyTemplate = (rowData) => {
@@ -459,6 +464,8 @@ export const ServicesView = () => {
             <label htmlFor="stock">Stock</label>
             <InputText
               id="stock"
+              type="number"
+              required
               value={product.stock}
               onChange={(e) => onInputChange(e, "stock")}
               className={classNames({
@@ -472,21 +479,25 @@ export const ServicesView = () => {
           <div className="field">
             <label htmlFor="price">Precio</label>
             <InputText
+              type="number"
               id="price"
               value={product.price}
+              required
               onChange={(e) => onInputChange(e, "price")}
               className={classNames({
                 "p-invalid": submitted && !product.price,
               })}
             />
             {submitted && !product.price && (
-              <small className="p-error">El Precio es obligatoria.</small>
+              <small className="p-error">El Precio es obligatorio.</small>
             )}
           </div>
           <div className="field">
             <label htmlFor="brand">Cantidad(GB)</label>
             <InputText
               id="brand"
+              type="number"
+              required
               value={product.brand}
               onChange={(e) => onInputChange(e, "brand")}
               className={classNames({
@@ -494,13 +505,14 @@ export const ServicesView = () => {
               })}
             />
             {submitted && !product.brand && (
-              <small className="p-error">La marca es obligatoria.</small>
+              <small className="p-error">La cantidad es obligatoria.</small>
             )}
           </div>
           <div className="field">
             <label htmlFor="processor">Redes sociales</label>
             <InputText
               id="processor"
+              required
               value={product.processor}
               onChange={(e) => onInputChange(e, "processor")}
               className={classNames({
@@ -508,24 +520,22 @@ export const ServicesView = () => {
               })}
             />
             {submitted && !product.processor && (
-              <small className="p-error">El Procesador es obligatorio.</small>
+              <small className="p-error">La información sobre redes sociales es obligatorio.</small>
             )}
           </div>
           <div className="field">
             <label htmlFor="description">Tiempo</label>
-            <InputTextarea
+            <InputText
               id="description"
               value={product.description}
               onChange={(e) => onInputChange(e, "description")}
               required
-              rows={3}
-              cols={20}
               className={classNames({
                 "p-invalid": submitted && !product.description,
               })}
             />
             {submitted && !product.description && (
-              <small className="p-error">La descripción es obligatoria.</small>
+              <small className="p-error">El tiempo es obligatorio.</small>
             )}
           </div>
           <div className="field">

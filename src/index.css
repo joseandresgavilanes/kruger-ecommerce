@@ -36,6 +36,9 @@ body {
   color: var(--secondary-color); 
   width: 100%;
   min-height: 100vh; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   
 }
 
@@ -68,6 +71,8 @@ li, ul{
 }
 
 
+
 button{
   padding: 10px 12px;
+  border: none;
 }

@@ -106,7 +106,7 @@ const UpdateCompany = () => {
   return (
     <div className="update_main">
       <Toast ref={toast} />
-      <h2 className="heading">Actualizar Empresa</h2>
+      <h2 className="heading">Actualizar datos de la empresa</h2>
       <div className="form-container">
         <div className="image-container">
           <img
@@ -119,10 +119,12 @@ const UpdateCompany = () => {
                   : `data:image/jpeg;base64,${company.imageUrl}`
                 : defaultPhoto
             }
+            alt={"company image"}
           />
           <img
             className="pickPhoto"
             src={camera}
+            alt={"new company image"}
             onClick={() => {
               document.getElementById("file-picker").click();
             }}

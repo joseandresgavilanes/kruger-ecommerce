@@ -38,7 +38,7 @@ const AllProducts = () => {
               <Product key={item.id} item={item} i={i} />
             ))}
           </div>
-          <div className="spacer layer10"></div>
+          <div className="spacer layer14"></div>
         </motion.div>
       )}
     </>

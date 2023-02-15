@@ -25,8 +25,8 @@ const Login = () => {
   const warningRef = useRef(null);
 
   useEffect(() => {
-    const today = new Date().toISOString().split('T')[0];
-    setTodayDate(today);
+      const today = new Date().toISOString().split('T')[0];
+      setTodayDate(today);
   }, []);
 
   //empty all fields

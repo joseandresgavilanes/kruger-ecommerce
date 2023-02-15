@@ -34,13 +34,21 @@ const AboutCompany = () => {
           <p>{company.objective}</p>
         </div>
         <div className="company_objective_container ">
-          <img src="./images/company1.svg" className="floating" alt="" />
+          <img
+            src="./images/company1.svg"
+            className="floating"
+            alt="image about the company"
+          />
         </div>
       </div>
 
       <div className="company_history">
         <div className="company_history_container">
-          <img src="./images/company2.svg" className="floating" alt="" />
+          <img
+            src="./images/company2.svg"
+            className="floating"
+            alt="image about the company"
+          />
         </div>
         <div className="company_history_info">
           <h3>
@@ -50,8 +58,8 @@ const AboutCompany = () => {
         </div>
       </div>
 
-      <div className="company_socials floating">
-        <div className="company_socials_card">
+      <div className="company_socials">
+        <div className="company_socials_card floating">
           <i className="fa-brands fa-facebook"></i>
           <p>Facebook</p>
         </div>
