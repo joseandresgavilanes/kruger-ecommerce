@@ -12,15 +12,28 @@ import PixelArt from "./PixelArt/PixelArt";
 import NewArrivals from "./NewArrivals/NewArrivals";
 import { useTranslation } from "react-i18next";
 import TranslationChanger from "./TranslationChanger/TranslationChanger";
+import Modal from "../../../components/Modal/Modal";
+import { useEffect } from "react";
+import { useState } from "react";
 
 const MainPage = () => {
+  // const [isModal, setIsModal] = useState();
+
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     setIsModal(<Modal />);
+  //   }, 4000);
+  //   return () => clearTimeout(timer);
+  // }, []);
+
   const { t, i18n } = useTranslation("global");
   return (
     <div className="mainpage">
+      {/* {isModal} */}
+      <Modal />
       <TranslationChanger t={t} i18n={i18n} />
       <Banner t={t} />
       <MainInfoHome t={t} />
-
       <Products t={t} />
       <HomeExtras t={t} />
       <Services t={t} />
