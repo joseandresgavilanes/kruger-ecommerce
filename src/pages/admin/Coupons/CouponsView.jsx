@@ -421,6 +421,7 @@ export const CouponsView = () => {
           <div className="field">
             <label htmlFor="couponName">Tipo de cupon</label>
             <Dropdown 
+              required
               value={selectedType} 
               options={types} 
               onChange={onTypeChange} 
@@ -434,6 +435,8 @@ export const CouponsView = () => {
           <div className="field">
             <label htmlFor="quantity">Cantidad</label>
             <InputText
+              type="number"
+              required
               id="quantity"
               value={coupon.quantity}
               onChange={(e) => onInputChange(e, "quantity")}
