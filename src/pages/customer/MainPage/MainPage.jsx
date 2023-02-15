@@ -17,19 +17,19 @@ import { useEffect } from "react";
 import { useState } from "react";
 
 const MainPage = () => {
-  // const [isModal, setIsModal] = useState();
+  const [isModal, setIsModal] = useState();
 
-  // useEffect(() => {
-  //   const timer = setTimeout(() => {
-  //     setIsModal(<Modal />);
-  //   }, 4000);
-  //   return () => clearTimeout(timer);
-  // }, []);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsModal(<Modal />);
+    }, 4000);
+    return () => clearTimeout(timer);
+  }, []);
 
   const { t, i18n } = useTranslation("global");
   return (
     <div className="mainpage">
-      {/* {isModal} */}
+      {isModal}
       <Modal />
       <TranslationChanger t={t} i18n={i18n} />
       <Banner t={t} />
