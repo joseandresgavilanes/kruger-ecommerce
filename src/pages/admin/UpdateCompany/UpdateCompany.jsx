@@ -47,10 +47,10 @@ const UpdateCompany = () => {
   const loadCompany = async () => {
     const resp = await getCompany();
     if (resp) {
-      console.log(resp);
+
       setcompany(resp);
     } else {
-      console.log("not valid");
+      showWarning("warn", "No se pudieron cargar los datos de la empresa. Por favor, verifique la conexión o cierre sesión e inicie de nuevo", "", 3000);
     }
   };
 
@@ -71,7 +71,7 @@ const UpdateCompany = () => {
   };
 
   const handleUpdateCompany = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
     let updatedCompany = structuredClone(company);
     updatedCompany.companyName = formRef.current[0].value
       ? formRef.current[0].value
@@ -80,19 +80,28 @@ const UpdateCompany = () => {
     updatedCompany.objective = obj ? obj : company.objective;
     updatedCompany.history = history ? history : company.history;
     updatedCompany.contact = formRef.current[4].value
-      ? formRef.current[3].value
+      ? formRef.current[4].value
       : company.contact;
     updatedCompany.imageUrl = profilePhoto ? profilePhoto : company.imageUrl;
-    console.log(updatedCompany);
-    const resp = await updateCompany(updatedCompany);
-    setDesc("");
-    setHistory("");
-    setObj("");
-    setcompany(updatedCompany);
+    if(!verifyContctIsNumber(updatedCompany.contact)){
+      showWarning("warn", "El contacto solo puede contener números!", "", 3000);
+      return;
+    }
+     const resp = await updateCompany(updatedCompany);
+     console.log(resp);
+     setDesc("");
+     setHistory("");
+     setObj("");
+     setcompany(updatedCompany);
 
     showWarning("success", "Los cambios se han guardados", "", 3000);
     document.getElementById("company-form").reset();
   };
+
+  function verifyContctIsNumber(contact){
+    const regex = /^[0-9]+$/;
+    return regex.test(contact);
+  }
 
   return (
     <div className="update_main">
