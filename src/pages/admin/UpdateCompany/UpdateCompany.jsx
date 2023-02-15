@@ -71,6 +71,7 @@ const UpdateCompany = () => {
   };
 
   const handleUpdateCompany = async (e) => {
+    e.preventDefault()
     let updatedCompany = structuredClone(company);
     updatedCompany.companyName = formRef.current[0].value
       ? formRef.current[0].value
@@ -96,7 +97,7 @@ const UpdateCompany = () => {
   return (
     <div className="update_main">
       <Toast ref={toast} />
-      <h2 className="heading">Actualizar Empresa</h2>
+      <h2 className="heading">Actualizar datos de la empresa</h2>
       <div className="form-container">
         <div className="image-container">
           <img
