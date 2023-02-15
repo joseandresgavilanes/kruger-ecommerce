@@ -5,11 +5,12 @@ import "./Login.scss";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setCurrentUser } from "../../store/user/userSlice";
-import { resetCart } from "../../store/cart/cartSlice";
+import Loading from "../../components/Loading"
 import { motion } from "framer-motion";
 
 const Login = () => {
   const [todayDate, setTodayDate] = useState("");
+  const [isLoading,setIsLoading]=useState(false);
   const signUpForm = useRef(null);
   const loginForm = useRef(null);
   const navigation = useNavigate();
@@ -24,14 +25,8 @@ const Login = () => {
   const warningRef = useRef(null);
 
   useEffect(() => {
-    const date =
-      "" +
-      new Date().getFullYear() +
-      "-" +
-      (new Date().getMonth() + 1) +
-      "-" +
-      new Date().getDate();
-    setTodayDate(date);
+    const today = new Date().toISOString().split('T')[0];
+    setTodayDate(today);
   }, []);
 
   //empty all fields
@@ -45,6 +40,7 @@ const Login = () => {
   //create a new user
   async function handleSignup(e) {
     e.preventDefault();
+    setIsLoading(true);
 
     //creating user from form inputs
     let user = {
@@ -61,12 +57,12 @@ const Login = () => {
     const resp = await signUp(user);
     if (resp) {
       //user registred successfully
-
+      setIsLoading(false);
       emptyFields();
       showWarning("Success!!", "#A1FF69", "black");
     } else {
       //show warning registration did not complete successfully
-
+      setIsLoading(false);
       showWarning("Email is already taken!", "#ff6969", "#12232C");
     }
   }
@@ -91,6 +87,7 @@ const Login = () => {
   //login user
   async function loginUser(e) {
     e.preventDefault();
+    setIsLoading(true);
     let loginRequest = {
       email: e.target[0].value,
       password: e.target[1].value,
@@ -99,17 +96,20 @@ const Login = () => {
     let resp = await signIn(loginRequest);
     if (resp) {
       //login successfull
+      setIsLoading(false);
       localStorage.setItem("currentUser", JSON.stringify(resp));
       dispatch(setCurrentUser(resp));
       navigation("/");
     } else {
       //login failed
       //show warning
+      setIsLoading(false);
       showWarning("Please make sure of the credentials!", "#ff6969", "#12232C");
     }
   }
 
   return (
+    
     <motion.div
       className="sign"
       initial={{ width: 0 }}
@@ -126,6 +126,7 @@ const Login = () => {
         <div className="wariningContiner" id="warningLogin" ref={warningRef}>
           {warningMessage}
         </div>
+        {isLoading&&  <Loading/>}
         <div className="sign_signup">
           <form onSubmit={handleSignup} ref={signUpForm}>
             <label className="sign_label" for="chk" aria-hidden="true">
