@@ -1,8 +1,38 @@
 import React from "react";
+import { useRef } from "react";
 import "./ContactUs.scss";
 import { motion } from "framer-motion";
+import emailjs from "@emailjs/browser";
+import { useNavigate } from "react-router-dom";
 
 const ContactUs = () => {
+  const navigate = useNavigate();
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        "service_u0u98lo",
+        "template_xhqjz89",
+        form.current,
+        "CRmjwBiRUkIqBTrUl"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
+  };
+
+  const handleSubmit = () => {
+    navigate("/");
+  };
+
   return (
     <motion.div
       className="contact"
@@ -12,7 +42,7 @@ const ContactUs = () => {
     >
       <div className="contact_main floating">
         <div className="contact_container">
-          <form>
+          <form ref={form} onSubmit={sendEmail}>
             <label className="contact_label" aria-hidden="true">
               Contáctanos
             </label>
@@ -23,7 +53,7 @@ const ContactUs = () => {
                 <input
                   className="contact_input"
                   type="text"
-                  name="text"
+                  name="user_name"
                   placeholder="Nombre"
                   required
                 />
@@ -34,7 +64,7 @@ const ContactUs = () => {
                 <input
                   className="contact_input"
                   type="email"
-                  name="emial"
+                  name="user_email"
                   placeholder="Email"
                   required
                 />
@@ -42,10 +72,10 @@ const ContactUs = () => {
 
               <div className="contact_item contact_item_text ">
                 <h3 className="contact_label_text">¿En qué te ayudamos?</h3>
-                <input
+                <textarea
                   className="contact_input contact_input_text"
                   type="text"
-                  name="text"
+                  name="message"
                   placeholder="¿En qué te ayudamos?"
                   required
                 />
