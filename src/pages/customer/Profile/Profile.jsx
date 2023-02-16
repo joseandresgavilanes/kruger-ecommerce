@@ -403,41 +403,52 @@ const [isProccessing,setIsProccessing]=useState(false);
             <input className="submit" type="submit" value="Actualizar" />
           </form>
           </div>
-        </TabPanel>
-        <TabPanel header="Ubication">
-          <div className="personalProfile">
-            <h2>Actualizar ubicacion:</h2>
+          
+        </div>
 
-            {userDirections && (
-              <Dropdown
-                value={city}
-                options={userDirections}
-                onChange={(e) => {
-                  onUbiacitonSelected(e);
-                }}
-                optionLabel="name"
-                placeholder="Elige ubicacion"
-              />
-            )}
+      </TabPanel>
+      <TabPanel header="Ubicación">
+        <div className="personalProfile">
+        {isProccessing && <Loading/>}
+          <h6 className="ubication-title">Actualizar ubicacion</h6>
+              <div className="ubication-card-cont">
+          {userDirections && (
+            <Dropdown
+              value={city}
+              options={userDirections}
+              onChange={(e) => {
+                onUbiacitonSelected(e);
+              }}
+              optionLabel="name"
+              placeholder="Elige ubicacion"
+            />
+          )}
 
-            <br />
-            <form
-              onSubmit={handleSubmitUbication}
-              id="formPersonal"
-              ref={ubicationForm}
-            >
-              <input type="text" placeholder="Province" required />
-              <br />
-              <input type="text" placeholder="City" required />
-              <br />
-              <input type="text" placeholder="Street" required />
-              <br />
-              <input type="text" placeholder="Address in detail" required />
-              <br />
-              <div className="matriz-div">
-                <p>Es matriz:</p>
-                <input type="checkbox" />
-              </div>
+          <br />
+          <form
+            onSubmit={handleSubmitUbication}
+            id="formPersonal"
+            ref={ubicationForm}
+          >
+            Provincia:
+            <input type="text" placeholder="Provincia" required />
+            <br /> 
+            Cuidad:
+            <input type="text" placeholder="Ciudad" required />
+            <br /> 
+            Calle:
+            <input type="text" placeholder="Calle" required />
+            <br />  
+            Dirección detallada:
+            <input type="text" placeholder="Dirección detallada" required />
+            <br /> 
+            <br /> 
+            <div className="matriz-div">
+              <p>Establecer como direccion de envío:</p>
+              <input type="checkbox" />
+            
+            </div>
+            <br/>
 
             <input
               className="submit"
@@ -454,25 +465,26 @@ const [isProccessing,setIsProccessing]=useState(false);
             </button>
           )}
           </div>
-        </TabPanel>
-        <TabPanel header="Credentials">
-          <div className="personalProfile">
-            <h2>Cambiar contraseña:</h2>
+        </div>
+      </TabPanel>
+      <TabPanel header="Seguridad">
+        <div className="personalProfile">
+          <h6>Cambiar contraseña</h6>
+          <br />
+          <form onSubmit={handleChangePassword} id="formPersonal">
+            <input type="text" placeholder="Email" />
             <br />
-            <form onSubmit={handleChangePassword} id="formPersonal">
-              <input type="text" placeholder="Email" />
-              <br />
-              <input type="password" placeholder="Old password" />
-              <br />
-              <input type="password" placeholder="New password" />
-              <br />
-              <input type="submit" className="submit" value="Change password" />
-            </form>
-          </div>
-        </TabPanel>
-      </TabView>
-    </div>
-  );
+            <input type="password" placeholder="Actual contraseña" />
+            <br />
+            <input type="password" placeholder="Contraseña nueva" />
+            <br />
+            <input type="submit" className="submit" value="Cambiar contraseña" />
+          </form>
+        </div>
+      </TabPanel>
+    </TabView>
+  </div>
+);
 };
 
 export default Profile;
