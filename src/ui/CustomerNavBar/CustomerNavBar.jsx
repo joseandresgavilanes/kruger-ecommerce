@@ -48,7 +48,7 @@ const CustomerNavBar = () => {
         className="fa-solid fa-bars header__menu-ham"
       ></i>
       <nav ref={navbar} className="header__nav header__nav--close">
-        <ul className="header__list">
+        <ul onClick={handleHamClick} className="header__list">
           {cart.items.length !== 0 ? (
             <div className="header__item mega-menu header__navlink">
               <div className="mega-menu__item mega-menu__trigger">
