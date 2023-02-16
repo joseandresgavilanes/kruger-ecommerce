@@ -30,7 +30,6 @@ const MainPage = () => {
   return (
     <div className="mainpage">
       {isModal}
-      <Modal />
       <TranslationChanger t={t} i18n={i18n} />
       <Banner t={t} />
       <MainInfoHome t={t} />

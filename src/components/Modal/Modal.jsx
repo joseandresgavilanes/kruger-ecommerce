@@ -27,9 +27,9 @@ const Modal = () => {
             <div className="notification__main">
               <h2>¡Aprovecha por tiempo limitado!</h2>
               <p>
-                ¡Obtén los mejores descuentos en celulares! Encuentra las
+                ¡Obtén %15 de descuento en tu primera compra! Encuentra las
                 últimas ofertas en smartphones y servicios de telefonía móvil.
-                ¡Aprovecha ahora nuestras ofertas limitadas!
+                ¡Aprovecha ahora nuestras ofertas!
               </p>
               <NavLink to="/search">
                 <button>Explora</button>
