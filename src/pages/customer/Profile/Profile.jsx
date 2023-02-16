@@ -319,13 +319,13 @@ const Profile = () => {
               id="formPersonal"
               onSubmit={handleUpdatePersonalInfo}
             >
-              First name
+              Nombre
               <input type="text" placeholder={user?.firstName} />
               <br />
-              Last name
+              Apellido
               <input type="text" placeholder={user?.lastName} />
               <br />
-              Phone number
+              Número de teléfono
               <input
                 type="text"
                 placeholder={
@@ -335,7 +335,7 @@ const Profile = () => {
                 }
               />
               <br />
-              Birth date
+              Fecha de nacimiento
               <input
                 type="date"
                 id="start"
@@ -345,13 +345,13 @@ const Profile = () => {
                 max={todayDate}
               />
               <br />
-              <input className="submit" type="submit" value="Update" />
+              <input className="submit" type="submit" value="Actualizar" />
             </form>
           </div>
         </TabPanel>
-        <TabPanel header="Ubication">
+        <TabPanel header="Ubicación">
           <div className="personalProfile">
-            <h2>Actualizar ubicacion:</h2>
+            <h2>Actualizar ubicacion</h2>
 
             {userDirections && (
               <Dropdown
@@ -371,16 +371,16 @@ const Profile = () => {
               id="formPersonal"
               ref={ubicationForm}
             >
-              <input type="text" placeholder="Province" required />
+              <input type="text" placeholder="Provincia" required />
               <br />
-              <input type="text" placeholder="City" required />
+              <input type="text" placeholder="Ciudad" required />
               <br />
-              <input type="text" placeholder="Street" required />
+              <input type="text" placeholder="Calle" required />
               <br />
-              <input type="text" placeholder="Address in detail" required />
+              <input type="text" placeholder="Dirección detallada" required />
               <br />
               <div className="matriz-div">
-                <p>Es matriz:</p>
+                <p>Establecer como direccion de envío:</p>
                 <input type="checkbox" />
               </div>
 
@@ -400,18 +400,18 @@ const Profile = () => {
             )}
           </div>
         </TabPanel>
-        <TabPanel header="Credentials">
+        <TabPanel header="Seguridad">
           <div className="personalProfile">
-            <h2>Cambiar contraseña:</h2>
+            <h2>Cambiar contraseña</h2>
             <br />
             <form onSubmit={handleChangePassword} id="formPersonal">
               <input type="text" placeholder="Email" />
               <br />
-              <input type="password" placeholder="Old password" />
+              <input type="password" placeholder="Actual contraseña" />
               <br />
-              <input type="password" placeholder="New password" />
+              <input type="password" placeholder="Contraseña nueva" />
               <br />
-              <input type="submit" className="submit" value="Change password" />
+              <input type="submit" className="submit" value="Cambiar contraseña" />
             </form>
           </div>
         </TabPanel>
