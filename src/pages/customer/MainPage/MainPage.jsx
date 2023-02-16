@@ -15,6 +15,7 @@ import TranslationChanger from "./TranslationChanger/TranslationChanger";
 import Modal from "../../../components/Modal/Modal";
 import { useEffect } from "react";
 import { useState } from "react";
+import Partners from "./Partners/Partners";
 
 const MainPage = () => {
   const [isModal, setIsModal] = useState();
@@ -37,6 +38,7 @@ const MainPage = () => {
       <HomeExtras t={t} />
       <Services t={t} />
       <NewArrivals t={t} />
+      <Partners />
       <WhyUs t={t} />
       <ExtraCards t={t} />
       <PixelArt />
