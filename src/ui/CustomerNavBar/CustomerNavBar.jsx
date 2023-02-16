@@ -176,7 +176,7 @@ const CustomerNavBar = () => {
                     }
                     to="/company"
                   >
-                    <p>Compañia</p>
+                    <p>Empresa</p>
                   </NavLink>
                 </li>
                 <li className="header__item">
