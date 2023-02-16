@@ -21,6 +21,7 @@
     width: 60%;
     background-color: var(--third-color);
     box-shadow: rgba(255, 255, 255, 0.35) 0px 15px 45px;
+    height: 360px;
 
     @media (max-width:1200px) {
         text-align: center;
@@ -100,6 +101,7 @@
         font-size: 1em;
         font-weight: bold;
         border-radius: 10px;
+        margin-top: 10px;
         transition: .2s ease-in; 
         border: 1px solid var(--primary-color);
 
