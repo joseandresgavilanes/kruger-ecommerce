@@ -13,11 +13,14 @@ import { changePassword } from "../../../helpers/users/changePassword";
 import { Dropdown } from "primereact/dropdown";
 import { Toast } from "primereact/toast";
 import { ConfirmDialog, confirmDialog } from "primereact/confirmdialog";
+import Loading from "../../../components/Loading"
 
 const Profile = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const user = useSelector((state) => state.users.currentUser);
   const [todayDate, setTodayDate] = useState("");
+//cada vez que se haga alguna operacion del base de datos se pone este state como true para mostrar loading
+const [isProccessing,setIsProccessing]=useState(false);
 
   const ubicationForm = useRef(null);
   const personalform = useRef(null);
@@ -55,14 +58,8 @@ const Profile = () => {
   }
 
   function setTodaysDate() {
-    const date =
-      "" +
-      new Date().getFullYear() +
-      "-" +
-      (new Date().getMonth() + 1) +
-      "-" +
-      new Date().getDate();
-    setTodayDate(date);
+    const today = new Date().toISOString().split("T")[0];
+    setTodayDate(today);
   }
 
   /**
@@ -84,13 +81,25 @@ const Profile = () => {
     });
     setUserDirections(resumen);
 
-    if (resumen.length == 1) {
-      setCity(resumen[0]);
+    if (resumen.length >0) {
+      setCity(resumen[resumen.length-1]);
+      
     }
+  }
+
+
+  function validarNombre(nombre) {
+    var regex = /^[a-zA-Z]+$/;
+    return regex.test(nombre);
+  }
+  function validarNumber (number){
+    const regex=/^\+?[0-9]+$/;
+    return regex.test(number);
   }
 
   async function handleSubmitUbication(e) {
     e.preventDefault();
+    setIsProccessing(true);
     const address = {
       province: e.target[0].value,
       city: e.target[1].value,
@@ -152,20 +161,46 @@ const Profile = () => {
     });
   }
 
+  function validarPasswords(oPass,nPass){
+    if(oPass.trim()=="" || nPass.trim()==""){
+      showWarning("warn","Porfavor llenar todos los campos!","",1500);
+      return false;
+    }
+
+    if (oPass.length < 6 || nPass.length < 6) {
+      showWarning("warn","¡Por favor, las contraseñas deben ser iguales o tener al menos 6 caracteres!","",1500);
+      return false;
+    }
+    if(oPass===nPass){
+      showWarning("warn","Las contraseñas no pueden ser iguales!")
+      return false;
+    }
+   
+    return true;
+  }
+
   async function handleChangePassword(e) {
     e.preventDefault();
-
+    setIsProccessing(true);
     const changeCredentialsRequest = {
       email: e.target[0].value,
       oldPassword: e.target[1].value,
       newPassword: e.target[2].value,
     };
+    const valid=validarPasswords(changeCredentialsRequest.oldPassword,changeCredentialsRequest.newPassword);
+    if(!valid){
+      setIsProccessing(false);
+      return;
+    }
+    
     //send the request to the server endpoint
     const resp = await changePassword(changeCredentialsRequest, user.id);
     document.getElementById("formPersonal").reset();
     if (resp != null) {
+      setIsProccessing(false);
       showWarning("success", "Los cambios se han guardados", "", 3000);
     } else {
+      setIsProccessing(false);
       showWarning(
         "warn",
         "Porfavor asegurate de los datos ingresados",
@@ -176,6 +211,7 @@ const Profile = () => {
   }
 
   const updateLocalStorage = (updatedUser, resp) => {
+    setIsProccessing(false);
     if (resp != null) {
       localStorage.setItem("currentUser", JSON.stringify(updatedUser));
       dispatch(setCurrentUser(updatedUser));
@@ -201,6 +237,7 @@ const Profile = () => {
 
   async function handleUpdatePersonalInfo(e) {
     e.preventDefault();
+    setIsProccessing(true);
     let updatedUser = structuredClone(user);
     updatedUser.firstName = personalform.current[0].value
       ? personalform.current[0].value
@@ -216,12 +253,25 @@ const Profile = () => {
       : user.birthDate;
     updatedUser.imageUrl = profilePhoto ? profilePhoto : user.photoUrl;
 
+    if(!validarNombre(updatedUser.firstName) || !validarNombre(updatedUser.lastName)){
+      setIsProccessing(false);
+      showWarning("warn","Porfavor ingresar nombres validos!");
+      return;
+    }if(updatedUser.phoneNumber &&!validarNumber(updatedUser.phoneNumber)){
+      setIsProccessing(false);
+      showWarning("warn","Porfavor ingresar un numero de telefono valido!");
+      return;
+    }
+
+
     const resp = await updatePersonalInfo(updatedUser);
     console.log("updatedUser", updatedUser);
     console.log("resp", resp);
     updateLocalStorage(updatedUser, resp);
 
     document.getElementById("formPersonal").reset();
+
+  
   }
 
   function onResult(imageFile) {
@@ -233,7 +283,7 @@ const Profile = () => {
   }
   function onUbiacitonSelected(e) {
     setCity(e.target.value);
-
+    console.log(e.value.id);
     if (e.value.id >= 0) {
       let selectedItem = user.addresses[e.value.id];
       //fill the form inputs with selected address info
@@ -245,6 +295,8 @@ const Profile = () => {
     } else {
       //caso que el usuario quiere agregar una nueva direccion
       document.getElementById("formPersonal").reset();
+      
+     
     }
   }
 
@@ -267,6 +319,7 @@ const Profile = () => {
     }
   }
   const accept = async () => {
+    setIsProccessing(true);
     const updatedUser = structuredClone(user);
     updatedUser.addresses.splice(city.id, 1);
 
@@ -274,150 +327,164 @@ const Profile = () => {
 
     updateLocalStorage(updatedUser, resp);
   };
-  const reject = () => {};
+  const reject = () => { };
   return (
+  
     <div>
-      <Toast ref={toast} />
-      <ConfirmDialog />
-      <TabView
-        activeIndex={activeIndex}
-        onTabChange={(e) => setActiveIndex(e.index)}
-      >
-        <TabPanel header="Personal">
-          <div className="personalProfile">
-            <div className="profileImageCont">
-              <img
-                className="profilePhoto"
-                ref={photoRef}
-                src={
-                  profilePhoto
-                    ? profilePhoto.startsWith("http")
-                      ? profilePhoto
-                      : `data:image/jpeg;base64,${profilePhoto}`
-                    : defaultUserPhoto
-                }
-                alt="user image"
-              />
-              <img
-                className="pickPhoto"
-                src={camera}
-                alt="new user photo"
-                onClick={() => {
-                  document.getElementById("file-picker").click();
-                }}
-              />
-              <input
-                id="file-picker"
-                accept="image/png, image/jpeg"
-                className="invisible-file-picker"
-                type="file"
-                onChange={handlePhotoPick}
-              />
+    <Toast ref={toast} />
+    <ConfirmDialog />
+    {isProccessing && <Loading/>}
+    <TabView
+      activeIndex={activeIndex}
+      onTabChange={(e) => setActiveIndex(e.index)}
+    >
+      <TabPanel header="Personal">
+      
+        <div className="personalProfile">
+          <h6>Datos Personales</h6>
+         
+          <div className="card">
+          <div className="profileImageCont">
+            <img
+              className="profilePhoto"
+              ref={photoRef}
+              src={
+                profilePhoto
+                  ? profilePhoto.startsWith("http")
+                    ? profilePhoto
+                    : `data:image/jpeg;base64,${profilePhoto}`
+                  : defaultUserPhoto
+              }
+              alt="user image"
+              onClick={() => {
+                document.getElementById("file-picker").click();
+              }}
+            />
+
+            <input
+              id="file-picker"
+              accept="image/png, image/jpeg"
+              className="invisible-file-picker"
+              type="file"
+              onChange={handlePhotoPick}
+            />
+          </div>
+          <form
+            ref={personalform}
+            id="formPersonal"
+            onSubmit={handleUpdatePersonalInfo}
+          >
+            Nombre
+            <input type="text" placeholder={user?.firstName} />
+            <br />
+            Apellido
+            <input type="text" placeholder={user?.lastName} />
+            <br />
+            Número de teléfono
+            <input
+              type="text"
+              placeholder={
+                user?.phoneNumber
+                  ? user.phoneNumber
+                  : "Type your phone number"
+              }
+            />
+            <br />
+            Fecha de nacimiento
+            <input
+              type="date"
+              id="start"
+              name="trip-start"
+              className="sign_input"
+              min="1940-01-01"
+              max={todayDate}
+            />
+            <br />
+            <input className="submit" type="submit" value="Actualizar" />
+          </form>
+          </div>
+          
+        </div>
+
+      </TabPanel>
+      <TabPanel header="Ubicación">
+        <div className="personalProfile">
+        {isProccessing && <Loading/>}
+          <h6 className="ubication-title">Actualizar ubicacion</h6>
+              <div className="ubication-card-cont">
+          {userDirections && (
+            <Dropdown
+              value={city}
+              options={userDirections}
+              onChange={(e) => {
+                onUbiacitonSelected(e);
+              }}
+              optionLabel="name"
+              placeholder="Elige ubicacion"
+            />
+          )}
+
+          <br />
+          <form
+            onSubmit={handleSubmitUbication}
+            id="formPersonal"
+            ref={ubicationForm}
+          >
+            Provincia:
+            <input type="text" placeholder="Provincia" required />
+            <br /> 
+            Cuidad:
+            <input type="text" placeholder="Ciudad" required />
+            <br /> 
+            Calle:
+            <input type="text" placeholder="Calle" required />
+            <br />  
+            Dirección detallada:
+            <input type="text" placeholder="Dirección detallada" required />
+            <br /> 
+            <br /> 
+            <div className="matriz-div">
+              <p>Establecer como direccion de envío:</p>
+              <input type="checkbox" />
+            
             </div>
-            <form
-              ref={personalform}
-              id="formPersonal"
-              onSubmit={handleUpdatePersonalInfo}
+            <br/>
+
+            <input
+              className="submit"
+              type="submit"
+              value="Actualizar direccion"
+            />
+          </form>
+          {city?.id >= 0 && (
+            <button
+              className="delete-direccion-btn"
+              onClick={handleDeleteUbication}
             >
-              Nombre
-              <input type="text" placeholder={user?.firstName} />
-              <br />
-              Apellido
-              <input type="text" placeholder={user?.lastName} />
-              <br />
-              Número de teléfono
-              <input
-                type="text"
-                placeholder={
-                  user?.phoneNumber
-                    ? user.phoneNumber
-                    : "Type your phone number"
-                }
-              />
-              <br />
-              Fecha de nacimiento
-              <input
-                type="date"
-                id="start"
-                name="trip-start"
-                className="sign_input"
-                min="1940-01-01"
-                max={todayDate}
-              />
-              <br />
-              <input className="submit" type="submit" value="Actualizar" />
-            </form>
+              Eliminar direccion
+            </button>
+          )}
           </div>
-        </TabPanel>
-        <TabPanel header="Ubicación">
-          <div className="personalProfile">
-            <h2>Actualizar ubicacion</h2>
-
-            {userDirections && (
-              <Dropdown
-                value={city}
-                options={userDirections}
-                onChange={(e) => {
-                  onUbiacitonSelected(e);
-                }}
-                optionLabel="name"
-                placeholder="Elige ubicacion"
-              />
-            )}
-
+        </div>
+      </TabPanel>
+      <TabPanel header="Seguridad">
+        <div className="personalProfile">
+          <h6>Cambiar contraseña</h6>
+          <br />
+          <form onSubmit={handleChangePassword} id="formPersonal">
+            <input type="text" placeholder="Email" />
             <br />
-            <form
-              onSubmit={handleSubmitUbication}
-              id="formPersonal"
-              ref={ubicationForm}
-            >
-              <input type="text" placeholder="Provincia" required />
-              <br />
-              <input type="text" placeholder="Ciudad" required />
-              <br />
-              <input type="text" placeholder="Calle" required />
-              <br />
-              <input type="text" placeholder="Dirección detallada" required />
-              <br />
-              <div className="matriz-div">
-                <p>Establecer como direccion de envío:</p>
-                <input type="checkbox" />
-              </div>
-
-              <input
-                className="submit"
-                type="submit"
-                value="Actualizar direccion"
-              />
-            </form>
-            {city?.id >= 0 && (
-              <button
-                className="delete-direccion-btn"
-                onClick={handleDeleteUbication}
-              >
-                Eliminar direccion
-              </button>
-            )}
-          </div>
-        </TabPanel>
-        <TabPanel header="Seguridad">
-          <div className="personalProfile">
-            <h2>Cambiar contraseña</h2>
+            <input type="password" placeholder="Actual contraseña" />
             <br />
-            <form onSubmit={handleChangePassword} id="formPersonal">
-              <input type="text" placeholder="Email" />
-              <br />
-              <input type="password" placeholder="Actual contraseña" />
-              <br />
-              <input type="password" placeholder="Contraseña nueva" />
-              <br />
-              <input type="submit" className="submit" value="Cambiar contraseña" />
-            </form>
-          </div>
-        </TabPanel>
-      </TabView>
-    </div>
-  );
+            <input type="password" placeholder="Contraseña nueva" />
+            <br />
+            <input type="submit" className="submit" value="Cambiar contraseña" />
+          </form>
+        </div>
+      </TabPanel>
+    </TabView>
+  </div>
+);
 };
 
 export default Profile;
