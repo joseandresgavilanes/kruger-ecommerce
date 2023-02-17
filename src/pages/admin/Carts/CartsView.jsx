@@ -202,6 +202,16 @@ export const CartsView = () => {
                 onClick={() => confirmDeleteCart(rowData)}
                 title="Eliminar orden"   
           />
+          <Button
+                icon="pi-file-pdf"
+                className="p-button-rounded p-button-warning"
+                onClick={() =>  window.open(
+                          `http://krugercell-service.sistemaagil.net:8082/api/carts/${rowData.id}/report`,
+                          "_blank",
+                          "noreferrer"
+                        )}
+                title="Descargar Factura"   
+          />
         </div>
       )
     }
