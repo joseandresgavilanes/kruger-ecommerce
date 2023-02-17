@@ -26,7 +26,7 @@ const Banner = ({ t }) => {
             />
           </div>
           <div className="text-box">
-            <p>{t("banner-main.text")}</p>
+            <p className="floating">{t("banner-main.text")}</p>
             <h2>{t("banner-main.main")}</h2>
             <h3>{t("banner-main.brand")}</h3>
 
@@ -50,7 +50,7 @@ const Banner = ({ t }) => {
             />
           </div>
           <div className="text-box">
-            <p>Tu nuevo</p>
+            <p className="floating">Tu nuevo</p>
             <h2>CELU</h2>
             <h3>Kruger Cell</h3>
 
@@ -74,7 +74,7 @@ const Banner = ({ t }) => {
             />
           </div>
           <div className="text-box">
-            <p>Las mejores</p>
+            <p className="floating">Las mejores</p>
             <h2>MARCAS</h2>
             <h3>Kruger Cell</h3>
 
@@ -98,7 +98,7 @@ const Banner = ({ t }) => {
             />
           </div>
           <div className="text-box">
-            <p>Renuevate</p>
+            <p className="floating">Renuevate</p>
             <h2>AQUI</h2>
             <h3>Kruger Cell</h3>
 
@@ -122,7 +122,7 @@ const Banner = ({ t }) => {
             />
           </div>
           <div className="text-box">
-            <p>10%</p>
+            <p className="floating">10%</p>
             <h2 className="slider_item_title">MENOS</h2>
             <h3>Kruger Cell</h3>
 
@@ -146,7 +146,7 @@ const Banner = ({ t }) => {
             />
           </div>
           <div className="text-box">
-            <p>Los Mejores</p>
+            <p className="floating">Los Mejores</p>
             <h2>PRECIOS</h2>
             <h3>Kruger Cell</h3>
 
@@ -170,7 +170,7 @@ const Banner = ({ t }) => {
             />
           </div>
           <div className="text-box">
-            <p>Compra</p>
+            <p className="floating">Compra</p>
             <h2>ONLINE</h2>
             <h3>Kruger Cell</h3>
 
@@ -194,7 +194,7 @@ const Banner = ({ t }) => {
             />
           </div>
           <div className="text-box">
-            <p>Compra</p>
+            <p className="floating">Compra</p>
             <h2>AHORA</h2>
             <h3>Kruger Cell</h3>
 

@@ -30,7 +30,7 @@ const AllProducts = () => {
           className="show_products"
           initial={{ width: 0 }}
           animate={{ width: "100%" }}
-          exit={{ x: window.innerWidth, transition: { duration: 0.3 } }}
+          exit={{ x: window.innerWidth, transition: { duration: 3 } }}
         >
           <h2 className="heading show_products_title">Todos los Productos</h2>
           <div className="show_products_container">

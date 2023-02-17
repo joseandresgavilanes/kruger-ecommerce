@@ -1,13 +1,16 @@
-import { CLIENT_ID } from "../Config/config.js";
+import { CLIENT_ID } from "../../../../Config/config.js";
 import React, { useState, useEffect } from "react";
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
-import "./Checkout.scss";
+import "./Paypal.scss";
+import { useNavigate } from "react-router-dom";
 
-const Checkout = () => {
+const Checkout = ({ PayPalCreateOrder, cartaFinalPrice }) => {
   const [show, setShow] = useState(false);
   const [success, setSuccess] = useState(false);
   const [ErrorMessage, setErrorMessage] = useState("");
   const [orderID, setOrderID] = useState(false);
+
+  const navigate = useNavigate();
 
   // creates a paypal order
   const createOrder = (data, actions) => {
@@ -15,16 +18,17 @@ const Checkout = () => {
       .create({
         purchase_units: [
           {
-            description: "Sunflower",
+            description: "Kruger Cell",
             amount: {
               currency_code: "USD",
-              value: 20,
+              value: cartaFinalPrice,
             },
           },
         ],
       })
       .then((orderID) => {
         setOrderID(orderID);
+        PayPalCreateOrder();
         return orderID;
       });
   };
@@ -46,6 +50,7 @@ const Checkout = () => {
     if (success) {
       alert("Payment successful!!");
       console.log("Order successful . Your order id is--", orderID);
+      navigate("/orders");
     }
   }, [success]);
 
