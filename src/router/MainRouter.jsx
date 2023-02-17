@@ -54,6 +54,7 @@ import { AuthVerify } from "../components/AuthVerify/AuthVerify";
 import { setCurrentUser } from "../store/user/userSlice";
 import { Dialog } from 'primereact/dialog';
 import { Button } from 'primereact/button';
+import { resetCart } from "../store/cart/cartSlice";
 
 export const MainRouter = () => {
   const dispatch = useDispatch();
@@ -68,6 +69,7 @@ export const MainRouter = () => {
       localStorage.removeItem("currentUser");
       localStorage.removeItem("cart");
       dispatch(setCurrentUser(null));
+      dispatch(resetCart())
       navigation("/login");
     }, 3000);
 
