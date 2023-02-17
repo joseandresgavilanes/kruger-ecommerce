@@ -7,12 +7,26 @@
     flex-direction: column;
     text-align: center;
     padding: 100px;
-    gap: 3em;
+    gap: 1em;
 
+
+    &_text{
+        line-height: 30px;
+        text-align: center;
+        font-size: 1rem;
+        color: var(--small-text-color);
+        width: 90%;
+        max-width: 900px;
+        @media (max-width: 800px) {
+            font-size: .8rem;
+        }
+
+    }
 
 
 }
 .products_main{
+    margin-top: 20px;
     display: flex;
     flex-wrap: wrap;
     width: 100%;
@@ -20,3 +34,28 @@
     justify-content: center;
     align-items: center;
      }
+
+
+     .view_more{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: .5em;
+        padding: 10px 16px;
+        border-radius: 5px;
+        color: var(--body-bg);
+        background: var(--primary-color) ;
+        font-size: 1em;
+        font-weight: bold;
+        margin-top: 50px;
+        transition: .2s ease-in; 
+        cursor: pointer;
+        border: 1px solid var(--primary-color);
+
+        &:hover{
+            border: 1px solid var(--primary-color);
+            background-color: transparent;
+            color: var(--primary-color);
+        }
+
+    }

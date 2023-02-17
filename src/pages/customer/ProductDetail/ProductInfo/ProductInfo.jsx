@@ -100,7 +100,10 @@ export const ProductInfo = ({ item }) => {
             <i className="fa-solid fa-star"></i>
             <i className="fa-solid fa-star"></i>
           </div>
-          <div className="productDetail_info_price">{product.price} $</div>
+          <div className="productDetail_info_price">
+            <span>{(product.price * 120) / 100}$ </span>
+            {product.price} $
+          </div>
         </div>
 
         <ul className="productDetail_info_extras">
