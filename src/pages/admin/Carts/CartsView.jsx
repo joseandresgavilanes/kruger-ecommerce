@@ -203,8 +203,8 @@ export const CartsView = () => {
                 title="Eliminar orden"   
           />
           <Button
-                icon="pi-file-pdf"
-                className="p-button-rounded p-button-warning"
+                icon="pi pi-file-pdf"
+                className="p-button-rounded p-button-info"
                 onClick={() =>  window.open(
                           `http://krugercell-service.sistemaagil.net:8082/api/carts/${rowData.id}/report`,
                           "_blank",
