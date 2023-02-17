@@ -71,6 +71,8 @@ export const ProductInfo = ({ item }) => {
     showSuccess();
   };
 
+  const finalDiscount = ((product.price * 120) / 100).toFixed(2);
+
   return (
     <div className="productinfo">
       <Toast ref={toast} position="top-left" />
@@ -101,7 +103,7 @@ export const ProductInfo = ({ item }) => {
             <i className="fa-solid fa-star"></i>
           </div>
           <div className="productDetail_info_price">
-            <span>{(product.price * 120) / 100}$ </span>
+            <span>{finalDiscount}$ </span>
             {product.price} $
           </div>
         </div>
