@@ -89,7 +89,7 @@ export const MainRouter = () => {
 
   return (
     <>
-    <Dialog header="Header" footer={()=>renderFooter()} visible={displayBasic} style={{ width: '50vw' }} onHide={() => onHide()}>
+    <Dialog header="Ups!" footer={()=>renderFooter()} visible={displayBasic} style={{ width: '50vw' }} onHide={() => onHide()}>
         <p>Su sesión ha caducado porfavor vuelva a iniciar sesión.</p>
     </Dialog>
     <Routes location={location} key={location.pathname}>
