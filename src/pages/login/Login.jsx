@@ -5,12 +5,12 @@ import "./Login.scss";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setCurrentUser } from "../../store/user/userSlice";
-import Loading from "../../components/Loading"
+import Loading from "../../components/Loading";
 import { motion } from "framer-motion";
 
 const Login = () => {
   const [todayDate, setTodayDate] = useState("");
-  const [isLoading,setIsLoading]=useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const signUpForm = useRef(null);
   const loginForm = useRef(null);
   const navigation = useNavigate();
@@ -25,8 +25,8 @@ const Login = () => {
   const warningRef = useRef(null);
 
   useEffect(() => {
-      const today = new Date().toISOString().split('T')[0];
-      setTodayDate(today);
+    const today = new Date().toISOString().split("T")[0];
+    setTodayDate(today);
   }, []);
 
   //empty all fields
@@ -109,12 +109,11 @@ const Login = () => {
   }
 
   return (
-    
     <motion.div
       className="sign"
       initial={{ width: 0 }}
       animate={{ width: "100%" }}
-      exit={{ x: window.innerWidth, transition: { duration: 0.3 } }}
+      exit={{ x: window.innerWidth, transition: { duration: 10 } }}
     >
       <div className="sign_main">
         <input
@@ -126,7 +125,7 @@ const Login = () => {
         <div className="wariningContiner" id="warningLogin" ref={warningRef}>
           {warningMessage}
         </div>
-        {isLoading&&  <Loading/>}
+        {isLoading && <Loading />}
         <div className="sign_signup">
           <form onSubmit={handleSignup} ref={signUpForm}>
             <label className="sign_label" for="chk" aria-hidden="true">
@@ -189,7 +188,12 @@ const Login = () => {
 
         <div className="sign_login">
           <form ref={loginForm} onSubmit={loginUser}>
-            <label style={{textAlign:'center'}} className="sign_label" for="chk" aria-hidden="true">
+            <label
+              style={{ textAlign: "center" }}
+              className="sign_label"
+              for="chk"
+              aria-hidden="true"
+            >
               Iniciar
             </label>
             <input
@@ -199,7 +203,7 @@ const Login = () => {
               placeholder="Email"
               required
             />
-            
+
             <input
               className="sign_input"
               type="password"
@@ -209,7 +213,14 @@ const Login = () => {
             />
             <button className="sign_btn">Ingresar</button>
           </form>
-          <p className="password_recovery" onClick={()=>{navigation("/password-recovery")}}>¿Olvidaste tu contraseña?</p>
+          <p
+            className="password_recovery"
+            onClick={() => {
+              navigation("/password-recovery");
+            }}
+          >
+            ¿Olvidaste tu contraseña?
+          </p>
         </div>
       </div>
 

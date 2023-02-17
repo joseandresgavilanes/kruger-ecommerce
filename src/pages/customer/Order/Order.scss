@@ -13,6 +13,8 @@
     justify-content: center;
     align-items: center;
     gap: 3em;
+	animation: slide-from-right 0.7s ease-in-out forwards;
+
 }
 
 .cart_header{
@@ -38,6 +40,7 @@
     align-items: stretch;
     flex-direction: column;
     gap: 1.5em;
+	
 }
 
 .cart_action{
