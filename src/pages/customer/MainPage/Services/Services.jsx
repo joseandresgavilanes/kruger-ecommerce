@@ -8,6 +8,7 @@ import "./Services.scss";
 import { motion } from "framer-motion";
 
 import Loading from "../../../../components/Loading";
+import { NavLink } from "react-router-dom";
 
 const Services = ({ t }) => {
   const elementAnimate = {
@@ -49,11 +50,19 @@ const Services = ({ t }) => {
       <h2 className="services_container_title heading">
         {t("service-main.title")}
       </h2>
+      <p className="products_container_text">
+        Aquí encontrarás una selección de los servicios más populares y de alta
+        calidad en el mercado de la telefonía móvil, puedes elegir el que mejor
+        se adapte a tus necesidades.
+      </p>
       <div className="services_main">
         {products.map((item, index) => (
           <Service item={item} key={index} />
         ))}
       </div>
+      <NavLink className={"view_more"} to="/services">
+        Ver más <i class="fa-solid fa-arrow-right"></i>{" "}
+      </NavLink>
       <div className="spacer layer10"></div>
     </motion.section>
   );

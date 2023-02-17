@@ -60,7 +60,7 @@ const Product = ({ item, i }) => {
             <h3 className="card-home__title">{item.name}</h3>
             <section className="card-home__price">
               <h4 className="card-home__price-label">Precio</h4>
-              <span className="card-home__price-value">{item.price}</span>
+              <span className="card-home__price-value">${item.price}</span>
             </section>
             <NavLink
               to="#"
