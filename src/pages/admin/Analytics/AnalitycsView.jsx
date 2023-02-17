@@ -70,7 +70,7 @@ export const AnalitycsView = () => {
               {" "}
               {reviews?.length ? reviews.length : 0}{" "}
             </span>
-            <span className="text text--1"> Reviews </span>
+            <span className="text text--1"> Reseñas </span>
           </div>
           <div className="item item--2 floating">
             <svg
@@ -89,7 +89,7 @@ export const AnalitycsView = () => {
               {" "}
               {products?.length ? products.length : 0}{" "}
             </span>
-            <span className="text text--2"> Products </span>
+            <span className="text text--2"> Productos </span>
           </div>
           <div className="item item--3 floating">
             <svg
@@ -108,7 +108,7 @@ export const AnalitycsView = () => {
               {" "}
               {customers?.length ? customers.length : 0}
             </span>
-            <span className="text text--3"> Customers </span>
+            <span className="text text--3"> Clientes </span>
           </div>
           <div className="item item--4 floating">
             <svg
@@ -127,7 +127,7 @@ export const AnalitycsView = () => {
               {" "}
               {orders?.length ? orders.length : 0}{" "}
             </span>
-            <span className="text text--4 "> Purchases </span>
+            <span className="text text--4 "> Compras </span>
           </div>
         </div>
 

@@ -76,7 +76,7 @@ const RadarComponent = ({customers,orders}) => {
         <PolarAngleAxis dataKey="subject" />
         <PolarRadiusAxis angle={60} domain={[0, 1000]} />
         <Radar
-          name="Mes curriente"
+          name="El mes actual"
           dataKey="A"
           stroke="#a1ff69"
           fill="#a1ff69"
