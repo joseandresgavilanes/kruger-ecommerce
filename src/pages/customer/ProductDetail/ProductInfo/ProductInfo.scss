@@ -87,7 +87,7 @@
     &_stars{
         display: flex;
         gap: .5em;
-        color: rgb(255, 255, 100);
+        color: rgb(181, 184, 99);
         font-size: 1.1rem;
 
     }
@@ -95,6 +95,16 @@
     &_price{
         font-size: 2rem;
         font-weight: 600;
+        position: relative;
+
+        span{
+            position: absolute;
+            top: -10px;
+            left: 100px;
+            font-size: 18px;
+            text-decoration: line-through;
+            color: rgb(255, 74, 74);
+        }
     }
 
     &_extras{
