@@ -11,12 +11,16 @@ import { updateCart } from "../../../helpers/carts/updateCart";
 import NoOrders from "./NoOrders/NoOrders";
 import { getCartReportById } from "../../../helpers/carts/getCartReportById";
 import { postCoupon } from "../../../helpers/coupons/postCoupon";
+import { ConfirmDialog, confirmDialog } from 'primereact/confirmdialog';
+import { Toast } from 'primereact/toast';
+import { useRef } from "react";
 
 export const Order = () => {
   const [carts, setCarts] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const { currentUser } = useSelector((state) => state.users);
   const [src, setSrc] = useState("");
+  const toast = useRef(null);
 
   useEffect(() => {
     getCarts();
@@ -58,6 +62,21 @@ export const Order = () => {
     }
   };
 
+  // const accept = () => {
+  //   toast.current.show({ severity: 'info', summary: 'Orden cancelada', detail: 'Cancelaste tu orden', life: 3000 });
+  // }
+
+  const confirmOnCancelOrder = (cart)=>{
+    confirmDialog({
+      message: '¿Estas seguro que deseas cancelar la orden?, en caso de tener un cupón de descuento adjunto este se perderá.',
+      header: 'CANCELAR ORDEN',
+      icon: 'pi pi-exclamation-triangle',
+      accept: () => onCancelOrder(cart),
+      reject: () => {}
+  });
+  }
+
+
   const onCancelOrder = async (cart) => {
     let _cart = {
       id: cart.id,
@@ -66,8 +85,19 @@ export const Order = () => {
       status: "CANCELED",
     };
     const responseUpdatedCartStatus = await Promise.resolve(updateCart(_cart));
+    toast.current.show({ severity: 'info', summary: 'Orden cancelada', detail: 'Cancelaste tu orden', life: 3000 });
     getCarts();
   };
+
+  const confirmOnReceivedOrder = (cart) =>{
+    confirmDialog({
+      message: '¿Estas seguro de confirmar que tu pedido ha llegado?',
+      header: 'MARCAR COMO RECIBIDO',
+      icon: 'pi pi-exclamation-triangle',
+      accept: () => onReceivedOrder(cart),
+      reject: () => {}
+  });
+  }
 
   const onReceivedOrder = async (cart) => {
     let _cart = {
@@ -85,7 +115,7 @@ export const Order = () => {
       userId: currentUser.id,
     };
     const responsePostCoupon = await Promise.resolve(postCoupon(_coupon));
-
+    toast.current.show({ severity: 'info', summary: 'Orden recibida', detail: 'Marcaste tu orden como recibida', life: 3000 });
     getCarts();
   };
 
@@ -102,6 +132,8 @@ export const Order = () => {
       <Loading />
     ) : (
       <div className="cart">
+        <Toast ref={toast} />
+        <ConfirmDialog />
         <div className="cart_container">
           <div className="cart_header">
             <h3 className="cart_heading">Historial de compras</h3>
@@ -167,13 +199,13 @@ export const Order = () => {
                   <div className="cart__actions">
                     {cart.status === "PAID" ? (
                       <Button
-                        onClick={() => onCancelOrder(cart)}
+                        onClick={() => confirmOnCancelOrder(cart)}
                         label="Cancelar Orden"
                         className="p-button-danger"
                       />
                     ) : cart.status === "IN_TRAVEL" ? (
                       <Button
-                        onClick={() => onReceivedOrder(cart)}
+                        onClick={() => confirmOnReceivedOrder(cart)}
                         style={{ backgroundColor: "#A1FF60" }}
                         label="Marcar como recibida"
                         className="p-button-success"
