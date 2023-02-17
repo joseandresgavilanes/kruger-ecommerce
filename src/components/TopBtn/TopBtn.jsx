@@ -5,7 +5,7 @@ import "./TopBtn.scss";
 const TopBtn = () => {
   return (
     <div className="top_btn">
-      <ScrollToTop color="white" className="top_btn_btn" smooth />;
+      <ScrollToTop color="white" className="top_btn_btn" smooth />
     </div>
   );
 };

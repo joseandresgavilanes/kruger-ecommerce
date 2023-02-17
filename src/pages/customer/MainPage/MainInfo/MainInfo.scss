@@ -60,20 +60,20 @@
     border-radius: 5px;
     border: none;
     cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
 
 }
 
 .header__info-btns button:nth-child(1){
     background-color: var(--primary-color);
     color: var(--body-bg);
-    font-weight: 800;
 }
 
 .header__info-btns button:nth-child(2){
     background-color: transparent ;
     border: 1px solid var(--primary-color);
     color: var(--primary-color);
-    font-weight: 800;
 }
 
 
