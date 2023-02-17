@@ -20,6 +20,16 @@
 }
 
 
+button:hover{
+    transform: scale(0.96);
+    transition: all .2s ease-in-out;
+}
+button:active{
+    transform: scale(1.04);
+    transition: all .2s ease-in-out;
+}
+
+
 /* main animation used many times to make elements "float" */
 
 .floating { 
