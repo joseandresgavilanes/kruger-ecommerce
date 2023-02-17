@@ -18,7 +18,7 @@ const Loading = () => {
           <circle className="back" cx="17" cy="17" r="14"></circle>
           <circle className="front" cx="17" cy="17" r="14"></circle>
         </svg>
-        <div className="text" data-text="Loading"></div>
+        <div className="text" data-text="Loading">Loading</div>
       </div>
     </div>
   );
