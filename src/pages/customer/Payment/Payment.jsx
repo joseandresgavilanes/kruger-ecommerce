@@ -216,7 +216,7 @@ const Payment = () => {
   const PayPalCreateOrder = () => {
     dispatch(
       startCreateOrder(
-        chosenAddress ? chosenAddress : "Dirección default",
+        "Dirección default",
         coupon ? coupon : null,
         cartaSubtotal
       )

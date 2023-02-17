@@ -15,7 +15,7 @@ const Modal = () => {
         isFormOpen ? "modal__main__container" : "modal__main__container__close"
       }
     >
-      <div className="modal__main">
+      <div className="floating modal__main">
         <div className="notification">
           <div className="notification__body">
             <div className="notification__img">
@@ -27,9 +27,9 @@ const Modal = () => {
             <div className="notification__main">
               <h2>¡Aprovecha por tiempo limitado!</h2>
               <p>
-                ¡Obtén cupones de hasta el %15 de descuento en tu primeras compras! Encuentra las
-                últimas ofertas en smartphones y servicios de telefonía móvil.
-                ¡Aprovecha ahora nuestras ofertas!
+                ¡Obtén cupones de hasta el %15 de descuento en tu primeras
+                compras! Encuentra las últimas ofertas en smartphones y
+                servicios de telefonía móvil. ¡Aprovecha ahora nuestras ofertas!
               </p>
               <NavLink to="/search">
                 <button>Explora</button>
