@@ -70,7 +70,7 @@ export const MainRouter = () => {
       localStorage.removeItem("cart");
       dispatch(setCurrentUser(null));
       dispatch(resetCart())
-      navigation("/login");
+      navigation("/");
     }, 3000);
 
   }, [dispatch]);
