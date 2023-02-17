@@ -1,5 +1,5 @@
-import React from "react";
-import { Route, Routes, useLocation } from "react-router-dom";
+import React, { useState } from "react";
+import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 
 import MainPage from "../pages/customer/MainPage/MainPage";
 import Login from "../pages/login/Login";
@@ -49,13 +49,49 @@ import AboutCompany from "../pages/customer/AboutCompany/AboutCompany";
 import CustomerCoupons from "../pages/customer/Cupons/CustomerCoupons";
 import Pomodoro from "../pages/admin/Pomodoro/Pomodoro";
 import PasswordRecovery from "../pages/customer/Passwordrecovery/PasswordRecovery";
+import { useCallback } from "react";
+import { AuthVerify } from "../components/AuthVerify/AuthVerify";
+import { setCurrentUser } from "../store/user/userSlice";
+import { Dialog } from 'primereact/dialog';
+import { Button } from 'primereact/button';
+import { resetCart } from "../store/cart/cartSlice";
 
 export const MainRouter = () => {
   const dispatch = useDispatch();
   dispatch(getCurrentCart());
   const location = useLocation();
+  const navigation = useNavigate();
+  const [displayBasic, setDisplayBasic] = useState(false);
+
+  const logOut = useCallback(() => {
+    setDisplayBasic(true)
+    setTimeout(() => {
+      localStorage.removeItem("currentUser");
+      localStorage.removeItem("cart");
+      dispatch(setCurrentUser(null));
+      dispatch(resetCart())
+      navigation("/");
+    }, 3000);
+
+  }, [dispatch]);
+
+  const onHide = () => {
+    setDisplayBasic(false)
+  }
+
+  const renderFooter = () => {
+    return (
+        <div>
+            <Button label="Aceptar" icon="pi pi-check" onClick={() => onHide()} autoFocus />
+        </div>
+    );
+  }
 
   return (
+    <>
+    <Dialog header="Header" footer={()=>renderFooter()} visible={displayBasic} style={{ width: '50vw' }} onHide={() => onHide()}>
+        <p>Su sesión ha caducado porfavor vuelva a iniciar sesión.</p>
+    </Dialog>
     <Routes location={location} key={location.pathname}>
       <Route path="/" element={<MainPage />} />
       <Route path="/login" element={<Login />} />
@@ -82,7 +118,6 @@ export const MainRouter = () => {
         <Route path="/admin" element={<AdminMainPage />}>
           <Route path="" element={<ProductsView />} />
           <Route path="productivity" element={<Pomodoro />} />
-
           <Route path="analitycs" element={<AnalitycsView />} />
           <Route path="line" element={<LineView />} />
           <Route path="area" element={<AreaView />} />
@@ -108,5 +143,8 @@ export const MainRouter = () => {
         </Route>
       </Route>
     </Routes>
+    <AuthVerify logOut={logOut}/>
+    </>
+
   );
 };
