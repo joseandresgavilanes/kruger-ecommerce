@@ -6,6 +6,7 @@
     justify-content: center;
     align-items: center;
     margin: 20px 0 60px 0;
+    
 }
 .wariningContiner{
     padding: 10px;
@@ -24,8 +25,9 @@
     border-radius: 10px;
     background-color: var(--card-bg);
     box-shadow: 5px 20px 50px #000;
-
-
+    
+    animation: slide-from-right 0.7s ease-in-out forwards;
+    
     .sign_check{
         display: none;
     }

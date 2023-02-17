@@ -7,6 +7,7 @@ import Footer from "./ui/Footer/Footer";
 import "./App.css";
 import KommunicateChat from "./ChatBot/chat";
 import AdminNavBar from "./ui/AdminNavBar/AdminNavBar";
+import TopBtn from "./components/TopBtn/TopBtn";
 
 function App() {
   const dispatch = useDispatch();
@@ -28,6 +29,7 @@ function App() {
       )}
       <MainRouter />
       <KommunicateChat />
+      <TopBtn />
       <Footer />
     </div>
   );
