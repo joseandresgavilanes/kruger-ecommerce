@@ -4,6 +4,7 @@ import CartItem from "../Cart/CartItem/CartItem";
 import { Toast } from "primereact/toast";
 import { ConfirmDialog, confirmDialog } from "primereact/confirmdialog";
 import Coupon from "./Coupon/Coupon";
+import Paypal from "./Paypal/Paypal";
 
 import "./Payment.scss";
 import { startCreateOrder } from "../../../store/cart/thunks";
@@ -14,7 +15,6 @@ import {
   setTotalPriceWithIva,
   updateTotalPrice,
 } from "../../../store/cart/cartSlice";
-import Checkout from "../../../components/Checkout";
 
 const Payment = () => {
   const { cart } = useSelector((state) => state.cart);
@@ -33,7 +33,7 @@ const Payment = () => {
   const [cardNumber, setCardNumber] = useState();
   const [cardDate, setCardDate] = useState();
   const [cardCode, setCardCode] = useState();
-  const [cardHolder,setCardHolder]=useState();
+  const [cardHolder, setCardHolder] = useState();
 
   useEffect(() => {
     //este es el precio total que esta en la carta antes de agregar la iva
@@ -183,33 +183,45 @@ const Payment = () => {
 
   //update card details
   const onChangeCardNumber = (event) => {
-   
     //asegurar que solo se esta ingresando numeros
-    const cleanedValue = event.target.value.replace(/\D/g, '');
+    const cleanedValue = event.target.value.replace(/\D/g, "");
     //agregar un espacio despues de cada 4 digitos y borrar el resto de espacios si existen
-    //y la parte del substr es para coger solo los primeros 16 digitos 
-    const formattedValue = cleanedValue.substr(0,16).replace(/(\d{4})/g, '$1 ').trim();
+    //y la parte del substr es para coger solo los primeros 16 digitos
+    const formattedValue = cleanedValue
+      .substr(0, 16)
+      .replace(/(\d{4})/g, "$1 ")
+      .trim();
     setCardNumber(formattedValue);
- 
   };
   const onChangeCardDate = (event) => {
-    const onlyNumbers=event.target.value.replace(/\D/g,'');
-    //despues de cada 2 nueros agregar 
-    let formatedDate= onlyNumbers.replace(/(\d{2})/g,"$1/").trim();
-    //solo coger hasta el index 5 
-    formatedDate= formatedDate.substr(0,5);
-    setCardDate(formatedDate)
+    const onlyNumbers = event.target.value.replace(/\D/g, "");
+    //despues de cada 2 nueros agregar
+    let formatedDate = onlyNumbers.replace(/(\d{2})/g, "$1/").trim();
+    //solo coger hasta el index 5
+    formatedDate = formatedDate.substr(0, 5);
+    setCardDate(formatedDate);
   };
   const onChangeCardCode = (event) => {
-    const onlyNumbers=event.target.value.replace(/\D/g,'');
-setCardCode(onlyNumbers.trim().substr(0,4));
-
+    const onlyNumbers = event.target.value.replace(/\D/g, "");
+    setCardCode(onlyNumbers.trim().substr(0, 4));
   };
 
-  const onChangeCardHolder=(event)=>{
-    const onlyLetters=event.target.value.replace(/\d/g,'').toUpperCase();
+  const onChangeCardHolder = (event) => {
+    const onlyLetters = event.target.value.replace(/\d/g, "").toUpperCase();
     setCardHolder(onlyLetters);
-  }
+  };
+
+  //try to create paypal order
+
+  const PayPalCreateOrder = () => {
+    dispatch(
+      startCreateOrder(
+        chosenAddress ? chosenAddress : "Dirección default",
+        coupon ? coupon : null,
+        cartaSubtotal
+      )
+    );
+  };
 
   return (
     <section className="cart__checkout">
@@ -250,16 +262,18 @@ setCardCode(onlyNumbers.trim().substr(0,4));
         <div className="cart__card">
           <div className="cart__card-content">
             <h5>Número de la tarjeta</h5>
-            <h6 id="label-cardnumber">{cardNumber? cardNumber :"1234 5678 9123 4567" }</h6>
+            <h6 id="label-cardnumber">
+              {cardNumber ? cardNumber : "1234 5678 9123 4567"}
+            </h6>
             <h5>
               Expiración<span>CVC</span>
             </h5>
             <h6 id="label-cardexpiration">
-              {cardDate? cardDate : "03/08"}
-              <span>{cardCode? cardCode : "1234"}</span>
+              {cardDate ? cardDate : "03/08"}
+              <span>{cardCode ? cardCode : "1234"}</span>
             </h6>
-            <br/>
-            <p>{cardHolder? cardHolder : "Nombre del titular"}</p>
+            <br />
+            <p>{cardHolder ? cardHolder : "Nombre del titular"}</p>
           </div>
           <div className="cart__wave"></div>
         </div>
@@ -373,7 +387,10 @@ setCardCode(onlyNumbers.trim().substr(0,4));
           >
             <span>COMPRAR</span>
           </button>
-          <Checkout />
+          <Paypal
+            cartaFinalPrice={cartaFinalPrice}
+            PayPalCreateOrder={PayPalCreateOrder}
+          />
         </div>
       </div>
     </section>
