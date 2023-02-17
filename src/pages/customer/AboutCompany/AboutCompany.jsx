@@ -10,6 +10,7 @@ const AboutCompany = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    window.scrollTo(0, 0)
     getCompanny();
   }, []);
 
@@ -24,12 +25,12 @@ const AboutCompany = () => {
     <Loading />
   ) : (
     <div className="company">
-      <h2 className="heading">About {company.companyName}</h2>
+      <h2 className="heading">Acerca de {company.companyName}</h2>
       <p className="company_description">{company.description}</p>
       <div className="company_objective">
         <div className="company_objective_info">
           <h3>
-            Our <span>Company</span>
+            Nuestra <span>empresa</span>
           </h3>
           <p>{company.objective}</p>
         </div>
@@ -52,7 +53,7 @@ const AboutCompany = () => {
         </div>
         <div className="company_history_info">
           <h3>
-            <span>Our</span> History
+            <span>Nuestra</span> historia
           </h3>
           <p>{company.history}</p>
         </div>

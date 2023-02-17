@@ -27,7 +27,7 @@ const RelatedProducts = ({ product }) => {
         <Loading />
       ) : (
         <section className="relatedproducts">
-          <h2>Related Products</h2>
+          <h2>Productos similares</h2>
           <div className="relatedproducts_main">
             {relatedProducts.map((item, index, i) => (
               <Product key={index} item={item} i={i} />

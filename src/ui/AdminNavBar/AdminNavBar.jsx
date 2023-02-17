@@ -150,6 +150,18 @@ const AdminNavBar = () => {
                         ? "header__navlink active-link"
                         : "header__navlink"
                     }
+                    to="/company"
+                  >
+                    <p>Empresa</p>
+                  </NavLink>
+                </li>
+                <li className="header__item">
+                  <NavLink
+                    className={({ isActive }) =>
+                      isActive
+                        ? "header__navlink active-link"
+                        : "header__navlink"
+                    }
                     to="/faq"
                   >
                     <p>Preguntas frecuentes</p>

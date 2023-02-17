@@ -27,7 +27,7 @@ const Modal = () => {
             <div className="notification__main">
               <h2>¡Aprovecha por tiempo limitado!</h2>
               <p>
-                ¡Obtén %15 de descuento en tu primera compra! Encuentra las
+                ¡Obtén cupones de hasta el %15 de descuento en tu primeras compras! Encuentra las
                 últimas ofertas en smartphones y servicios de telefonía móvil.
                 ¡Aprovecha ahora nuestras ofertas!
               </p>
