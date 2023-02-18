@@ -22,6 +22,7 @@ const ContactUs = () => {
       .then(
         (result) => {
           console.log(result.text);
+          document.getElementById("emailForm").reset();
         },
         (error) => {
           console.log(error.text);
@@ -42,7 +43,7 @@ const ContactUs = () => {
     >
       <div className="contact_main floating">
         <div className="contact_container">
-          <form ref={form} onSubmit={sendEmail}>
+          <form ref={form} onSubmit={sendEmail} id="emailForm">
             <label className="contact_label" aria-hidden="true">
               Contáctanos
             </label>
