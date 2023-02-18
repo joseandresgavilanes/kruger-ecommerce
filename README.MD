@@ -356,21 +356,6 @@ https://www.canva.com/design/DAFYCnzshW0/IHXueSG0vspImXk2f9Z4JA/view?utm_content
 
 ![image](https://user-images.githubusercontent.com/76002851/219828475-6bc61e36-10a0-466c-b056-70dd8d60c42e.png)
 
-
-### Campaña Publicitaria
-https://www.canva.com/design/DAFasgGtINM/LLapu53pO_WBBAnEDFagwA/watch?utm_content=DAFasgGtINM&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
-
-![image](https://user-images.githubusercontent.com/76002851/219828561-dd2d2de6-a06c-488d-b427-ee1afbcc20d7.png)
-
-
-### Pitch Deck
-
-https://www.canva.com/design/DAFarm6EBr0/p4uKnyPVBez0l2dP0JHehA/view?utm_content=DAFarm6EBr0&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
-
-![image](https://user-images.githubusercontent.com/76002851/219828612-f3fdb8aa-3ff7-4545-b655-344991bcb3f0.png)
-
-
-
 ---
 
 <!-- CONTRIBUTING -->
