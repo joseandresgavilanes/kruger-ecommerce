@@ -72,8 +72,8 @@ export const MainRouter = () => {
       localStorage.removeItem("cart");
       dispatch(setCurrentUser(null));
       dispatch(resetCart())
-      navigation("/");
       window.location.reload(true)
+      navigation("/login");
     }, 3000);
 
   }, [dispatch]);
