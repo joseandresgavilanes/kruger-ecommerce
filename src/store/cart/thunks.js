@@ -22,7 +22,6 @@ export const startCreateOrder = (shipmentAddress,orderCoupon= null,orderSubTotal
 
         dispatch(setShipmentAddress({shipmentAddress}))
 
-
         let _order = {
             ...getState().cart.cart,
             addressId: shipmentAddress.id,
@@ -30,10 +29,7 @@ export const startCreateOrder = (shipmentAddress,orderCoupon= null,orderSubTotal
             subTotal:orderSubTotal
         }
 
-  
-
         const response = await Promise.resolve(postOrder(_order,currentUser.id));
-
 
         //Limpiar el carrito
         dispatch(resetCart())
