@@ -6,7 +6,7 @@
 
   <h1 style="font-size: 60px; font-weight: 700" align="center">Kruger Cell</h1
 	  
-
+  ![fngypqvr](https://user-images.githubusercontent.com/76002851/219839701-1f33ce98-c423-433c-a12d-bccdbf004ec7.gif)
 
 ![react](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 ![redux](https://img.shields.io/badge/Redux-593D88?style=for-the-badge&logo=redux&logoColor=white)
@@ -67,7 +67,6 @@
 <hr/>
 <br/>
 
-  ![fngypqvr](https://user-images.githubusercontent.com/76002851/219839701-1f33ce98-c423-433c-a12d-bccdbf004ec7.gif)
 
 # 📱 About The Project
 
