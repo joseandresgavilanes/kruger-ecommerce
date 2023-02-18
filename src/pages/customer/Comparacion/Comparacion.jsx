@@ -47,7 +47,8 @@ const Comparacion = () => {
       it.Model.toLowerCase().includes(value.toLowerCase())
     );
 
-    setArr(results);
+    results.length>0? setArr(results):setArr(null);
+
   };
 
   return (

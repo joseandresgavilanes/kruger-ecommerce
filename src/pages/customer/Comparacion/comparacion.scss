@@ -122,6 +122,9 @@
         background-color: #525252; 
         border-radius: 10px;
         color: var(--heading-color);
+        max-height: 350px;
+        min-width: 200px;
+      overflow-y: scroll;
 
         .search-result-item{
           padding: 5px 0px;
