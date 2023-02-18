@@ -121,7 +121,7 @@ export const Order = () => {
 
   const onPrintOrderInvoice = async (cart) => {
     window.open(
-      `https://krugercell.sistemaagil.net/api/carts/${cart.id}/report`,
+      `https://kcell.sistemaagil.net/api/carts/${cart.id}/report`,
       "_blank",
       "noreferrer"
     );
