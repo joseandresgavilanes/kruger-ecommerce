@@ -73,6 +73,7 @@ export const MainRouter = () => {
       dispatch(setCurrentUser(null));
       dispatch(resetCart())
       navigation("/");
+      window.location.reload(true)
     }, 3000);
 
   }, [dispatch]);
