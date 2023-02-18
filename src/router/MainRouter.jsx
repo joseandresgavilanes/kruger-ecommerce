@@ -53,8 +53,8 @@ import NoCard from "../pages/customer/NoCard/NoCard";
 import { useCallback } from "react";
 import { AuthVerify } from "../components/AuthVerify/AuthVerify";
 import { setCurrentUser } from "../store/user/userSlice";
-import { Dialog } from 'primereact/dialog';
-import { Button } from 'primereact/button';
+import { Dialog } from "primereact/dialog";
+import { Button } from "primereact/button";
 import { resetCart } from "../store/cart/cartSlice";
 import Comparacion from "../pages/customer/Comparacion/Comparacion";
 
@@ -66,89 +66,98 @@ export const MainRouter = () => {
   const [displayBasic, setDisplayBasic] = useState(false);
 
   const logOut = useCallback(() => {
-    setDisplayBasic(true)
+    setDisplayBasic(true);
     setTimeout(() => {
       localStorage.removeItem("currentUser");
       localStorage.removeItem("cart");
       dispatch(setCurrentUser(null));
-      dispatch(resetCart())
+      dispatch(resetCart());
       navigation("/");
     }, 3000);
-
   }, [dispatch]);
 
   const onHide = () => {
-    setDisplayBasic(false)
-  }
+    setDisplayBasic(false);
+  };
 
   const renderFooter = () => {
     return (
-        <div>
-            <Button label="Aceptar" icon="pi pi-check" onClick={() => onHide()} autoFocus />
-        </div>
+      <div>
+        <Button
+          label="Aceptar"
+          icon="pi pi-check"
+          onClick={() => onHide()}
+          autoFocus
+        />
+      </div>
     );
-  }
+  };
 
   return (
     <>
-    <Dialog header="Ups!" footer={()=>renderFooter()} visible={displayBasic} style={{ width: '50vw' }} onHide={() => onHide()}>
+      <Dialog
+        header="Ups!"
+        footer={() => renderFooter()}
+        visible={displayBasic}
+        style={{ width: "50vw" }}
+        onHide={() => onHide()}
+      >
         <h5>Su sesión ha caducado porfavor vuelva a iniciar sesión.</h5>
-    </Dialog>
-    <Routes location={location} key={location.pathname}>
-      <Route path="/" element={<MainPage />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/search" element={<SearchProductPage />} />
-      <Route path="/about" element={<AboutUs />} />
-      <Route path="/product/:id" element={<ProductDetail />} />
-      <Route path="/products" element={<AllProducts />} />
-      <Route path="/service/:id" element="" />
-      <Route path="/services" element={<AllServices />} />
-      <Route path="/contact" element={<ContactUs />} />
-      <Route path="/faq" element={<Faq />} />
-      <Route path="/company" element={<AboutCompany />} />
-      <Route path="/support" element={<Support />} />
-      <Route path="/testimonials/:id" element="" />
-      <Route path="/password-recovery" element={<PasswordRecovery />} />
-      <Route  path="/comparacion" element={<Comparacion/>}/>
-      <Route element={<ProtectedRoutes />}>
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/payment" element={<Payment />} />
-        <Route path="/no-card" element={<NoCard />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/orders" element={<Order />} />
-        <Route path="/coupons" element={<CustomerCoupons />} />
-      </Route>
-      <Route element={<ProtectedAdminRoutes />}>
-        <Route path="/admin" element={<AdminMainPage />}>
-          <Route path="" element={<ProductsView />} />
-          <Route path="productivity" element={<Pomodoro />} />
-          <Route path="analitycs" element={<AnalitycsView />} />
-          <Route path="line" element={<LineView />} />
-          <Route path="area" element={<AreaView />} />
-          <Route path="bar" element={<BarView />} />
-          <Route path="composed" element={<ComposedView />} />
-          <Route path="funnel" element={<FunnelView />} />
-          <Route path="pie" element={<PieView />} />
-          <Route path="radar" element={<RadarView />} />
-          <Route path="radial" element={<RadialView />} />
-          <Route path="sankey" element={<SankeyView />} />
-          <Route path="tree" element={<TreeView />} />
-          <Route path="admins" element={<AdminsView />} />
-          <Route path="products" element={<ProductsView />} />
-          <Route path="services" element={<ServicesView />} />
-          <Route path="coupons" element={<CouponsView />} />
-          <Route path="carts" element={<CartsView />} />
-          <Route path="reviews" element={<ReviewsView />} />
-          <Route path="customers" element={<CustomersView />} />
-          <Route path="calendar" element={<CalendarComponent />} />
-          <Route path="todo" element={<ToDo />} />
-          <Route path="text-editor" element={<TextEditor />} />
-          <Route path="empressa" element={<UpdateCompany />} />
+      </Dialog>
+      <Routes location={location} key={location.pathname}>
+        <Route path="/" element={<MainPage />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/search" element={<SearchProductPage />} />
+        <Route path="/about" element={<AboutUs />} />
+        <Route path="/product/:id" element={<ProductDetail />} />
+        <Route path="/products" element={<AllProducts />} />
+        <Route path="/service/:id" element="" />
+        <Route path="/services" element={<AllServices />} />
+        <Route path="/contact" element={<ContactUs />} />
+        <Route path="/faq" element={<Faq />} />
+        <Route path="/company" element={<AboutCompany />} />
+        <Route path="/support" element={<Support />} />
+        <Route path="/testimonials/:id" element="" />
+        <Route path="/password-recovery" element={<PasswordRecovery />} />
+        <Route path="/comparison" element={<Comparacion />} />
+        <Route element={<ProtectedRoutes />}>
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/payment" element={<Payment />} />
+          <Route path="/no-card" element={<NoCard />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/orders" element={<Order />} />
+          <Route path="/coupons" element={<CustomerCoupons />} />
         </Route>
-      </Route>
-    </Routes>
-    <AuthVerify logOut={logOut}/>
+        <Route element={<ProtectedAdminRoutes />}>
+          <Route path="/admin" element={<AdminMainPage />}>
+            <Route path="" element={<ProductsView />} />
+            <Route path="productivity" element={<Pomodoro />} />
+            <Route path="analitycs" element={<AnalitycsView />} />
+            <Route path="line" element={<LineView />} />
+            <Route path="area" element={<AreaView />} />
+            <Route path="bar" element={<BarView />} />
+            <Route path="composed" element={<ComposedView />} />
+            <Route path="funnel" element={<FunnelView />} />
+            <Route path="pie" element={<PieView />} />
+            <Route path="radar" element={<RadarView />} />
+            <Route path="radial" element={<RadialView />} />
+            <Route path="sankey" element={<SankeyView />} />
+            <Route path="tree" element={<TreeView />} />
+            <Route path="admins" element={<AdminsView />} />
+            <Route path="products" element={<ProductsView />} />
+            <Route path="services" element={<ServicesView />} />
+            <Route path="coupons" element={<CouponsView />} />
+            <Route path="carts" element={<CartsView />} />
+            <Route path="reviews" element={<ReviewsView />} />
+            <Route path="customers" element={<CustomersView />} />
+            <Route path="calendar" element={<CalendarComponent />} />
+            <Route path="todo" element={<ToDo />} />
+            <Route path="text-editor" element={<TextEditor />} />
+            <Route path="empressa" element={<UpdateCompany />} />
+          </Route>
+        </Route>
+      </Routes>
+      <AuthVerify logOut={logOut} />
     </>
-
   );
 };
