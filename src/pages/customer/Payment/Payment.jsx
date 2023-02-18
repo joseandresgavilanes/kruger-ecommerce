@@ -10,7 +10,7 @@ import "./Payment.scss";
 import { startCreateOrder } from "../../../store/cart/thunks";
 import { useEffect } from "react";
 import { Dropdown } from "primereact/dropdown";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import {
   setTotalPriceWithIva,
   updateTotalPrice,
@@ -391,6 +391,10 @@ const Payment = () => {
             cartaFinalPrice={cartaFinalPrice}
             PayPalCreateOrder={PayPalCreateOrder}
           />
+          <NavLink className={"payment__no-card"} to="/no-card">
+            ¿No tienes tarjeta? ¿Prefieres una transferencia o depósito
+            bancario?
+          </NavLink>
         </div>
       </div>
     </section>

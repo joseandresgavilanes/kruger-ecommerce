@@ -49,6 +49,7 @@ import AboutCompany from "../pages/customer/AboutCompany/AboutCompany";
 import CustomerCoupons from "../pages/customer/Cupons/CustomerCoupons";
 import Pomodoro from "../pages/admin/Pomodoro/Pomodoro";
 import PasswordRecovery from "../pages/customer/Passwordrecovery/PasswordRecovery";
+import NoCard from "../pages/customer/NoCard/NoCard";
 import { useCallback } from "react";
 import { AuthVerify } from "../components/AuthVerify/AuthVerify";
 import { setCurrentUser } from "../store/user/userSlice";
@@ -110,6 +111,7 @@ export const MainRouter = () => {
       <Route element={<ProtectedRoutes />}>
         <Route path="/cart" element={<Cart />} />
         <Route path="/payment" element={<Payment />} />
+        <Route path="/no-card" element={<NoCard />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/orders" element={<Order />} />
         <Route path="/coupons" element={<CustomerCoupons />} />

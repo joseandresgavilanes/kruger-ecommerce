@@ -362,7 +362,19 @@ Payment
   top: -70%;
 }
 
-
+.payment__no-card{
+  margin-top: 10px;
+    text-align: center;
+    justify-content: center;
+   font-size: 0.8rem;
+   cursor: pointer;
+   text-decoration:underline;
+  }
+  
+  .payment__no-card:hover{
+    color: #A1FF69;
+    transition: 0.2s ease-in;
+}
 
 
 @media (max-width: 700px){

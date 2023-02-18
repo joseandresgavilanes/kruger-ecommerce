@@ -1,0 +1,59 @@
+.nocard{
+    width: 100%;
+    min-height: 100vh ;
+    padding: 70px 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1em;
+    text-align: center;
+    animation: slide-from-right 0.7s ease-in-out forwards;
+
+
+    &_main{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 1em;
+        width: 80%;
+        max-width: 900px;
+
+
+        &_text{
+            line-height: 30px;
+
+            span{
+                font-weight: 600;
+            }
+        }
+        span{
+            color: var(--heading-color);
+    
+        }
+    }
+
+
+    .card_data_title{
+        font-size: 1.9rem;
+        color: var(--heading-color);
+    }
+    .card_data{
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+
+
+        p{
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        span{
+            color: var(--small-text-color);
+        }
+    
+    }
+
+}
