@@ -66,19 +66,17 @@ export const MainRouter = () => {
   const [displayBasic, setDisplayBasic] = useState(false);
 
   const logOut = useCallback(() => {
+    localStorage.removeItem("currentUser");
+    localStorage.removeItem("cart");
+    dispatch(setCurrentUser(null));
+    dispatch(resetCart())
     setDisplayBasic(true);
-    setTimeout(() => {
-      localStorage.removeItem("currentUser");
-      localStorage.removeItem("cart");
-      dispatch(setCurrentUser(null));
-      dispatch(resetCart())
-      navigation("/login");
-      window.location.reload(true)
-    }, 3000);
   }, [dispatch]);
 
   const onHide = () => {
     setDisplayBasic(false);
+    navigation("/");
+    window.location.reload(true)
   };
 
   const renderFooter = () => {
