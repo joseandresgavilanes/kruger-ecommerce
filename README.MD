@@ -5,10 +5,6 @@
   </a>
 
   <h1 style="font-size: 60px; font-weight: 700" align="center">Kruger Cell</h1
-  ![fneceeo](https://user-images.githubusercontent.com/76002851/219830902-87a5a904-d283-45d0-921f-9e28e9517937.gif)
-
-
-
 
 ![react](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 ![redux](https://img.shields.io/badge/Redux-593D88?style=for-the-badge&logo=redux&logoColor=white)
@@ -21,6 +17,9 @@
 
   <p align="center">https://kruger-cell.vercel.app</p>
 
+	![rraxtujx](https://user-images.githubusercontent.com/76002851/219832205-c968be08-d68f-4dc3-8a9a-08e75c961113.gif)
+
+	
 </h4>
 
 ---
