@@ -3,7 +3,10 @@ import "./Support.scss";
 const Support = () => {
   return (
     <div className="support">
-      <h2 className="heading">¿Necesitas Ayuda?</h2>
+      <h2 className="heading">
+        <span>¿Necesitas </span>
+        Ayuda?
+      </h2>
       <div className="support_img">
         <img src="./images/support.svg" alt="IT support" className="floating" />
       </div>
