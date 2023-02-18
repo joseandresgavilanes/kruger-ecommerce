@@ -9,6 +9,10 @@
     min-height: 100vh;
     padding: 20% 100px 20px 100px;
     position: relative;
+    cursor: pointer;
+
+
+ 
 }
 
 .header__info-content{
@@ -16,6 +20,21 @@
     display: flex;
     gap: 1em;
     flex-direction: column;
+
+    
+    &:hover .header__info-title span {
+        background-color: var(--secondary-color);
+        transition: 0.3s ease-in-out;
+        color: var(--body-bg);
+        padding: 0 20px;
+    }
+    
+    
+    &:hover .header__info-title{
+        transition: 0.3s ease-in;
+        animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+
+     }
 }
 
 .header__info-content h3{
@@ -164,3 +183,22 @@
     background-image: url("../../../../assets/svg/layout10.svg");
 }
 
+
+
+@keyframes shake {
+    10%, 90% {
+      transform: translate3d(-1px, 0, 0);
+    }
+    
+    20%, 80% {
+      transform: translate3d(2px, 0, 0);
+    }
+  
+    30%, 50%, 70% {
+      transform: translate3d(-4px, 0, 0);
+    }
+  
+    40%, 60% {
+      transform: translate3d(4px, 0, 0);
+    }
+  }

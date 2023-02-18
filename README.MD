@@ -328,6 +328,36 @@ $ npm run dev
 - [✔] Implementar un componente de búsqueda
 - [✔] Ofrecer un carrito de compras personalizado
 
+---
+# Important Links
+
+### JIRA
+- Durante el proyecto utilizamos Jira para la gestión de las tareas.
+![image](https://user-images.githubusercontent.com/76002851/219827965-334a6f47-d7c9-479f-9bce-4e34afd35c1b.png)
+
+
+### QA TESTING
+- Durante el proyecto contamos con el apoyo de un QA Tester profesional que nos fue de mucha ayuda para descubrir bugs para posteriormente resolverlos.
+https://docs.google.com/spreadsheets/d/1u5Iqlb98WW66Ic8rTCqCeHdcMnQZQ4tn/edit?usp=sharing&ouid=105786575482012496109&rtpof=true&sd=true
+
+![image](https://user-images.githubusercontent.com/76002851/219828339-0a674303-b082-4271-b833-16fdd3e303e1.png)
+
+
+###  Documentación Profesional
+
+https://docs.google.com/document/d/1g0TmSEV_PS24XeQA6SFd0nXNhD62haBr/edit?usp=sharing&ouid=105786575482012496109&rtpof=true&sd=true
+
+![image](https://user-images.githubusercontent.com/76002851/219828452-41421f64-2042-49d2-861e-4c5fd75100b4.png)
+
+
+### Proceso de planeación general del proyecto
+
+https://www.canva.com/design/DAFYCnzshW0/IHXueSG0vspImXk2f9Z4JA/view?utm_content=DAFYCnzshW0&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
+
+![image](https://user-images.githubusercontent.com/76002851/219828475-6bc61e36-10a0-466c-b056-70dd8d60c42e.png)
+
+---
+
 <!-- CONTRIBUTING -->
 <br/>
 

@@ -132,6 +132,19 @@ const CustomerNavBar = () => {
                     <p>Todos los servicios</p>
                   </NavLink>
                 </li>
+
+                <li className="header__item">
+                  <NavLink
+                    className={({ isActive }) =>
+                      isActive
+                        ? "header__navlink active-link"
+                        : "header__navlink"
+                    }
+                    to="/comparison"
+                  >
+                    <p>Compara</p>
+                  </NavLink>
+                </li>
               </ul>
             </div>
           </div>
