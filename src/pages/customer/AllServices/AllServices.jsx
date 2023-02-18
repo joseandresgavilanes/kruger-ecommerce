@@ -31,7 +31,7 @@ const AllServices = () => {
       className="show_services"
       initial={{ width: 0 }}
       animate={{ width: "100%" }}
-      exit={{ x: window.innerWidth, transition: { duration: 0.3 } }}
+      exit={{ x: window.innerWidth, transition: { duration: 3 } }}
     >
       <h2 className="heading show_services_title">Todo los Servicios</h2>
       <div className="show_services_container">

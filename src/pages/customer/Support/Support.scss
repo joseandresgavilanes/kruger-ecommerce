@@ -8,7 +8,14 @@
     flex-direction: column;
     gap: 1em;
     text-align: center;
+    animation: slide-from-right 0.7s ease-in-out forwards;
 
+    h2{
+      span{
+        color: var(--heading-color);
+      }
+      margin-bottom: 10px;
+    }
 
     .support_cards{
       margin: 40px 0;

@@ -4,17 +4,17 @@ import CartItem from "../Cart/CartItem/CartItem";
 import { Toast } from "primereact/toast";
 import { ConfirmDialog, confirmDialog } from "primereact/confirmdialog";
 import Coupon from "./Coupon/Coupon";
+import Paypal from "./Paypal/Paypal";
 
 import "./Payment.scss";
 import { startCreateOrder } from "../../../store/cart/thunks";
 import { useEffect } from "react";
 import { Dropdown } from "primereact/dropdown";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import {
   setTotalPriceWithIva,
   updateTotalPrice,
 } from "../../../store/cart/cartSlice";
-import Checkout from "../../../components/Checkout";
 
 const Payment = () => {
   const { cart } = useSelector((state) => state.cart);
@@ -30,9 +30,10 @@ const Payment = () => {
   const [cartaFinalPrice, setCartaFinalPrice] = useState(0);
   const [cartaSubtotal, setCartaSubtotal] = useState(0);
   const [priceAfterDiscount, setPriceAfterDiscount] = useState(0);
-  const [cardNumber, setCardNumber] = useState("1234 5678 9123 4567");
-  const [cardDate, setCardDate] = useState("03 / 2008");
-  const [cardCode, setCardCode] = useState("1234");
+  const [cardNumber, setCardNumber] = useState();
+  const [cardDate, setCardDate] = useState();
+  const [cardCode, setCardCode] = useState();
+  const [cardHolder, setCardHolder] = useState();
 
   useEffect(() => {
     //este es el precio total que esta en la carta antes de agregar la iva
@@ -181,9 +182,46 @@ const Payment = () => {
   };
 
   //update card details
-  const onChangeCardNumber = (event) => setCardNumber(event.target.value);
-  const onChangeCardDate = (event) => setCardDate(event.target.value);
-  const onChangeCardCode = (event) => setCardCode(event.target.value);
+  const onChangeCardNumber = (event) => {
+    //asegurar que solo se esta ingresando numeros
+    const cleanedValue = event.target.value.replace(/\D/g, "");
+    //agregar un espacio despues de cada 4 digitos y borrar el resto de espacios si existen
+    //y la parte del substr es para coger solo los primeros 16 digitos
+    const formattedValue = cleanedValue
+      .substr(0, 16)
+      .replace(/(\d{4})/g, "$1 ")
+      .trim();
+    setCardNumber(formattedValue);
+  };
+  const onChangeCardDate = (event) => {
+    const onlyNumbers = event.target.value.replace(/\D/g, "");
+    //despues de cada 2 nueros agregar
+    let formatedDate = onlyNumbers.replace(/(\d{2})/g, "$1/").trim();
+    //solo coger hasta el index 5
+    formatedDate = formatedDate.substr(0, 5);
+    setCardDate(formatedDate);
+  };
+  const onChangeCardCode = (event) => {
+    const onlyNumbers = event.target.value.replace(/\D/g, "");
+    setCardCode(onlyNumbers.trim().substr(0, 4));
+  };
+
+  const onChangeCardHolder = (event) => {
+    const onlyLetters = event.target.value.replace(/\d/g, "").toUpperCase();
+    setCardHolder(onlyLetters);
+  };
+
+  //try to create paypal order
+
+  const PayPalCreateOrder = () => {
+    dispatch(
+      startCreateOrder(
+        "Dirección default",
+        coupon ? coupon : null,
+        cartaSubtotal
+      )
+    );
+  };
 
   return (
     <section className="cart__checkout">
@@ -224,14 +262,18 @@ const Payment = () => {
         <div className="cart__card">
           <div className="cart__card-content">
             <h5>Número de la tarjeta</h5>
-            <h6 id="label-cardnumber">{cardNumber}</h6>
+            <h6 id="label-cardnumber">
+              {cardNumber ? cardNumber : "1234 5678 9123 4567"}
+            </h6>
             <h5>
               Expiración<span>CVC</span>
             </h5>
             <h6 id="label-cardexpiration">
-              {cardDate}
-              <span>{cardCode}</span>
+              {cardDate ? cardDate : "03/08"}
+              <span>{cardCode ? cardCode : "1234"}</span>
             </h6>
+            <br />
+            <p>{cardHolder ? cardHolder : "Nombre del titular"}</p>
           </div>
           <div className="cart__wave"></div>
         </div>
@@ -245,6 +287,7 @@ const Payment = () => {
               pattern="\d*"
               title="Card Number"
               onChange={onChangeCardNumber}
+              value={cardNumber}
             />
           </p>
 
@@ -254,10 +297,11 @@ const Payment = () => {
                 type="text"
                 id="cardexpiration"
                 name="cardexpiration"
-                placeholder="03 / 08"
+                placeholder="03/08"
                 pattern="\d*"
                 title="Card Expiration Date"
                 onChange={onChangeCardDate}
+                value={cardDate}
               />
             </p>
             <p className="field">
@@ -269,6 +313,7 @@ const Payment = () => {
                 pattern="\d*"
                 title="CVC Code"
                 onChange={onChangeCardCode}
+                value={cardCode}
               />
             </p>
           </div>
@@ -278,7 +323,9 @@ const Payment = () => {
               id="cardnumber"
               name="cardnumber"
               placeholder="Nombre de la tarjeta"
-              title="Card Number"
+              title="Card holder name"
+              value={cardHolder}
+              onChange={onChangeCardHolder}
             />
           </p>
           <p className="cart__field">
@@ -340,7 +387,14 @@ const Payment = () => {
           >
             <span>COMPRAR</span>
           </button>
-          <Checkout />
+          <Paypal
+            cartaFinalPrice={cartaFinalPrice}
+            PayPalCreateOrder={PayPalCreateOrder}
+          />
+          <NavLink className={"payment__no-card"} to="/no-card">
+            ¿No tienes tarjeta? ¿Prefieres una transferencia o depósito
+            bancario?
+          </NavLink>
         </div>
       </div>
     </section>

@@ -1,6 +1,7 @@
 import React from "react";
 import "./MainInfo.scss";
 import { motion } from "framer-motion";
+import { NavLink } from "react-router-dom";
 
 const MainInfoHome = ({ t }) => {
   const elementAnimate = {
@@ -33,12 +34,16 @@ const MainInfoHome = ({ t }) => {
       >
         <h3>{t("header-main.slogan")}</h3>
         <h2 className="header__info-title">
-          <span>{t("header-main.span1")}</span> {t("header-main.presentation")}
-          <span> {t("header-main.span2")}</span>
+          <span>{t("header-main.span1")}</span>
+          {t("header-main.presentation")} <span>{t("header-main.span2")}</span>
         </h2>
         <div className="header__info-btns">
-          <button>{t("header-main.btn1")}</button>
-          <button>{t("header-main.btn2")}</button>
+          <button>
+            <NavLink to="/products">{t("header-main.btn1")}</NavLink>
+          </button>
+          <button>
+            <NavLink to="/services">{t("header-main.btn2")}</NavLink>
+          </button>
         </div>
         <div className="header__info-trust">
           <div>
