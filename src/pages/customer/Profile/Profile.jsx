@@ -138,6 +138,7 @@ const [isProccessing,setIsProccessing]=useState(false);
           "",
           3000
         );
+        setIsProccessing(false);
         return;
       }
       updatedUser.addresses[city.id] = address;
