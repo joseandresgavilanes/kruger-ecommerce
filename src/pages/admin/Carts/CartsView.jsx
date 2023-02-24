@@ -206,7 +206,7 @@ export const CartsView = () => {
                 icon="pi pi-file-pdf"
                 className="p-button-rounded p-button-info"
                 onClick={() =>  window.open(
-                          `http://krugercell-service.sistemaagil.net:8082/api/carts/${rowData.id}/report`,
+                          `https://kcell.sistemaagil.net/api/carts/${rowData.id}/report`,
                           "_blank",
                           "noreferrer"
                         )}
