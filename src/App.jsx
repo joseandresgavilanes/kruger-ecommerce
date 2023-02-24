@@ -8,6 +8,7 @@ import "./App.css";
 import KommunicateChat from "./ChatBot/chat";
 import AdminNavBar from "./ui/AdminNavBar/AdminNavBar";
 import TopBtn from "./components/TopBtn/TopBtn";
+import Presentation from "./components/Presentation/Presentation";
 
 function App() {
   const dispatch = useDispatch();
@@ -20,18 +21,30 @@ function App() {
       dispatch(setCurrentUser(jsonUser));
     }
   }, []);
+
+  const [presentation, setPresentation] = useState(true);
+  setTimeout(() => {
+    setPresentation(false);
+  }, 15000);
+
   return (
-    <div className="main">
-      {currentUser === null || currentUser.role === "CUSTOMER" ? (
-        <CustomerNavBar />
+    <>
+      {presentation ? (
+        <Presentation />
       ) : (
-        <AdminNavBar />
+        <div className="main">
+          {currentUser === null || currentUser.role === "CUSTOMER" ? (
+            <CustomerNavBar />
+          ) : (
+            <AdminNavBar />
+          )}
+          <MainRouter />
+          <KommunicateChat />
+          <TopBtn />
+          <Footer />
+        </div>
       )}
-      <MainRouter />
-      <KommunicateChat />
-      <TopBtn />
-      <Footer />
-    </div>
+    </>
   );
 }
 

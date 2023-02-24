@@ -21,7 +21,7 @@ const Banner = ({ t }) => {
           <div className="slider_img_container">
             <img
               className="slider_img"
-              src="https://imagekit.androidphoria.com/wp-content/uploads/Fondo-negro-ahorra-bateria-en-movil.jpg"
+              src="https://images.unsplash.com/photo-1624204731525-995bd565b9c1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE0fHx8ZW58MHx8fHw%3D&w=1000&q=80"
               alt="phone image"
             />
           </div>
@@ -165,7 +165,7 @@ const Banner = ({ t }) => {
           <div className="slider_img_container">
             <img
               className="slider_img"
-              src="https://images.unsplash.com/photo-1624204731525-995bd565b9c1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE0fHx8ZW58MHx8fHw%3D&w=1000&q=80"
+              src="https://imagekit.androidphoria.com/wp-content/uploads/Fondo-negro-ahorra-bateria-en-movil.jpg"
               alt="phone image 5"
             />
           </div>
