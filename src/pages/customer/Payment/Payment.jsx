@@ -273,7 +273,7 @@ const Payment = () => {
               <span>{cardCode ? cardCode : "1234"}</span>
             </h6>
             <br />
-            <p>{cardHolder ? cardHolder : "Nombre del titular"}</p>
+            <h6>{cardHolder ? cardHolder : "Nombre del titular"}</h6>
           </div>
           <div className="cart__wave"></div>
         </div>
