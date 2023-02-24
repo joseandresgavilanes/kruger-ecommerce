@@ -6,7 +6,9 @@
 	align-items: center;
     background-color: var(--secondary-card);
     border-radius: 10px;
-
+    @media (max-width:800px) {
+        font-size: 10px;
+    }
 }
 .cart_image-box{
     display: flex;
