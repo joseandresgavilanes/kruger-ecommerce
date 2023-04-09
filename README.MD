@@ -413,6 +413,15 @@ Kruger Cell esa distribuida bajo los terminos de Apache License Version 2.0. La 
 
 <hr/>
 
+<img style="border-radius: 50% !important;" src="![image](https://user-images.githubusercontent.com/76002851/230748313-aa91b41d-3e87-46bb-82a8-79f3a35ce88e.png)" width="100px;" alt="photo author"/>
+
+<sub><b>Fausto Centurion (QA Tester) </b></sub>
+<br />
+
+[![linkedin][linkedin.js]][linkedin3-url] [![github][github.js]][github3-url]
+
+<hr/>
+
 <!-- ACKNOWLEDGMENTS -->
 
 <br/>
@@ -441,7 +450,9 @@ Kruger Cell esa distribuida bajo los terminos de Apache License Version 2.0. La 
 [linkedin-url]: https://www.linkedin.com/in/jose-andres-gavilanes-2954691b5/1
 [linkedin2-url]: https://www.linkedin.com/in/jose-andres-gavilanes-2954691b5/
 [linkedin3-url]: https://www.linkedin.com/in/jose-andres-gavilanes-2954691b5/
+[linkedin4-url]: https://www.linkedin.com/in/jose-andres-gavilanes-2954691b5/
 [github.js]: https://img.shields.io/badge/-GitHub-181717?logo=GitHub
 [github-url]: https://github.com/joseandresgavilanes
 [github2-url]: https://github.com/KenanAljaber
 [github3-url]: https://github.com/khebinSd
+[github4-url]: https://github.com/khebinSd
