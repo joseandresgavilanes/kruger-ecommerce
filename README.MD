@@ -17,7 +17,7 @@
 
 <h4 align="center">
 
-  <p align="center">https://kruger-cell.vercel.app</p>
+  <p align="center">Link: https://kruger-cell.vercel.app</p>
 	
 </h4>
 
