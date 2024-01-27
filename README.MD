@@ -70,22 +70,29 @@
 
 # 📱 About The Project
 
-Este proyecto de programación se enfoca en el desarrollo de un ecommerce de celulares. El objetivo es crear una plataforma en línea fácil de usar y accesible para los clientes, donde puedan navegar y comprar dispositivos móviles de diferentes marcas y modelos.
+This programming project focuses on the development of a mobile ecommerce. The goal is to create an easy-to-use and accessible online platform for customers, where they can browse and purchase mobile devices of different brands and models.
 
-La plataforma incluirá una página principal que muestre los productos destacados y una sección de búsqueda avanzada para ayudar a los clientes a encontrar el teléfono que desean. Cada producto tendrá su propia página con detalles completos sobre las especificaciones técnicas, imágenes y opiniones de los clientes.
+The platform will include a home page displaying featured products and an advanced search section to help customers find the phone they want. Each product will have its own page with full details on technical specifications, images, and customer reviews.
 
-Además, se implementará un carrito de compras para que los clientes puedan agregar los productos que desean comprar y proceder con el pago en línea a través de una pasarela segura. También se incluirán opciones de envío y seguimiento del paquete para que los clientes puedan monitorear el progreso de su compra.
+Additionally, a shopping cart will be implemented so that customers can add the products they wish to purchase and proceed with online payment through a secure gateway. Shipping and package tracking options will also be included so customers can monitor the progress of their purchases.
 
-El proyecto también incluirá un panel de administración para que el equipo de ecommerce pueda administrar el catálogo de productos, procesar los pedidos y monitorear las estadísticas de la tienda en línea.
+The project will also include an administration panel so that the e-commerce team can manage the product catalog, process orders, and monitor online store statistics.
 
-En resumen, este proyecto de programación brindará a los clientes una experiencia de compra en línea fluida y segura para comprar sus dispositivos móviles, y al mismo tiempo, brindará una solución eficiente y fácil de usar para el equipo de ecommerce.
+In short, this programming project will provide customers with a seamless and secure online shopping experience for purchasing their mobile devices, and at the same time, provide an efficient and easy-to-use solution for the e-commerce team.
+
+### General project planning process
+
+https://www.canva.com/design/DAFYCnzshW0/IHXueSG0vspImXk2f9Z4JA/view?utm_content=DAFYCnzshW0&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
+
+![image](https://user-images.githubusercontent.com/76002851/219828475-6bc61e36-10a0-466c-b056-70dd8d60c42e.png)
+
 
 ### What can you do?
 
-- Puedes explorar los porductos y servicios más nuevos y de última demanda. ✔📱🎇
-- Buscar por medio de varios filtros el producto ideal para ti.
-- Crear tu cuenta e ingresar con tus credenciales para poder realizar acciones específicas.
-- Comprar, cancelar y confirmar tu pedido en cualquier momento.
+- You can explore the newest and most in-demand products and services. ✔📱🎇
+- Search through several filters for the ideal product for you.
+- Create your account and log in with your credentials to perform specific actions.
+- Buy, cancel, and confirm your order at any time.
 
 # 🔨 Frontend Built with
 
@@ -112,11 +119,11 @@ It's necessary to have git 😺 in your computer.
 ```bash
 # Clone Repository
 $ git clone https://github.com/joseandresgavilanes/kruger-ecommerce
-# Go to server folder
+# Go to the server folder
 $ cd kruger-ecommerce
 # Install Dependencies
 $ npm i
-# Run Aplication with create react app
+# Run Application with create react app
 $ npm run dev
 ```
 
@@ -127,95 +134,95 @@ $ npm run dev
 
   <h1 style="font-size: 60px; font-weight: 700" align="center">Customer</h1>
 
-- En nuestra página puedes explorar las marcas y modelos de teléfonos móviles que ofrecemos, incluyendo imágenes de alta calidad y descripciones detalladas sobre nuestra empresa. Todo esto lo podrás hacer sin iniciar sesión.
+- On our page you can explore the brands and models of mobile phones we offer, including high-quality images and detailed descriptions about our company. You can do all this without logging in.
 
-- Ofrecemos promociones y descuentos en los productos y servicios que vendemos.
+- We offer promotions and discounts on the products and services we sell.
 
-- Proporcionar información sobre los planes de servicios de telefonía móvil que ofrecemos, como tarifas, cobertura, y opciones de contrato.
+- Provide information about the mobile phone service plans we offer, such as rates, coverage, and contract options.
 
 ![Kruger Cell - Google Chrome 2023-02-10 12-39-11](https://user-images.githubusercontent.com/76002851/218163080-04b8e5ff-4390-4b65-8d95-d2b68aff1acd.gif)
 
-- Tenemos varias pestañas por las cuales podrás navegar y enterarte más de los que nuestra página ofrece.
+- We have several tabs through which you can navigate and find out more about what our page offers.
 
 ![Kruger Cell - Google Chrome 2023-02-10 12-39-50](https://user-images.githubusercontent.com/76002851/218163795-c94efff5-62ec-4e52-a874-9f75bb3cdfb5.gif)
 
-- Puedes explorar toda nuestra variedad de productos y servicios, así pódrás visualizar cuál es tu mejor opción.
+- You can explore our entire variety of products and services, so you can see which is your best option.
 
 ![Kruger Cell - Google Chrome 2023-02-10 12-42-02](https://user-images.githubusercontent.com/76002851/218164576-82e6fd1e-1c73-4aa7-8ff9-66ec7a3f4662.gif)
 
-- Podrás contactarte con nosotros para poder ayudarte en cualquier proyecto que necesites.
-- Puedes obtener más información sobre los desarrolladores que hicieron posible esta página.
-- Puedes ver más información sobre nuestra compañía, nuestra historia y qué hacemos.
+- You can contact us so we can help you with any project you need.
+- You can learn more about the developers who made this page possible.
+- You can see more information about our company, our history, and what we do.
 
 ![Kruger Cell - Google Chrome 2023-02-10 12-42-25](https://user-images.githubusercontent.com/76002851/218165037-6b5a055a-0673-41f7-bd57-856d7ea262de.gif)
 
-- ¿Tienes alguna pregunta? Puedes mirar nuestra sección de "Preguntas Frecuentes" para revisar si tu pregunta no ha sido resuelta con anterioridad.
+- Do you have any question? You can look at our "Frequently Asked Questions" section to see if your question has not been answered previously.
 
 ![Kruger Cell - Google Chrome 2023-02-10 12-42-53](https://user-images.githubusercontent.com/76002851/218165154-7bcd6914-d38d-49c8-b99c-0737c518589b.gif)
 
-- Una sección de soporte al cliente eficiente es crucial para el éxito de nuestra tienda de ecommerce enfocada a celulares y servicios telefónicos. Aquí hay algunos elementos que dofrecemos.
+- An efficient customer support section is crucial to the success of our ecommerce store focused on cell phones and telephone services. Here are some items we offer.
 
-- Un sistema de chat en vivo para brindar una respuesta rápida y personalizada a las preguntas de los clientes por medio de Whatsapp.
+- A live chat system to provide a quick and personalized response to customer questions via Whatsapp.
 
-- Un número de teléfono al que los clientes puedan llamar para hablar con un representante de atención al cliente.
+- A phone number that customers can call to speak with a customer service representative.
 
-- Una dirección de correo electrónico a la que los clientes puedan enviar sus preguntas y solicitudes de soporte.
+- An email address where customers can send their questions and support requests.
 
 ![Kruger Cell - Google Chrome 2023-02-10 12-43-11](https://user-images.githubusercontent.com/76002851/218165673-394931cf-4f25-47ba-9849-16d871384f91.gif)
 
-- Podrás acceder en todo momento a nuestro K-bot el cual te explicará más sobre nuestra tienda y el por qué se desarrolló.
+- You will be able to access our K-bot at any time which will explain more about our store and why it was developed.
 
 ![Kruger Cell - Google Chrome 2023-02-10 12-43-36](https://user-images.githubusercontent.com/76002851/218165861-44f65a95-62d4-4a31-9f60-2d386b64ca2b.gif)
 
-- Puedes explorar por casi toda nuestra tienda sin tener que iniciar sesión, puedes agregar productos al carrito y ver los distintos productos, sin embargo; para poder efectuar una compra y acceder a beneficios extras, necesitas obligatoriamente inisiar sesión o registrate.
+- You can explore almost our entire store without having to log in, you can add products to the cart and see the different products, however; To make a purchase and access extra benefits, you must log in or register.
 
-- Tenemos un formulario de registro que contiene diferentes validaciones como campos requeridos, emails repetidos, etc.
+- We have a registration form that contains different validations such as required fields, repeated emails, etc.
 
 ![Kruger Cell - Google Chrome 2023-02-10 12-43-59](https://user-images.githubusercontent.com/76002851/218166197-b140a42c-d6f4-41e3-9e2a-6d3dd5f0d87d.gif)
 
-- Ofrecemos un formulario integrado en el register para que puedas iniciar sesión, así mismo contamos con varias validadciones.
+- We offer a form integrated into the register so you can log in, we also have several validations.
 
-- Te damos la opción de recuperar tu contraseña en caso de que se te haya olvidado, te llegará un correo electrónico con el código que deberás ingresar y posteriormente podrás ingresar una nueva contraseña.
+- We give you the option to recover your password in case you have forgotten it, you will receive an email with the code that you must enter and later you can enter a new password.
 
 ![Kruger Cell - Google Chrome 2023-02-10 12-45-23](https://user-images.githubusercontent.com/76002851/218167123-c6d26773-249f-4031-a8d1-f459b4983356.gif)
 
-- En la sección de carrito puedes agregar productos y servicios normalmente, al navegar para esa sección, puedes agregar más unidades de un producto, visualizar el precio unitario, el precio final, el subtotal del pedido. Así mismo puedes eliminar productos independientes y eleminar todos los productos.
+- In the cart section you can add products and services normally, when browsing that section, you can add more units of a product, view the unit price, the final price, the subtotal of the order. Likewise, you can delete independent products and delete all products.
 
 ![Kruger Cell - Google Chrome 2023-02-10 12-45-48](https://user-images.githubusercontent.com/76002851/218167358-48b4cf85-d6fe-4290-8c5d-0f1520599833.gif)
 
-- Podrás acceder a la pantalla de carga en donde podrás ver el precio final + IVA, podrás agregar cupones y ver los productos agregados.
+- You can access the loading screen where you can see the final price + VAT, you can add coupons, and see the added products.
 
-- Puedes visualizar una tarjeta en donde podrás agregar tu infortmación de pago, una dirección de entrega y datos personales.
+- You can view a card where you can add your payment information, delivery address, and personal information.
 
-- Una vez realizada tu comra, se te dirigirá a la sección de tus órdenes en donde podrás visualizar todas las órdenes que hayas realizado, así mismo, podrás cancelarlas.
+- Once your purchase is made, you will be directed to your orders section where you can view all the orders you have placed, and you can also cancel them.
 
 ![Kruger Cell - Google Chrome 2023-02-10 12-47-25](https://user-images.githubusercontent.com/76002851/218167869-c2e830af-742c-4189-b6d6-e3d47086e5c6.gif)
 
-- Cada usuario nuevo tiene derecho a participar 1 sola vez en nuestro sistema de recompensas de cupones en donde podrás ganar algún descuento para tu compra.
+- Each new user has the right to participate only once in our coupon rewards system where you can earn a discount for your purchase.
 
-- Podrás acceder a una sección en donde puedes visualizar todos tus cupones disponibles.
+- You will be able to access a section where you can view all your available coupons.
 
 ![Kruger Cell - Google Chrome 2023-02-10 12-48-13](https://user-images.githubusercontent.com/76002851/218168131-3500848a-a95b-494c-86ec-f365f5f79ce4.gif)
 
-- Tienes la posibilidad de acceder a la sección de "Mi Perfil" en donde podrás visualizar tu información personal, ediutarla e incluso agregar cosas extras.
+- You have the possibility of accessing the "My Profile" section where you can view your personal information, edit it and even add extra things.
 
-- En la parte de ubicación tienes la opción de añadir futuras direcciones de envío para tus futuras compras.
+- In the location part you have the option to add future shipping addresses for your future purchases.
 
 ![Kruger Cell - Google Chrome 2023-02-10 12-48-52](https://user-images.githubusercontent.com/76002851/218168449-e120fd8d-d299-47bd-8d2f-a09350f17293.gif)
 
-- También puedes cambiar tu correo electrónico y contraseña en el apartado de credenciales.
+- You can also change your email and password in the credentials section.
 
 ![Kruger Cell - Google Chrome 2023-02-10 12-49-28](https://user-images.githubusercontent.com/76002851/218168888-3a69fb4c-ef97-4327-9280-7d4cca906ef6.gif)
 
-- Pueden acceder a información detallada de cada producto y servicio de forma específica, pudiendo visualizar una descripción más detallada de todo lo que ofrece, así como diferentes imágenes, un video, reseñas sobre el producto y los productos relacionados.
+- They can access detailed information about each product and service specifically, being able to view a more detailed description of everything it offers, as well as different images, a video, reviews about the product and related products.
 
-- Si has ya iniciaste sesión, podrás hacer una reseña del producto, con una descripción y calificación detalladas.
+- If you have already logged in, you will be able to review the product, with a detailed description and rating.
 
-- Se muestra el proceso completo que un usuario debería seguir para comprar un producto exitosamente, incluyendo su descuento por cupón.
+- The complete process that a user should follow to successfully purchase a product is shown, including its coupon discount.
 
 ![Kruger Cell - Google Chrome 2023-02-10 12-51-12](https://user-images.githubusercontent.com/76002851/218169577-c2c8a923-80a2-4c67-a214-0aa9b5a4d013.gif)
 
-- En Kruger Cell creemos fielmente que no existen barreras, por eso hemos añadido soporte de idiomas en nuestra página. Puedes traducir nuestro contenido al Inglés, Alemán y Francés, el idioma por default es Español.
+- At Kruger Cell we truly believe that there are no barriers, which is why we have added language support to our page. You can translate our content to English, German, and French, the default language is Spanish.
 
 ![Kruger Cell - Google Chrome 2023-02-10 14-10-17](https://user-images.githubusercontent.com/76002851/218179602-243f7338-7f4d-4391-a0b2-2391b769a2bc.gif)
 
@@ -223,86 +230,86 @@ $ npm run dev
 
   <h1 style="font-size: 60px; font-weight: 700" align="center">Admin</h1>
 
-- Kruger Cell también cuenta con una sección exclusiva para administradores.
-- Podrás acceder a ella iniciando sesión y si es que tu cuenta tiene permisos administrativos.
+- Kruger Cell also has an exclusive section for administrators.
+- You can access it by logging in and if your account has administrative permissions.
 
 ![Kruger Cell - Google Chrome 2023-02-10 14-11-02](https://user-images.githubusercontent.com/76002851/218179731-f7b49741-523b-4b63-a562-af5ae2c8c330.gif)
 
-- La página principal es un panel en donde podrás observar las gráficas del negocio y muchas estadísticas importantes que serán de mucha ayuda.
+- The main page is a panel where you can see the business graphs and many important statistics that will be very helpful.
 
-- Encontrarás distintos tipos de gráficas, con diseños llamativos y que te ayudarán a tener datos específicos de tu negocio.
+- You will find different types of graphs, with eye-catching designs that will help you have specific data about your business.
 
 ![Kruger Cell - Google Chrome 2023-02-10 14-11-27](https://user-images.githubusercontent.com/76002851/218179977-599cafa7-6b87-4c57-a319-4c6bd83b3e2f.gif)
 
-- Podrás acceder a la vista de todos los usuarios y administradores, en donde encontrarás toda la información de cada uno y diferentes filtros de buisqueda y ordenamiento.
+- You will be able to access the view of all users and administrators, where you will find all the information for each one and different search and sorting filters.
 
-- Podrás crear nuevos perfiles de administrador aquí, actualizarlos y eliminarlos.
+- You will be able to create new administrator profiles here, and update and delete them.
 
 ![Kruger Cell - Google Chrome 2023-02-10 14-13-01](https://user-images.githubusercontent.com/76002851/218180237-d7d5d815-cb7e-4958-8a6a-98534515abd5.gif)
 
-- Tienes la opción de visualizar todos los productos, así mismo, puedes visualizarlos por medio de diferente filtros y categorias de ordenamiento.
+- You have the option to view all the products, likewise, you can view them through different filters and sorting categories.
 
-- Puedes crear, editar y eliminar un proucto.
+- You can create, edit, and delete a product.
 
 ![Kruger Cell - Google Chrome 2023-02-10 14-14-28](https://user-images.githubusercontent.com/76002851/218180242-cf4ec5fc-5be5-448b-8ce5-f76be470c4b7.gif)
 
-- Tienes la opción de visualizar todos los servicios, así mismo, puedes visualizarlos por medio de diferente filtros y categorias de ordenamiento.
+- You have the option to view all the services, likewise, you can view them through different filters and sorting categories.
 
-- Puedes crear, editar y eliminar un servicio.
+- You can create, edit, and delete a service.
 
 ![Kruger Cell - Google Chrome 2023-02-10 14-17-26](https://user-images.githubusercontent.com/76002851/218180416-c60e5a35-cc49-415b-9d1a-49a2a33a5567.gif)
 
-- Además de editar la información específica de un producto, también tienes la opción de que este sea mostrado en la página principal como uno de los productos destacados.
+- In addition to editing the specific information of a product, you also have the option for it to be displayed on the main page as one of the featured products.
 
 ![Kruger Cell - Google Chrome 2023-02-10 14-16-51](https://user-images.githubusercontent.com/76002851/218180476-fdb55e2c-179f-42fe-9220-101348bfe9c8.gif)
 
-- Además de editar la información específica de un servicio, también tienes la opción de que este sea mostrado en la página principal como uno de los productos destacados.
+- In addition to editing the specific information of a service, you also have the option for it to be displayed on the main page as one of the featured products.
 
 ![Kruger Cell - Google Chrome 2023-02-10 14-17-44](https://user-images.githubusercontent.com/76002851/218180644-d90a2a79-61e6-45e1-876d-e5c454c89ffa.gif)
 
-- El administrador puede actualizar la información de la empresa que es mostrada en el apartado de "Compañía".
+- The administrator can update the company information that is displayed in the "Company" section.
 
-- Se pueden modificar distintos campos como el nombre y el logo de la espresa, así como la historia y la descripción general.
+- Different fields can be modified such as the name and logo of the company, as well as the history and general description.
 
 ![Kruger Cell - Google Chrome 2023-02-10 14-18-20](https://user-images.githubusercontent.com/76002851/218180638-2c401c27-9193-4eaa-af21-a91448def228.gif)
 
-- Tienes la opción de visualizar todos los cupones que han sido creados, así mismo, puedes visualizarlos por medio de diferente filtros y categorias de ordenamiento.
+- You have the option to view all the coupons that have been created, likewise, you can view them through different filters and sorting categories.
 
-- Puedes crear, editar y eliminar un cupón.
+- You can create, edit, and delete a coupon.
 
-- Un cupón puede tener distintos estados, de lo cual dependerá su validez.
+- A coupon can have different statuses, on which its validity will depend.
 
 ![Kruger Cell - Google Chrome 2023-02-10 14-18-39](https://user-images.githubusercontent.com/76002851/218181093-e4480904-ac68-4971-be40-33c5726697ca.gif)
 
-- Tienes la opción de visualizar todas las reseñas que han sido creadas, así mismo, puedes visualizarlas por medio de diferente filtros y categorias de ordenamiento.
+- You have the option to view all the reviews that have been created, likewise, you can view them through different filters and sorting categories.
 
-- Puedes visualizar y eliminar una reseña.
+- You can view and delete a review.
 
 ![Kruger Cell - Google Chrome 2023-02-10 14-19-14](https://user-images.githubusercontent.com/76002851/218181086-f8062925-398f-43f4-9200-a2e54a42676d.gif)
 
-- Tienes la opción de visualizar todas las órdenes que han sido realizadas, así mismo, puedes visualizarlas por medio de diferente filtros y categorias de ordenamiento.
+- You have the option to view all the orders that have been placed, likewise, you can view them through different filters and sorting categories.
 
-- Puedes poner una órden en estado de "enviando", "entregada o "eliminado".
+- You can put an order in the status of "shipping", "delivered" or "deleted".
 
 ![Kruger Cell - Google Chrome 2023-02-10 14-19-32](https://user-images.githubusercontent.com/76002851/218181361-b060e073-1a6c-4ed7-9491-758a101b8ff6.gif)
 
-- La sección de administrador también cuenta con un editor de texto integrado en donde puedes escribir cualquier cosa importante que se te ocurra en ese momento.
+- The administrator section also has a built-in text editor where you can write anything important that comes to mind at that moment.
 
-- Puedes cambiar colores, tamaños de letra, fuentes, colores de fondo, alineaciones y muchas otras características que los editores de texto m´pas famosos ofrecen.
+- You can change colors, font sizes, fonts, background colors, alignments, and many other features that the most famous text editors offer.
 
-- Puedes añadir imágenes, videos y enlaces.
+- You can add images, videos, and links.
 
 ![Kruger Cell - Google Chrome 2023-02-10 14-20-04](https://user-images.githubusercontent.com/76002851/218182045-9c93f637-b3a7-4a3c-b5f5-b19f218d26d3.gif)
 
-- Puedes ver diferentes fechas importantes.
+- You can see different important dates.
 
-- Tienes un calendario integrado.
+- You have an integrated calendar.
 
 ![Kruger Cell - Google Chrome 2023-02-10 14-21-09](https://user-images.githubusercontent.com/76002851/218182031-d1dc4abd-6ddf-4dee-9648-da49184775b7.gif)
 
-- Para mejorar tu productividad puedes utilizar nuestra herramienta integrada. Esta basada en la técnica de pomdooro.
+- To improve your productivity you can use our integrated tool. It is based on the pomdooro technique.
 
-- Puedes configurar tu tiempo de trabajo y descanso a la medida y según creas conveniente.
+- You can configure your work and rest time as you see fit.
 
 ![Kruger Cell - Google Chrome 2023-02-10 14-21-29 (1)](https://user-images.githubusercontent.com/76002851/218182769-6abfcbc7-a459-4812-91cf-f2d2baf05eb9.gif)
 
@@ -320,44 +327,37 @@ $ npm run dev
 
 # 🗺 Roadmap
 
-- [✔] Seleccionar Tema para nuestra aplicación ecommerce
-- [✔] Realizar una lluvia de ideas para definir la funcionalidad y objetivos de ejecución.
-- [✔] Decidir el Modelo Visual a implementar
-- [✔] Establecer la metodología de trabajo sobre Github
-- [✔] Definir la estructura de carpetas dentro de la aplicación
-- [✔] Estandarizar el nombramiento de componentes y clases dentro del HTML
-- [✔] Generar componentes con la Api seleccionada
-- [✔] Mostrar la información de los productos (celulares y servicios) disponibles
-- [✔] Implementar un componente de búsqueda
-- [✔] Ofrecer un carrito de compras personalizado
+- [✔] Select a Theme for our e-commerce application
+- [✔] Brainstorm ideas to define functionality and execution objectives.
+- [✔] Decide the Visual Model to implement
+- [✔] Establish the work methodology on Github
+- [✔] Define the folder structure within the application
+- [✔] Standardize the naming of components and classes within the HTML
+- [✔] Generate components with the selected API
+- [✔] Show information about the products (cell phones and services) available
+- [✔] Implement a search component
+- [✔] Offer a personalized shopping cart
 
 ---
 # Important Links
 
 ### JIRA
-- Durante el proyecto utilizamos Jira para la gestión de las tareas.
+- During the project we used Jira to manage tasks.
 ![image](https://user-images.githubusercontent.com/76002851/219827965-334a6f47-d7c9-479f-9bce-4e34afd35c1b.png)
 
 
 ### QA TESTING
-- Durante el proyecto contamos con el apoyo de un QA Tester profesional que nos fue de mucha ayuda para descubrir bugs para posteriormente resolverlos.
+- During the project we had the support of a professional QA Tester who was very helpful in discovering bugs and subsequently resolving them.
 https://docs.google.com/spreadsheets/d/1u5Iqlb98WW66Ic8rTCqCeHdcMnQZQ4tn/edit?usp=sharing&ouid=105786575482012496109&rtpof=true&sd=true
 
 ![image](https://user-images.githubusercontent.com/76002851/219828339-0a674303-b082-4271-b833-16fdd3e303e1.png)
 
 
-###  Documentación Profesional
+###  Professional Documentation - Spanish
 
 https://docs.google.com/document/d/1g0TmSEV_PS24XeQA6SFd0nXNhD62haBr/edit?usp=sharing&ouid=105786575482012496109&rtpof=true&sd=true
 
 ![image](https://user-images.githubusercontent.com/76002851/219828452-41421f64-2042-49d2-861e-4c5fd75100b4.png)
-
-
-### Proceso de planeación general del proyecto
-
-https://www.canva.com/design/DAFYCnzshW0/IHXueSG0vspImXk2f9Z4JA/view?utm_content=DAFYCnzshW0&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
-
-![image](https://user-images.githubusercontent.com/76002851/219828475-6bc61e36-10a0-466c-b056-70dd8d60c42e.png)
 
 ---
 
@@ -366,7 +366,7 @@ https://www.canva.com/design/DAFYCnzshW0/IHXueSG0vspImXk2f9Z4JA/view?utm_content
 
 # 🙌 Contributing
 
-Contribuciones son lo que hacen de la comunidad de código abierto un lugar impresionante para aprender, inspirarse y crear. Cualquier contribución que hagas es muy apreciada.
+Contributions are what make the open-source community an awesome place to learn, be inspired, and create. Any contribution you make is greatly appreciated.
 
 1. Fork the Project
 2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
@@ -431,13 +431,13 @@ Kruger Cell esa distribuida bajo los terminos de Apache License Version 2.0. La 
 <table>
     <tbody>
         <tr>
-        <td align="center"><a href="https://github.com/joseandresgavilanes"><img src="./public/images/pepe.jpg" width="100px;" alt="Alexander Cangas"/><br /><sub><b>Jose Andres Gavilanes</b></sub></a><br /><a href="https://github.com/joseandresgavilanes" title="Code">💻 Desarrollador</a></td>
+        <td align="center"><a href="https://github.com/joseandresgavilanes"><img src="./public/images/pepe.jpg" width="100px;" alt="Alexander Cangas"/><br /><sub><b>Jose Andres Gavilanes</b></sub></a><br /><a href="https://github.com/joseandresgavilanes" title="Code">💻 Developer</a></td>
         </tr>
 <tr>
-        <td align="center"><a href="https://github.com/joseandresgavilanes"><img src="https://avatars.githubusercontent.com/u/33032880?v=4" width="100px;" alt="Alexander Cangas"/><br /><sub><b>Kevin Mantilla</b></sub></a><br /><a href="https://github.com/joseandresgavilanes" title="Code">💻 Desarrollador</a></td>
+        <td align="center"><a href="https://github.com/joseandresgavilanes"><img src="https://avatars.githubusercontent.com/u/33032880?v=4" width="100px;" alt="Alexander Cangas"/><br /><sub><b>Kevin Mantilla</b></sub></a><br /><a href="https://github.com/joseandresgavilanes" title="Code">💻 Developer</a></td>
         </tr>
         <tr>
-        <td align="center"><a href="https://github.com/joseandresgavilanes"><img src="https://avatars.githubusercontent.com/u/52118245?v=4" width="100px;" alt="Alexander Cangas"/><br /><sub><b>Kenan Al-jaber</b></sub></a><br /><a href="https://github.com/joseandresgavilanes" title="Code">💻 Desarrollador</a></td>
+        <td align="center"><a href="https://github.com/joseandresgavilanes"><img src="https://avatars.githubusercontent.com/u/52118245?v=4" width="100px;" alt="Alexander Cangas"/><br /><sub><b>Kenan Al-jaber</b></sub></a><br /><a href="https://github.com/joseandresgavilanes" title="Code">💻 Developer</a></td>
         </tr>
         <br/>
         <tr>
